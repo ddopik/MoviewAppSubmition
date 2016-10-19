@@ -20,6 +20,7 @@ public class FetchWeatherTask extends AsyncTask<String, Integer, String> {
     public AsyncResponse1 delegate = null;
 
 
+
     @Override
     protected String doInBackground(String... params) {
 

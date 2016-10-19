@@ -4,40 +4,33 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="430941431476742"
+    timestamp="541124043129756"
     token="-334693572091584310"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="2184" />
+        duration="3757" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="282" />
+        duration="464" />
     <task
         name="verifier"
-        duration="65" />
+        duration="66" />
 
     <artifact
-        location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-        type="DEX" />
+        location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="430178732832089"
+        timestamp="541124043129756"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="430941431476742"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

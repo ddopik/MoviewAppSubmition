@@ -22,21 +22,21 @@ public class CustomViewAdapter extends BaseAdapter  {
 	        this.rowItem = rowItem;
 
 	    }
-	/////Stage 1 --->Helper class
+	/////Stage 1 --->Helper class Adapter need it
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	    @Override
                 ///how many item are in the data set represented by this adapter
-	    public int getCount() { 
+	    public int getCount() {
 
 	        return rowItem.size();
 	    }
 	    @Override
               //Get the data item associated with the specified position in the data set
-	    public Object getItem(int position) { 
+	    public Object getItem(int position) {
 
 	        return rowItem.get(position);
 	    }
-	    @Override             
+	    @Override
 	           ///Get the row id associated with the specified position in the list
 	    public long getItemId(int position) {
 

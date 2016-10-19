@@ -45,25 +45,31 @@ import android.widget.AdapterView.OnItemClickListener;
 
 	        super.onActivityCreated(savedInstanceState);
 			setHasOptionsMenu(true);
+			/////////////////////////
+			///TO-Do Here
+			///intialize  another array contain data  and load it to objects_array.
+
+			////////////////////////
 	        menuTitles = getResources().getStringArray(R.array.titles); ///this contain all title as array
 	        menuIcons = getResources().obtainTypedArray(R.array.icons); ///this contain all icon as array
 
 	        rowItems = new ArrayList<RowItem>();
 	 
-	        for (int i = 0; i < menuTitles.length; i++) {
+	        for (int i = 0; i < menuTitles.length; i++) {  /////test item
 	            RowItem items = new RowItem(menuIcons.getResourceId(i,-1),menuTitles[i]);
-	            rowItems.add(items);	            	    	           
+	            rowItems.add(items);
 	        }    ///here we are creating list of object
+
+			JasonParser jasonApi=new JasonParser();
+			//ArrayList jasonApiReturn=jasonApi.myJSONExtractor();
 	 
 	        adapter = new CustomViewAdapter(getActivity(),rowItems); /// send to custom adapter to render view
 
             setListAdapter(adapter); //provide activity for list view
 
-            try
-			{
-				getListView().setOnItemClickListener(this);
-			}catch(Exception e)
-			{
+            try {
+				getListView().setOnItemClickListener(this); ///// debug error Need fix
+			}catch(Exception e) {
 				Log.e("Error_refrsh","---->",e);
 			}
 

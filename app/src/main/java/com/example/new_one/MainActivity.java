@@ -2,6 +2,7 @@ package com.example.new_one;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,17 +40,21 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
+		Context context=getBaseContext();
 		switch (item.getItemId()) {
 			case R.id.Refresh:
 				Fragment frg = null;
-				Fragment frg4 = null;
 				frg = getFragmentManager().findFragmentById(R.id.fragment1);
 				final FragmentTransaction ft = getFragmentManager().beginTransaction();
 				ft.detach(frg);
 				ft.attach(frg);
 				ft.commit();
 
+				TextView tt=(TextView) findViewById(R.id.print);
+				String vv=tt.getText().toString(); ///debug
+
 				Toast.makeText(getBaseContext(),"fragment Refreasshed", Toast.LENGTH_LONG).show();
+				Toast.makeText(this,vv, Toast.LENGTH_LONG).show();///debug
 				return true;
 
 			default:

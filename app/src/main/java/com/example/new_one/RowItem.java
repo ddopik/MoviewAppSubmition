@@ -2,7 +2,9 @@ package com.example.new_one;
 
 //used for setting and getting row data of each items in listfragment    ( imageview and TextView ).
 public class RowItem {
-	
+
+	///add more variable if you have more fields
+	/// set and get those fields
 	private String title;
 	private int icon;
 	
