@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+   
+    <fragment
+      android:id="@+id/fragment1"
+      android:name="com.example.new_one.Fragment_main"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+        tools:layout="@layout/activity_main" />
+
+    <TextView
+        android:id="@+id/print"
+        android:layout_width="match_parent"
+        android:layout_height="555dp"
+        android:ems="10"
+        android:text="test value_activity main"/>
+
+
+</LinearLayout>

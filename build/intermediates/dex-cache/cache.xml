@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_a52de786d20a25ab7b41b85487cde5c78718197a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\android-sdks\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_da722a49377bd0692ff08b652a2380155585164b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_133ebc4b0b3029beab302f51ef90192459408985\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_5d4f81f77252ada13f494f3b1eac48e110d1636f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3e2f82b42419f02511b0a9200536dbe430e2c312">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ae9b736e2d943f2fb24d743bbae7e5194bd2d170\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5339f92a55283d7f18553c92ecaddac30c977d70">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_caa7b061e3b93afee38a1be846cd3d574019ea5d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_48846651aa88571acf8fb476921ae3f05717db11\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_9afd80309aa4842f2f7e5bb1325f690eda05e81b\classes.dex" />
+    </item>
+
+</items>

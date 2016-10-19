@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    api-level="21"
+    density="xhdpi"
+    format="8"
+    plugin-version="2.2.0"
+    timestamp="430941431476742"
+    token="-334693572091584310"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="2184" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="282" />
+    <task
+        name="verifier"
+        duration="65" />
+
+    <artifact
+        location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
+
+    <build
+        timestamp="430178732832089"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="430941431476742"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>
