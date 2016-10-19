@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 		switch (item.getItemId()) {
 			case R.id.Refresh:
 				Fragment frg = null;
+				Fragment frg4 = null;
 				frg = getFragmentManager().findFragmentById(R.id.fragment1);
 				final FragmentTransaction ft = getFragmentManager().beginTransaction();
 				ft.detach(frg);
