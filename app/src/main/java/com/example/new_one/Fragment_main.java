@@ -2,6 +2,7 @@ package com.example.new_one;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -21,18 +22,21 @@ import android.widget.AdapterView.OnItemClickListener;
  @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
  public class Fragment_main extends  ListFragment implements OnItemClickListener  {
-	 
+
         Context context;
-	    String[] menuTitles;
-	    TypedArray menuIcons;
+	    //String[] menuTitles;   //(test)
+	    //TypedArray menuIcons; //(test)
+        private List weatherItems;
 	    String myUrl="http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
 
 
 
 
 	    CustomViewAdapter adapter;  ///my handler class
-	    private List<RowItem> rowItems; ///we are sending each row in the list as object
+	    //private List<RowItem> rowItems; ///we are sending each row in the list as object(test)
 	                                   /// so we will make array_list of type [our_object] and send it for adapter
+
+
 	    @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 			setHasOptionsMenu(true);
@@ -45,27 +49,52 @@ import android.widget.AdapterView.OnItemClickListener;
 
 	        super.onActivityCreated(savedInstanceState);
 			setHasOptionsMenu(true);
-			/////////////////////////
-			///TO-Do Here
-			///intialize  another array contain data  and load it to objects_array.
+/////////////////////////////////////////
+	        //menuTitles = getResources().getStringArray(R.array.titles); ///this contain all title as array(test)
+	       // menuIcons = getResources().obtainTypedArray(R.array.icons); ///this contain all icon as array(test)
+//			rowItems = new ArrayList<RowItem>();
+//
+//			for (int i = 0; i < menuTitles.length; i++) {
+//				RowItem items = new RowItem(menuIcons.getResourceId(i,-1),menuTitles[i]);
+//				rowItems.add(items); //(test)
+//			}    ///here we are creating list of object
+/////////////////////////////////////////
 
-			////////////////////////
-	        menuTitles = getResources().getStringArray(R.array.titles); ///this contain all title as array
-	        menuIcons = getResources().obtainTypedArray(R.array.icons); ///this contain all icon as array
 
-	        rowItems = new ArrayList<RowItem>();
-	 
-	        for (int i = 0; i < menuTitles.length; i++) {  /////test item
-	            RowItem items = new RowItem(menuIcons.getResourceId(i,-1),menuTitles[i]);
-	            rowItems.add(items);
-	        }    ///here we are creating list of object
 
-			JasonParser jasonApi=new JasonParser();
-			//ArrayList jasonApiReturn=jasonApi.myJSONExtractor();
-	 
-	        adapter = new CustomViewAdapter(getActivity(),rowItems); /// send to custom adapter to render view
 
-            setListAdapter(adapter); //provide activity for list view
+
+
+			FetchWeatherTask myTask=new FetchWeatherTask();
+			myTask.delegate=new AsyncResponse1()
+			{
+				@Override
+				public void processFinish(String output)
+				{
+					try{
+						Log.e("set==--->",output);
+						JasonParser jasonApi=new JasonParser();
+						List<Map<Integer,String>> jasonApiItems=jasonApi.myJSONParser(output);
+						for(int i=0;i<=jasonApiItems.length;i++)
+						{
+
+						}
+
+					}
+					catch(Exception e)
+					{
+						Log.e("Trace_2---->", "Error_adapter fetching JASON error !!!!(*_-_*)!!!!! ", e);
+						Log.e("Error_here---->",e.getMessage());
+					}
+
+
+				}
+			};
+
+			adapter = new CustomViewAdapter(getActivity(),weatherItems); /// send to custom adapter to render view
+			setListAdapter(adapter); //provide activity for list view
+			myTask.execute(myUrl);
+
 
             try {
 				getListView().setOnItemClickListener(this); ///// debug error Need fix

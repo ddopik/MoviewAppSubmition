@@ -9,17 +9,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import static android.R.attr.data;
 
 
 public class JasonParser {
 
     String strJson;
 
-    List<Map<Integer,String>> listMapData=new ArrayList<Map<Integer,String>>();
+    List<Map<String,String>> listMapData=new ArrayList<Map<String,String>>();
+    Map<String, String> mapData = new HashMap<String, String>();
    // List<String> myListData=new ArrayList<String>();
 
-    public List myJSONExtractor(String strJson) throws JSONException {
+    public List myJSONParser(String strJson) throws JSONException {
         this.strJson=strJson;
         JSONObject j_object = new JSONObject(strJson);
 
@@ -31,6 +32,7 @@ public class JasonParser {
             String[] myDay;
             JSONObject jsonItem=jasonListArray.getJSONObject(i); ///return first list object
             JSONObject jsonTemp=jsonItem.getJSONObject("temp");
+
             String minTemp=jsonTemp.getString("min"); //#1
             String maxTemp=jsonTemp.getString("max"); //#2
 
@@ -47,11 +49,12 @@ public class JasonParser {
            //mydata.get(0).get("name");
 
             ////////////// if you wan't  to use map
-           Map<Integer, String> mapData = new HashMap<Integer, String>();
-            mapData.put(i,minTemp);
-            mapData.put(i,minTemp);
-            mapData.put(i,weatherMainType);
-            mapData.put(i,weatherMainType);
+
+            mapData.put("id",i+" ");
+            mapData.put("minTemp",minTemp);
+            mapData.put("maxTemp",maxTemp);
+            mapData.put("weatherMainType",weatherMainType);
+            mapData.put("weatherMainType",weatherDescription);
             listMapData.add(i,mapData);
             ///how you get data..
             ///->listMapData.get(0).get("name");
