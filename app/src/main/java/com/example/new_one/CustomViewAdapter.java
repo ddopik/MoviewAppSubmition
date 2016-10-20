@@ -16,6 +16,7 @@ import android.widget.TextView;
 public class CustomViewAdapter extends BaseAdapter  {
 	
 	    Context context;
+
 	    List<RowItem> rowItem;
 	    public CustomViewAdapter(Context context, List<RowItem> rowItem) {
 	        this.context = context;

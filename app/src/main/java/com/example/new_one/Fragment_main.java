@@ -27,6 +27,7 @@ import android.widget.AdapterView.OnItemClickListener;
 	    //String[] menuTitles;   //(test)
 	    //TypedArray menuIcons; //(test)
         private List weatherItems;
+	    private List<Map<Integer,String>> jasonApiItems;
 	    String myUrl="http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7";
 
 
@@ -74,11 +75,8 @@ import android.widget.AdapterView.OnItemClickListener;
 					try{
 						Log.e("set==--->",output);
 						JasonParser jasonApi=new JasonParser();
-						List<Map<Integer,String>> jasonApiItems=jasonApi.myJSONParser(output);
-						for(int i=0;i<=jasonApiItems.length;i++)
-						{
+						jasonApiItems=jasonApi.myJSONParser(output);
 
-						}
 
 					}
 					catch(Exception e)

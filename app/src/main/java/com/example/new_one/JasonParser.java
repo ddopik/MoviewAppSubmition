@@ -17,7 +17,7 @@ public class JasonParser {
     String strJson;
 
     List<Map<String,String>> listMapData=new ArrayList<Map<String,String>>();
-    Map<String, String> mapData = new HashMap<String, String>();
+    Map<String, String> mapData = new HashMap<String,String>();
    // List<String> myListData=new ArrayList<String>();
 
     public List myJSONParser(String strJson) throws JSONException {
