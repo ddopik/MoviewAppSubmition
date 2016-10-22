@@ -4,33 +4,40 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="541124043129756"
+    timestamp="155893300786209"
     token="-334693572091584310"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="3757" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="464" />
+        duration="0" />
     <task
         name="verifier"
-        duration="66" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
-        timestamp="541124043129756"
+        timestamp="155382281554893"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="155893300786209"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\ddopik\Desktop\new_app5\10\new_one\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

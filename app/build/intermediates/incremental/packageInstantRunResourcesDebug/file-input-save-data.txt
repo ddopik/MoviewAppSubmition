@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Oct 16 18:22:35 GMT+02:00 2016
+#Fri Oct 21 17:08:12 GMT+02:00 2016
 175.set=ANDROID_RESOURCE
 122.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\switch_thumb_material_light.xml
 60.set=ANDROID_RESOURCE
@@ -16,9 +16,9 @@
 13.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 45.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v17\\notification_template_part_time.xml
 60.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
-92.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png
+92.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png
 8.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\fragment_activity.xml
-99.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v13\\select_dialog_multichoice_material.xml
+99.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_screen_content_include.xml
 100.set=ANDROID_RESOURCE
 106.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 162.set=ANDROID_RESOURCE
@@ -75,7 +75,7 @@
 92.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 8.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 173.set=ANDROID_RESOURCE
-89.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_ratingbar_full_material.xml
+89.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\custom_grid_item.xml
 99.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 121.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_btn_colored_material.xml
 50.set=ANDROID_RESOURCE
@@ -95,8 +95,8 @@
 44.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_background_cache_hint_selector_material_dark.xml
 12.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 7.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png
-91.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png
-98.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_screen_content_include.xml
+91.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_dialog_title_material.xml
+98.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\notification_template_part_chronometer.xml
 160.set=ANDROID_RESOURCE
 105.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 152.set=ANDROID_RESOURCE
@@ -173,9 +173,9 @@
 134.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_primary_text_material_dark.xml
 11.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 43.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-v11\\abc_textfield_search_material.xml
-90.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_dialog_title_material.xml
+90.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_ratingbar_full_material.xml
 6.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\notification_template_lines.xml
-97.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\notification_template_part_chronometer.xml
+97.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_ratingbar_indicator_material.xml
 150.set=ANDROID_RESOURCE
 104.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 142.set=ANDROID_RESOURCE
@@ -251,7 +251,7 @@
 42.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v17\\abc_alert_dialog_button_bar_material.xml
 5.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim\\abc_fade_out.xml
 49.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\app.png
-96.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_ratingbar_indicator_material.xml
+96.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png
 140.set=ANDROID_RESOURCE
 103.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 3.set=ANDROID_RESOURCE
@@ -326,7 +326,7 @@
 149.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 48.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_background_cache_hint_selector_material_light.xml
 16.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
-95.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png
+95.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v21\\abc_screen_toolbar.xml
 1.set=ANDROID_RESOURCE
 130.set=ANDROID_RESOURCE
 102.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -402,7 +402,7 @@ count=176
 148.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 15.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 47.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_main.xml
-94.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v21\\abc_screen_toolbar.xml
+94.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color-v23\\abc_color_highlight_material.xml
 120.set=ANDROID_RESOURCE
 101.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 112.set=ANDROID_RESOURCE
@@ -424,7 +424,7 @@ count=176
 71.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 169.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 78.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
-100.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\custom_list_item.xml
+100.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v13\\select_dialog_multichoice_material.xml
 71.set=ANDROID_RESOURCE
 63.set=ANDROID_RESOURCE
 107.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-v21\\abc_ratingbar_small_material.xml
@@ -474,7 +474,7 @@ count=176
 14.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
 46.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png
 61.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_
-93.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color-v23\\abc_color_highlight_material.xml
+93.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png
 9.file=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_text_cursor_material.xml
 110.set=ANDROID_RESOURCE
 100.base=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\resources-debug.ap_

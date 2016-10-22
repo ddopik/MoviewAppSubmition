@@ -24,10 +24,6 @@
         "source": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_list_item.xml",
-        "source": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\src\\main\\res\\layout\\custom_list_item.xml"
-    },
-    {
         "merged": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_screen_content_include.xml"
     },
@@ -90,6 +86,10 @@
     {
         "merged": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_grid_item.xml",
+        "source": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\src\\main\\res\\layout\\custom_grid_item.xml"
     },
     {
         "merged": "C:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",

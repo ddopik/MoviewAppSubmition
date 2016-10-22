@@ -17,44 +17,37 @@ public class JasonParser {
     String strJson;
 
     List<Map<String,String>> listMapData=new ArrayList<Map<String,String>>();
-    Map<String, String> mapData = new HashMap<String,String>();
+
    // List<String> myListData=new ArrayList<String>();
 
     public List myJSONParser(String strJson) throws JSONException {
         this.strJson=strJson;
+
         JSONObject j_object = new JSONObject(strJson);
 
         //Get the instance of JSONArray that contains JSONObjects
-        JSONArray jsonCityArray = j_object.optJSONArray("city");
-        JSONArray jasonListArray=j_object.optJSONArray("list");  ///get array of list obj
+        JSONArray jasonListArray=j_object.optJSONArray("results");
+        String imgUrl;
+        String poster_path;
+        String overview;
+        String original_title;
         for(int i=0;i<jasonListArray.length();i++)
         {
-            String[] myDay;
-            JSONObject jsonItem=jasonListArray.getJSONObject(i); ///return first list object
-            JSONObject jsonTemp=jsonItem.getJSONObject("temp");
-
-            String minTemp=jsonTemp.getString("min"); //#1
-            String maxTemp=jsonTemp.getString("max"); //#2
+             poster_path=jasonListArray.optJSONObject(i).getString("poster_path");
+             imgUrl="http://image.tmdb.org/t/p/w185"+poster_path;
+             overview=jasonListArray.optJSONObject(i).getString("overview");
+            original_title=jasonListArray.optJSONObject(i).getString("original_title");
 
 
-            JSONArray jsonWeatherArray=jsonItem.getJSONArray("weather");
-            JSONObject weatherobj=jsonWeatherArray.getJSONObject(0);
-            String weatherMainType=weatherobj.getString("main");  //#3
-            String weatherDescription=weatherobj.getString("description");  //#4
 
-//            myListData.add("minTemp",minTemp);
-//            myListData.add("maxTemp",maxTemp);
-//            myListData.add(i,weatherMainType);
-//            myListData.add(i,weatherDescription);
-           //mydata.get(0).get("name");
+            //String minTemp=jsonTemp.getString("min"); //#1
 
             ////////////// if you wan't  to use map
-
+            Map<String, String> mapData = new HashMap<String,String>();
             mapData.put("id",i+" ");
-            mapData.put("minTemp",minTemp);
-            mapData.put("maxTemp",maxTemp);
-            mapData.put("weatherMainType",weatherMainType);
-            mapData.put("weatherMainType",weatherDescription);
+            mapData.put("poster_path",imgUrl);
+            mapData.put("overview",overview);
+            mapData.put("original_title",original_title);
             listMapData.add(i,mapData);
             ///how you get data..
             ///->listMapData.get(0).get("name");

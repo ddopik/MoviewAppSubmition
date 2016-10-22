@@ -3,22 +3,21 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical" >
-  <ListView
-        android:id="@android:id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </ListView>
 
-    <TextView
-        android:id="@android:id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TextView>
-  <TextView
-      android:id="@+id/print2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="test value_fragment">
-  </TextView>
-  
+    <GridView
+        android:numColumns="2"
+        android:gravity="center"
+        android:columnWidth="200dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/gridList"
+        />
+    <!--<TextView-->
+        <!--android:id="@android:id/empty"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" >-->
+    <!--</TextView>-->
+
+
 </LinearLayout>

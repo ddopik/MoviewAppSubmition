@@ -1,13 +1,18 @@
 package com.example.new_one;
 import java.util.List;
+import java.util.Map;
+
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 ///Create a Custom adapter which extends ""'BaseAdapter""" , 
 ///this is used for inflating each row items of the listfragment 
@@ -16,14 +21,15 @@ import android.widget.TextView;
 public class CustomViewAdapter extends BaseAdapter  {
 	
 	    Context context;
+	    List<Map<String,String>> rowItem;
 
-	    List<RowItem> rowItem;
-	    public CustomViewAdapter(Context context, List<RowItem> rowItem) {
+	    public CustomViewAdapter(Context context,List<Map<String,String>> rowItem) {
 	        this.context = context;
 	        this.rowItem = rowItem;
 
+
 	    }
-	/////Stage 1 --->Helper class Adapter need it
+	/////Stage 1 --->Helper class Sf
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 	    @Override
                 ///how many item are in the data set represented by this adapter
@@ -52,25 +58,30 @@ public class CustomViewAdapter extends BaseAdapter  {
 
 	        if (convertView == null) {
 	            LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-	            convertView = mInflater.inflate(R.layout.custom_list_item, null);
-	        }	        
-	        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
-	        TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
+	            convertView = mInflater.inflate(R.layout.custom_grid_item, null);
+
+	        }
+
+			ImageView gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
+			TextView movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
+
 	    /////////////////////Stage_2///////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 			 /////Final Stage
 	        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			RowItem single_row = rowItem.get(position);/// select object number n from the object_array
+			Map<String, String> single_row = rowItem.get(position);/// select object number n from the object_array
+
+//			gridImg=//gridImg.setText(single_row.get("minTemp")); ///Sets the string value of the TextView---->
+			movTitle.setText(single_row.get("original_title")); ///Sets the string value of the TextView---->
+			single_row.get("original_title");
+			Picasso.with(context).load(single_row.get("poster_path")).into(gridImg);
+			Log.e("---intialize value_1",single_row.get("original_title"));
+			Log.e("---intialize value_2",single_row.get("poster_path"));
 
 
-			    ///that initialized earlier in the constructor
-			  ///row_pos now holding one object at specific position
-	        imgIcon.setImageResource(single_row.getIcon()); ///Sets a drawable as the content of this ImageView
-			/// setting the image resource and title
-	        txtTitle.setText(single_row.getTitle()); ///Sets the string value of the TextView
-              ///note that Title and icon have been intialized and being seted during the Fragment_activity  loop ^_^
+
 			// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	        return convertView;
 	    }
