@@ -1623,7 +1623,7 @@ containing a value of this type.
         public static final int tutorials=0x7f020052;
     }
     public static final class id {
-        public static final int Refresh=0x7f0c0064;
+        public static final int Refresh=0x7f0c0066;
         public static final int action0=0x7f0c0057;
         public static final int action_bar=0x7f0c0042;
         public static final int action_bar_activity_content=0x7f0c0000;
@@ -1716,6 +1716,8 @@ containing a value of this type.
         public static final int text=0x7f0c0061;
         public static final int text2=0x7f0c005f;
         public static final int textSpacerNoButtons=0x7f0c0035;
+        public static final int textView4=0x7f0c0065;
+        public static final int textView5=0x7f0c0064;
         public static final int time=0x7f0c005d;
         public static final int title=0x7f0c002b;
         public static final int title_template=0x7f0c0030;
@@ -1772,8 +1774,9 @@ containing a value of this type.
         public static final int select_dialog_item_material=0x7f030024;
         public static final int select_dialog_multichoice_material=0x7f030025;
         public static final int select_dialog_singlechoice_material=0x7f030026;
-        public static final int support_simple_spinner_dropdown_item=0x7f030027;
-        public static final int test=0x7f030028;
+        public static final int single_movie=0x7f030027;
+        public static final int support_simple_spinner_dropdown_item=0x7f030028;
+        public static final int test=0x7f030029;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;

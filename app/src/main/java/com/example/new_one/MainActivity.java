@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 				TextView tt=(TextView) findViewById(R.id.print);
 				String vv=tt.getText().toString(); ///debug
 
-				Toast.makeText(getBaseContext(),"fragment Refreasshed", Toast.LENGTH_LONG).show();
+				Toast.makeText(getBaseContext(),"Data updated", Toast.LENGTH_LONG).show();
 				Toast.makeText(this,vv, Toast.LENGTH_LONG).show();///debug
 				return true;
 
