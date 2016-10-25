@@ -22,11 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <uses-permission android:name="android.permission.INTERNET"/>
-        </activity>
+
         <activity android:name=".Fragment_main"
                  android:label="@string/app_name">
-
+        </activity>
         </activity>  <activity android:name=".SingleMoview"
+                 android:label="@string/app_name">
+
+        </activity>
+        <activity android:name=".UserSettingActivity"
                  android:label="@string/app_name">
 
         </activity>

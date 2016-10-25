@@ -1,4 +1,4 @@
-#Sun Oct 23 23:49:23 GMT+02:00 2016
+#Tue Oct 25 11:33:13 GMT+02:00 2016
 base.0=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ae9b736e2d943f2fb24d743bbae7e5194bd2d170
 renamed.1=classes2.dex
 renamed.0=classes.dex

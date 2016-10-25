@@ -22,7 +22,9 @@ public final class R {
     }
     public static final class array {
         public static final int icons=0x7f0a0000;
-        public static final int titles=0x7f0a0001;
+        public static final int syncFrequency=0x7f0a0001;
+        public static final int syncFrequencyValues=0x7f0a0002;
+        public static final int titles=0x7f0a0003;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1676,6 +1678,7 @@ containing a value of this type.
         public static final int listMode=0x7f0c000a;
         public static final int list_item=0x7f0c0029;
         public static final int media_actions=0x7f0c005a;
+        public static final int menu_settings=0x7f0c0067;
         public static final int middle=0x7f0c001c;
         public static final int multiply=0x7f0c0015;
         public static final int never=0x7f0c0020;
@@ -1774,9 +1777,9 @@ containing a value of this type.
         public static final int select_dialog_item_material=0x7f030024;
         public static final int select_dialog_multichoice_material=0x7f030025;
         public static final int select_dialog_singlechoice_material=0x7f030026;
-        public static final int single_movie=0x7f030027;
-        public static final int support_simple_spinner_dropdown_item=0x7f030028;
-        public static final int test=0x7f030029;
+        public static final int settings=0x7f030027;
+        public static final int single_movie=0x7f030028;
+        public static final int support_simple_spinner_dropdown_item=0x7f030029;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -1806,8 +1809,17 @@ containing a value of this type.
         public static final int btn_value=0x7f050016;
         public static final int hello_world=0x7f050017;
         public static final int imgdesc=0x7f050018;
+        public static final int menu_settings=0x7f050019;
+        public static final int pref_send_report=0x7f05001a;
+        public static final int pref_send_report_summary=0x7f05001b;
+        public static final int pref_sync_frequency=0x7f05001c;
+        public static final int pref_sync_frequency_summary=0x7f05001d;
+        public static final int pref_update_setting=0x7f05001e;
+        public static final int pref_user_name=0x7f05001f;
+        public static final int pref_user_name_summary=0x7f050020;
+        public static final int pref_user_profile=0x7f050021;
         public static final int status_bar_notification_info_overflow=0x7f050013;
-        public static final int testJson=0x7f050019;
+        public static final int title_activity_main=0x7f050022;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080087;

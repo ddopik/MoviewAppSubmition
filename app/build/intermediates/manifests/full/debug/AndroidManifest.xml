@@ -25,13 +25,18 @@
             </intent-filter>
 
             <uses-permission android:name="android.permission.INTERNET" />
-        </activity>
-        <activity
-            android:name="com.example.new_one.Fragment_main"
-            android:label="@string/app_name" >
+
+            <activity
+                android:name="com.example.new_one.Fragment_main"
+                android:label="@string/app_name" >
+            </activity>
         </activity>
         <activity
             android:name="com.example.new_one.SingleMoview"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.new_one.UserSettingActivity"
             android:label="@string/app_name" >
         </activity>
     </application>
