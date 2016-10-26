@@ -1,7 +1,7 @@
-#Tue Oct 25 11:33:13 GMT+02:00 2016
-base.0=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ae9b736e2d943f2fb24d743bbae7e5194bd2d170
+#Wed Oct 26 00:05:29 EET 2016
+base.0=C\:\\Users\\ddopik\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_45224b958a50155d3c7ef982deaea943b63f53d4
 renamed.1=classes2.dex
 renamed.0=classes.dex
-file.1=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_caa7b061e3b93afee38a1be846cd3d574019ea5d\\classes.dex
-base.1=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_caa7b061e3b93afee38a1be846cd3d574019ea5d
-file.0=C\:\\Users\\ddopik\\Desktop\\new_app5\\10\\new_one\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ae9b736e2d943f2fb24d743bbae7e5194bd2d170\\classes.dex
+file.1=C\:\\Users\\ddopik\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_85c90c684d542a413145e72ac9ec7d71323f5703\\classes.dex
+base.1=C\:\\Users\\ddopik\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_85c90c684d542a413145e72ac9ec7d71323f5703
+file.0=C\:\\Users\\ddopik\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_45224b958a50155d3c7ef982deaea943b63f53d4\\classes.dex
