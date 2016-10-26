@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="OrderbyEntries">
+		<item name="latest">Latest</item>
+		<item name="oldest">Oldest</item>
+		<item name="seeds">Seeds</item>
+		<item name="peers">Peers</item>
+		<item name="year">Year</item>
+		<item name="rating">Rating</item>
+		<item name="likes">Likes</item>
+		<item name="alphabetical">Alphabetical</item>
+		<item name="downloads">Downloads</item>
+	</string-array>
+    <string-array name="OrderbyPrefValues">
+		<item name="latest">Latest</item>
+		<item name="oldest">Oldest</item>
+		<item name="seeds">Seeds</item>
+		<item name="peers">Peers</item>
+		<item name="year">Year</item>
+		<item name="rating">Rating</item>
+		<item name="likes">Likes</item>
+		<item name="alphabetical">Alphabetical</item>
+		<item name="downloads">Downloads</item>
+	</string-array>
+    <string-array name="ViewByEntries">
+		<item name="List">List</item>
+		<item name="Grid">Grid</item>
+	</string-array>
+    <string-array name="genreEntries">
+		<item name="all">All</item>
+		<item name="action">Action</item>
+		<item name="adventure">Adventure</item>
+		<item name="animation">Animation</item>
+		<item name="biography">Biography</item>
+		<item name="comedy">Comedy</item>
+		<item name="crime">Crime</item>
+		<item name="documentary">Documentary</item>
+		<item name="drama">Drama</item>
+		<item name="family">Family</item>
+		<item name="fantasy">Fantasy</item>
+		<item name="film-noir">Film-Noir</item>
+		<item name="game-show">Game-Show</item>
+	</string-array>
+    <string-array name="genrePrefValues">
+		<item name="all">All</item>
+		<item name="action">Action</item>
+		<item name="adventure">Adventure</item>
+		<item name="animation">Animation</item>
+		<item name="biography">Biography</item>
+		<item name="comedy">Comedy</item>
+		<item name="crime">Crime</item>
+		<item name="documentary">Documentary</item>
+		<item name="drama">Drama</item>
+		<item name="family">Family</item>
+		<item name="fantasy">Fantasy</item>
+		<item name="film-noir">Film-Noir</item>
+		<item name="game-show">Game-Show</item>
+	</string-array>
     <array name="icons">
         <item>@drawable/home</item>
         <item>@drawable/tutorials</item>
@@ -8,18 +64,6 @@
         <item>@drawable/tool</item>
         <item>@drawable/about</item>
     </array>
-    <string-array name="syncFrequency">
-		<item name="1">Once a day</item>
-		<item name="7">Once a week</item>
-		<item name="3">Once a year</item>
-		<item name="0">Never (Update maually)</item>
-	</string-array>
-    <string-array name="syncFrequencyValues">
-		<item name="1">1</item>
-		<item name="7">7</item>
-		<item name="30">30</item>
-		<item name="0">0</item>
-	</string-array>
     <string-array name="titles">
         <item>Home</item>
         <item>Tutorials</item>
@@ -28,6 +72,10 @@
         <item>Tools</item>
         <item>About Us</item>
     </string-array>
+    <string-array name="viewByPrefValues">
+		<item name="List">List</item>
+		<item name="Grid">Grid</item>
+	</string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -245,14 +293,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="imgdesc">imgdesc</string>
     <string name="menu_settings">Settings</string>
+    <string name="prefGenrebyTitle">Select Genre</string>
+    <string name="prefOrderbyTitle">Order Movies by</string>
+    <string name="prefViewByTitle">View By</string>
+    <string name="pref_GenreSummary">Select Genre</string>
+    <string name="pref_OrderbySummary">Order by</string>
+    <string name="pref_ViewBySummary">View By</string>
     <string name="pref_send_report">Send crash reports</string>
     <string name="pref_send_report_summary">Helps to fix bugs</string>
     <string name="pref_sync_frequency">Sync frequency</string>
     <string name="pref_sync_frequency_summary">Set the sync frequency</string>
     <string name="pref_update_setting">Update Settings</string>
-    <string name="pref_user_name">Set username</string>
-    <string name="pref_user_name_summary">Set your username</string>
     <string name="pref_user_profile">User Profile</string>
+    <string name="setYearPref">Set Year</string>
+    <string name="setYearPref_summary">Set your movies year</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_main">MainActivity</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>

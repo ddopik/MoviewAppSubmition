@@ -93,15 +93,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 //			SharedPreferences.Editor editor = sharedpreferences.edit();
-			SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+			//
+
+
+			Context context = getBaseContext();
+			//SharedPreferences sharedPrefs = context.getSharedPreferences("setting",context.MODE_PRIVATE);
+			 SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 			StringBuilder builder = new StringBuilder();
 
-			builder.append("\n Username: "+ sharedPrefs.getString("prefUsername", "NULL"));
+			builder.append("\n prefOrderbyPref: "+ sharedPrefs.getString("prefOrderbyPref", "NULL"));
+			builder.append("\n prefGenrePref: "+ sharedPrefs.getString("prefGenrePref", "NULL"));
+			builder.append("\n prefSetYear: "+ sharedPrefs.getString("prefSetYear", "NULL"));
+			builder.append("\n prefViewByFrequency: "+ sharedPrefs.getString("prefViewByFrequency", "NULL"));
+			//builder.append("\n prefSendReport: "+ sharedPrefs.getString("prefSendReport","NULL"));
 
-			builder.append("\n Send report:"+ sharedPrefs.getBoolean("prefSendReport", false));
 
-			builder.append("\n Sync Frequency: "+ sharedPrefs.getString("prefSyncFrequency", "NULL"));
 
 			//TextView settingsTextView = (TextView) findViewById(R.id.textUserSettings);
 			//settingsTextView.setText(builder.toString());

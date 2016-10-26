@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="0760d457deb650aba033a61ad374da94e3f599a2">
+        sha1="c11c515c7d09ccb2c3bcb1c4e6ca61840d5b8bbb">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_45224b958a50155d3c7ef982deaea943b63f53d4\classes.dex" />
     </item>
     <item
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="32285cb00714537eed2d7bcd86baba0629fbb937">
+        sha1="3968eb55f34e7cf5dff7d68041729daebf48e186">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_85c90c684d542a413145e72ac9ec7d71323f5703\classes.dex" />
     </item>
     <item

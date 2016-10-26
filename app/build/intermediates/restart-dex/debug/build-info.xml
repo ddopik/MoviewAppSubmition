@@ -4,35 +4,29 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="15242216633784"
+    timestamp="48840386487974"
     token="-6278868719291229118"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="116" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="21" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
+
+    <artifact
+        location="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="14459398355536"
-        verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\outputs\apk\app-debug.apk"
-            type="MAIN" />
-    </build>
-    <build
-        timestamp="15242216633784"
-        verifier="COLD_SWAP_REQUESTED" />
-    <build
-        timestamp="41851080520071"
+        timestamp="48840386487974"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\outputs\apk\app-debug.apk"

@@ -21,10 +21,14 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040009;
     }
     public static final class array {
-        public static final int icons=0x7f0a0000;
-        public static final int syncFrequency=0x7f0a0001;
-        public static final int syncFrequencyValues=0x7f0a0002;
-        public static final int titles=0x7f0a0003;
+        public static final int OrderbyEntries=0x7f0a0000;
+        public static final int OrderbyPrefValues=0x7f0a0001;
+        public static final int ViewByEntries=0x7f0a0002;
+        public static final int genreEntries=0x7f0a0003;
+        public static final int genrePrefValues=0x7f0a0004;
+        public static final int icons=0x7f0a0005;
+        public static final int titles=0x7f0a0006;
+        public static final int viewByPrefValues=0x7f0a0007;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1774,10 +1778,10 @@ containing a value of this type.
         public static final int notification_template_media=0x7f030021;
         public static final int notification_template_part_chronometer=0x7f030022;
         public static final int notification_template_part_time=0x7f030023;
-        public static final int select_dialog_item_material=0x7f030024;
-        public static final int select_dialog_multichoice_material=0x7f030025;
-        public static final int select_dialog_singlechoice_material=0x7f030026;
-        public static final int settings=0x7f030027;
+        public static final int preferences=0x7f030024;
+        public static final int select_dialog_item_material=0x7f030025;
+        public static final int select_dialog_multichoice_material=0x7f030026;
+        public static final int select_dialog_singlechoice_material=0x7f030027;
         public static final int single_movie=0x7f030028;
         public static final int support_simple_spinner_dropdown_item=0x7f030029;
     }
@@ -1810,16 +1814,22 @@ containing a value of this type.
         public static final int hello_world=0x7f050017;
         public static final int imgdesc=0x7f050018;
         public static final int menu_settings=0x7f050019;
-        public static final int pref_send_report=0x7f05001a;
-        public static final int pref_send_report_summary=0x7f05001b;
-        public static final int pref_sync_frequency=0x7f05001c;
-        public static final int pref_sync_frequency_summary=0x7f05001d;
-        public static final int pref_update_setting=0x7f05001e;
-        public static final int pref_user_name=0x7f05001f;
-        public static final int pref_user_name_summary=0x7f050020;
-        public static final int pref_user_profile=0x7f050021;
+        public static final int prefGenrebyTitle=0x7f05001a;
+        public static final int prefOrderbyTitle=0x7f05001b;
+        public static final int prefViewByTitle=0x7f05001c;
+        public static final int pref_GenreSummary=0x7f05001d;
+        public static final int pref_OrderbySummary=0x7f05001e;
+        public static final int pref_ViewBySummary=0x7f05001f;
+        public static final int pref_send_report=0x7f050020;
+        public static final int pref_send_report_summary=0x7f050021;
+        public static final int pref_sync_frequency=0x7f050022;
+        public static final int pref_sync_frequency_summary=0x7f050023;
+        public static final int pref_update_setting=0x7f050024;
+        public static final int pref_user_profile=0x7f050025;
+        public static final int setYearPref=0x7f050026;
+        public static final int setYearPref_summary=0x7f050027;
         public static final int status_bar_notification_info_overflow=0x7f050013;
-        public static final int title_activity_main=0x7f050022;
+        public static final int title_activity_main=0x7f050028;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080087;
