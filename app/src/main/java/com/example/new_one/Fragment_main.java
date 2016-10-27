@@ -39,7 +39,7 @@ public class Fragment_main extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-
+        Log.e("FragmentMenu--->","onCreateView_FragmentMenu called");
         fragmentView = inflater.inflate(R.layout.fragment_activity, container, false);
         gridView = (GridView) fragmentView.findViewById(R.id.gridList);
 
@@ -68,11 +68,6 @@ public class Fragment_main extends Fragment {
 
             }
         };
-
-
-
-
-
         myTask.execute(myUrl);
         return fragmentView;
 

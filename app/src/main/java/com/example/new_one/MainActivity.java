@@ -13,9 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
-
-
-
 import android.app.Activity;
 import android.widget.Toast;;
 
@@ -31,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 	}
+//	@Override
+//	public void onStart()
+//	{
+//		super.onStart();
+//		Fragment frg = null;
+//		frg = getFragmentManager().findFragmentById(R.id.fragment1);
+//		final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//		ft.detach(frg);
+//		ft.attach(frg);
+//		ft.commit();
+//		Toast.makeText(getBaseContext(),"Data updated2", Toast.LENGTH_LONG).show();
+//
+//	}
 
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,14 +59,18 @@ public class MainActivity extends AppCompatActivity {
 
 		switch (item.getItemId()) {
 			case R.id.Refresh:
-				Fragment frg = null;
-				frg = getFragmentManager().findFragmentById(R.id.fragment1);
-				final FragmentTransaction ft = getFragmentManager().beginTransaction();
-				ft.detach(frg);
-				ft.attach(frg);
-				ft.commit();
+//				Fragment frg = null;
+//				frg = getFragmentManager().findFragmentById(R.id.fragment1);
+//				final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//				ft.detach(frg);
+//				ft.attach(frg);
+//				ft.commit();
+				Fragment_main fg=new Fragment_main();
+				FragmentTransaction tr = getFragmentManager().beginTransaction();
+				tr.replace(R.id.fragment1, fg);
+				tr.commit();
 				Toast.makeText(getBaseContext(),"Data updated", Toast.LENGTH_LONG).show();
-
+                   break;
 
 			case R.id.menu_settings:////calling setting activity
 				Intent i = new Intent(MainActivity.this,UserSettingActivity.class);
