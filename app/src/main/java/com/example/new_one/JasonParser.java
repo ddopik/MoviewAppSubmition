@@ -43,7 +43,7 @@ public class JasonParser {
             //String minTemp=jsonTemp.getString("min"); //#1
 
             ////////////// if you wan't  to use map
-            Map<String, String> mapData = new HashMap<String,String>();
+            Map<String,String> mapData = new HashMap<String,String>();
             mapData.put("id",i+" ");
             mapData.put("poster_path",imgUrl);
             mapData.put("overview",overview);
