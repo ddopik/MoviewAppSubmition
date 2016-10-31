@@ -31,12 +31,16 @@ public class JasonParser {
         String poster_path;
         String overview;
         String original_title;
+        String releasDate;
+        int voteAverage;
         for(int i=0;i<jasonListArray.length();i++)
         {
              poster_path=jasonListArray.optJSONObject(i).getString("poster_path");
              imgUrl="http://image.tmdb.org/t/p/w185"+poster_path;
              overview=jasonListArray.optJSONObject(i).getString("overview");
-            original_title=jasonListArray.optJSONObject(i).getString("original_title");
+             releasDate=jasonListArray.optJSONObject(i).getString("release_date");
+             original_title=jasonListArray.optJSONObject(i).getString("original_title");
+             voteAverage=jasonListArray.optJSONObject(i).getInt("vote_average");
 
 
 
@@ -45,9 +49,11 @@ public class JasonParser {
             ////////////// if you wan't  to use map
             Map<String,String> mapData = new HashMap<String,String>();
             mapData.put("id",i+" ");
-            mapData.put("poster_path",imgUrl);
-            mapData.put("overview",overview);
-            mapData.put("original_title",original_title);
+            mapData.put("Movie_Img",imgUrl);
+            mapData.put("Movie_Overview",overview);
+            mapData.put("Movie_Name",original_title);
+            mapData.put("Moview_year",releasDate);
+            mapData.put("Moview_Rating",voteAverage+"");
             listMapData.add(i,mapData);
             ///how you get data..
             ///->listMapData.get(0).get("name");

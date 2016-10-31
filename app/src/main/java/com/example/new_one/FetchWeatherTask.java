@@ -19,6 +19,10 @@ public class FetchWeatherTask extends AsyncTask<String, Integer, String> {
     private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
     public AsyncResponse1 delegate = null;
 
+    public FetchWeatherTask()
+    {
+        Log.e("TracingPoint","FetchWeatherTask_thread_called");
+    }
 
 
     @Override

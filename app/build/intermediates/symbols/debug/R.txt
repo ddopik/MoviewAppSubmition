@@ -465,6 +465,7 @@ int drawable pencil 0x7f020050
 int drawable tool 0x7f020051
 int drawable tutorials 0x7f020052
 int id Refresh 0x7f0c0066
+int id ViewMyDataBase 0x7f0c0068
 int id action0 0x7f0c0057
 int id action_bar 0x7f0c0042
 int id action_bar_activity_content 0x7f0c0000

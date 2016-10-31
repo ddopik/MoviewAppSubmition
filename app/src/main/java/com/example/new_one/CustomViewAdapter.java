@@ -74,11 +74,11 @@ public class CustomViewAdapter extends BaseAdapter  {
 			Map<String, String> single_row = rowItem.get(position);/// select object number n from the object_array
 
 //			gridImg=//gridImg.setText(single_row.get("minTemp")); ///Sets the string value of the TextView---->
-			movTitle.setText(single_row.get("original_title")); ///Sets the string value of the TextView---->
-			single_row.get("original_title");
-			Picasso.with(context).load(single_row.get("poster_path")).into(gridImg);
-			Log.e("---intialize value_1",single_row.get("original_title"));
-			Log.e("---intialize value_2",single_row.get("poster_path"));
+			movTitle.setText(single_row.get("Movie_Name")); ///Sets the string value of the TextView---->
+			Picasso.with(context).load(single_row.get("Movie_Img")).into(gridImg);
+			Log.e("---intialize value_1",single_row.get("Movie_Name"));
+			Log.e("---intialize value_2",single_row.get("Movie_Img"));
+			Log.e("Number_Of_Items--->","---"+getCount()+"");
 
 
 

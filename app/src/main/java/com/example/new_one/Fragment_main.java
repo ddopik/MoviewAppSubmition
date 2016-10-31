@@ -11,6 +11,7 @@ import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -51,12 +52,17 @@ public class Fragment_main extends Fragment {
                     Log.e("--JASON Result is----->", output);
                     JasonParser jasonApi = new JasonParser();
                     jasonApiItems = jasonApi.myJSONParser(output);
-
-
+                    ShowTypeHandler db=new ShowTypeHandler(getActivity());
+                    db.addMovie(jasonApiItems);
                 } catch (Exception e) {
                     Log.e("Trace_2---->", "Error_adapter fetching JASON error !!!!(*_-_*)!!!!! ", e);
                     Log.e("Error_here---->", e.getMessage());
+                    ShowTypeHandler db=new ShowTypeHandler(getActivity());
+                    jasonApiItems= db.getAllMovies();
+
                 }
+
+
 
 
 

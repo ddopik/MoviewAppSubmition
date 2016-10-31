@@ -12,4 +12,6 @@
         android:title="@string/menu_settings"
         android:icon="@android:drawable/ic_menu_preferences"/>
 
+    <item android:id="@+id/ViewMyDataBase"
+        android:title="ViewMyDataBase" />
 </menu>

@@ -1630,6 +1630,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Refresh=0x7f0c0066;
+        public static final int ViewMyDataBase=0x7f0c0068;
         public static final int action0=0x7f0c0057;
         public static final int action_bar=0x7f0c0042;
         public static final int action_bar_activity_content=0x7f0c0000;

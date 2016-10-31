@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 
+
+
 	}
 //	@Override
 //	public void onStart()
@@ -75,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
 			case R.id.menu_settings:////calling setting activity
 				Intent i = new Intent(MainActivity.this,UserSettingActivity.class);
 				startActivityForResult(i,RESULT_SETTINGS);
+				break;
+			case R.id.ViewMyDataBase:////calling ViewMyDataBase
+				Intent dbmanager = new Intent(this,AndroidDatabaseManager.class);
+				startActivity(dbmanager);;
 				break;
 
 
