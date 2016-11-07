@@ -28,23 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
 ///// Adding fragment dynamiccly thats Really helped for Controlling fragment
 		FragmentTransaction ft = getFragmentManager().beginTransaction();
-		Fragment_main fg=new Fragment_main();
-		ft.add(R.id.ContainerActivityID,fg);
+//		Fragment_main fg = new Fragment_main();
+		Fragment_main fg = getFrgInstance();
+		ft.add(R.id.ContainerActivityID, fg);
 		ft.commit();
 /////
 
 
-
 	}
-
 
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		MenuInflater inflater = getMenuInflater();
 		menu.clear();
-		inflater.inflate(R.menu.main,menu);
-		Log.e("Test_menu--->","onCreateOptionsMenu called");
+		inflater.inflate(R.menu.main, menu);
+		Log.e("Test_menu--->", "onCreateOptionsMenu called");
 		return true;
 	}
 
@@ -55,26 +54,23 @@ public class MainActivity extends AppCompatActivity {
 
 		switch (item.getItemId()) {
 			case R.id.Refresh:
-				Log.e("Refreash_state--->","RefreahStart");
-				Fragment frg = null;
+
 				FragmentTransaction ft = getFragmentManager().beginTransaction();
-				Fragment_main fg=new Fragment_main();
-				ft.replace(R.id.ContainerActivityID,fg);
+				Fragment_main fg = getFrgInstance();
+				ft.replace(R.id.ContainerActivityID, fg);
 				ft.commit();
-
-
-			 Toast.makeText(this,"Refreash",Toast.LENGTH_LONG).show();
-                   break;
+				Toast.makeText(this, "Refreash", Toast.LENGTH_LONG).show();
+				break;
 
 			case R.id.menu_settings:////calling setting activity
-				Intent i = new Intent(MainActivity.this,UserSettingActivity.class);
-				startActivityForResult(i,RESULT_SETTINGS);
+				Intent i = new Intent(MainActivity.this, UserSettingActivity.class);
+				startActivityForResult(i, RESULT_SETTINGS);
 				break;
 			case R.id.ViewMyDataBase:////calling ViewMyDataBase
-				Intent dbmanager = new Intent(this,AndroidDatabaseManager.class);
-				startActivity(dbmanager);;
+				Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
+				startActivity(dbmanager);
+				;
 				break;
-
 
 
 			default:
@@ -91,46 +87,58 @@ public class MainActivity extends AppCompatActivity {
 		switch (requestCode) {
 			case RESULT_SETTINGS:
 				showUserSettings();
+
+
 				break;
 
 		}
 
 
+	}
 
+
+	private void showUserSettings() {
+
+
+		//SharedPreferences sharedPrefs = context.getSharedPreferences("setting",context.MODE_PRIVATE);
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		StringBuilder builder = new StringBuilder();
+
+		builder.append("\n prefOrderbyPref: " + sharedPrefs.getString("prefOrderbyPref", "NULL"));
+		builder.append("\n prefGenrePref: " + sharedPrefs.getString("prefGenrePref", "NULL"));
+		builder.append("\n prefSetYear: " + sharedPrefs.getString("prefSetYear", "NULL"));
+		builder.append("\n prefViewByFrequency: " + sharedPrefs.getString("prefViewByFrequency", "NULL"));
+
+
+
+		FragmentTransaction ft = getFragmentManager().beginTransaction();
+		Fragment_main fg =getFrgInstance();
+		ft.replace(R.id.ContainerActivityID, fg);
+		ft.commit();
+		Toast.makeText(this, builder.toString(), Toast.LENGTH_LONG).show();
 
 	}
 
 
-		private void showUserSettings() {
+	public Fragment_main getFrgInstance() {
 
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		String orderBy = sharedPrefs.getString("prefOrderbyPref", "NULL");
+		String genere = sharedPrefs.getString("prefGenrePref", "NULL");
+		String year = sharedPrefs.getString("prefSetYear", "NULL");
+		String viewBy = sharedPrefs.getString("prefViewByFrequency", "NULL");
+		Fragment_main fg = new Fragment_main();
+		Bundle arg = new Bundle();
 
-//			SharedPreferences.Editor editor = sharedpreferences.edit();
-			//
-
-
-			Context context = getBaseContext();
-			//SharedPreferences sharedPrefs = context.getSharedPreferences("setting",context.MODE_PRIVATE);
-			 SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-			StringBuilder builder = new StringBuilder();
-
-			builder.append("\n prefOrderbyPref: "+ sharedPrefs.getString("prefOrderbyPref", "NULL"));
-			builder.append("\n prefGenrePref: "+ sharedPrefs.getString("prefGenrePref", "NULL"));
-			builder.append("\n prefSetYear: "+ sharedPrefs.getString("prefSetYear", "NULL"));
-			builder.append("\n prefViewByFrequency: "+ sharedPrefs.getString("prefViewByFrequency", "NULL"));
-			//builder.append("\n prefSendReport: "+ sharedPrefs.getString("prefSendReport","NULL"));
-
-
-
-			//TextView settingsTextView = (TextView) findViewById(R.id.textUserSettings);
-			//settingsTextView.setText(builder.toString());
-                Toast.makeText(this,builder.toString(),Toast.LENGTH_LONG).show();
-
-		}
-
-
-
+		arg.putString("orderBy", orderBy);
+		arg.putString("genere", genere);
+		arg.putString("year", year);
+		arg.putString("viewBy", viewBy);
+		fg.setArguments(arg);
+		return fg;
 	}
+}
 
 
 

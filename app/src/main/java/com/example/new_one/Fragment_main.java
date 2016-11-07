@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
@@ -25,7 +26,9 @@ public class Fragment_main extends Fragment {
     String myUrl = "https://api.themoviedb.org/3/movie/top_rated?api_key=61b43cea1b1dc0726b2c14fcce079ffe";
     View fragmentView;
     CustomViewAdapter adapter;
-    GridView gridView;
+    GridView movieGridView;
+    ListView movieListView;
+    View movieView;
 
 
     @Override
@@ -33,7 +36,10 @@ public class Fragment_main extends Fragment {
         setHasOptionsMenu(true);
         Log.e("FragmentMenu--->","onCreateView_FragmentMenu called");
         fragmentView = inflater.inflate(R.layout.fragment_activity, container, false);
-        gridView = (GridView) fragmentView.findViewById(R.id.gridList);
+
+
+        movieGridView = (GridView) fragmentView.findViewById(R.id.gridList);
+        movieListView = (ListView) fragmentView.findViewById(R.id.movieList);
 
         AsyncTaskResponseFetcher myTask = new AsyncTaskResponseFetcher();
         myTask.delegate = new AsyncTaskResponse() {
@@ -53,13 +59,16 @@ public class Fragment_main extends Fragment {
 
                 }
 
+/////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
+                adapter = new CustomViewAdapter(getActivity(),jasonApiItems); /// send to custom adapter to render view
+                if(getArguments().getString("viewBy").equals("Grid")) {
+                    movieGridView.setAdapter(adapter); //provide activity for Grid view
+                  //  movieView=movieGridView; //test
+                }else{
+                    movieListView.setAdapter(adapter); //provide activity for list view
+                    //movieView=movieListView;//test
+                }
 
-
-
-
-
-                adapter = new CustomViewAdapter(getActivity(), jasonApiItems); /// send to custom adapter to render view
-                gridView.setAdapter(adapter); //provide activity for list view
                 adapter.notifyDataSetChanged();
 
                 ///gv.setOnScrollListener(new SampleScrollListener(this)); what is this
@@ -75,7 +84,25 @@ public class Fragment_main extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        gridView.setOnItemClickListener(new OnItemClickListener() {
+
+
+//        movieView.setOnItemClickListener(new OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View v,int position, long id) {
+//
+//                SerializeObject intentVar=new SerializeObject();
+//                intentVar.setList(jasonApiItems);
+//
+//                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
+//                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main.this.jasonApiItems);
+//                myIntent.putExtra("singleMoview",intentVar);
+//                myIntent.putExtra("position",position);
+//                startActivity(myIntent);
+//
+//
+//
+//            }
+//        });
+            movieListView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,int position, long id) {
 
                 SerializeObject intentVar=new SerializeObject();
@@ -90,7 +117,22 @@ public class Fragment_main extends Fragment {
 
 
             }
+        });
+           movieGridView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,int position, long id) {
 
+                SerializeObject intentVar=new SerializeObject();
+                intentVar.setList(jasonApiItems);
+
+                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
+                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main.this.jasonApiItems);
+                myIntent.putExtra("singleMoview",intentVar);
+                myIntent.putExtra("position",position);
+                startActivity(myIntent);
+
+
+
+            }
         });
     }
 
