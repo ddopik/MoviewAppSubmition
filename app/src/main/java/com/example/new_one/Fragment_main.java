@@ -61,6 +61,7 @@ public class Fragment_main extends Fragment {
                 adapter = new CustomViewAdapter(getActivity(), jasonApiItems); /// send to custom adapter to render view
                 gridView.setAdapter(adapter); //provide activity for list view
                 adapter.notifyDataSetChanged();
+
                 ///gv.setOnScrollListener(new SampleScrollListener(this)); what is this
 
             }
@@ -69,6 +70,8 @@ public class Fragment_main extends Fragment {
         return fragmentView;
 
     }
+
+    ///the user selecting A single movie
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

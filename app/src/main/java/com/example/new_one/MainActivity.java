@@ -26,23 +26,17 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+///// Adding fragment dynamiccly thats Really helped for Controlling fragment
+		FragmentTransaction ft = getFragmentManager().beginTransaction();
+		Fragment_main fg=new Fragment_main();
+		ft.add(R.id.ContainerActivityID,fg);
+		ft.commit();
+/////
 
 
 
 	}
-//	@Override
-//	public void onStart()
-//	{
-//		super.onStart();
-//		Fragment frg = null;
-//		frg = getFragmentManager().findFragmentById(R.id.fragment1);
-//		final FragmentTransaction ft = getFragmentManager().beginTransaction();
-//		ft.detach(frg);
-//		ft.attach(frg);
-//		ft.commit();
-//		Toast.makeText(getBaseContext(),"Data updated2", Toast.LENGTH_LONG).show();
-//
-//	}
+
 
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -61,17 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
 		switch (item.getItemId()) {
 			case R.id.Refresh:
-//				Fragment frg = null;
-//				frg = getFragmentManager().findFragmentById(R.id.fragment1);
-//				final FragmentTransaction ft = getFragmentManager().beginTransaction();
-//				ft.detach(frg);
-//				ft.attach(frg);
-//				ft.commit();
+				Log.e("Refreash_state--->","RefreahStart");
+				Fragment frg = null;
+				FragmentTransaction ft = getFragmentManager().beginTransaction();
 				Fragment_main fg=new Fragment_main();
-				FragmentTransaction tr = getFragmentManager().beginTransaction();
-				tr.replace(R.id.fragment1, fg);
-				tr.commit();
-				Toast.makeText(getBaseContext(),"Data updated", Toast.LENGTH_LONG).show();
+				ft.replace(R.id.ContainerActivityID,fg);
+				ft.commit();
+
+
+			 Toast.makeText(this,"Refreash",Toast.LENGTH_LONG).show();
                    break;
 
 			case R.id.menu_settings:////calling setting activity

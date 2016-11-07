@@ -464,6 +464,7 @@ int drawable os 0x7f02004f
 int drawable pencil 0x7f020050
 int drawable tool 0x7f020051
 int drawable tutorials 0x7f020052
+int id ContainerActivityID 0x7f0c0052
 int id Refresh 0x7f0c0066
 int id ViewMyDataBase 0x7f0c0068
 int id action0 0x7f0c0057
@@ -502,7 +503,6 @@ int id end 0x7f0c001b
 int id end_padder 0x7f0c0063
 int id expand_activities_button 0x7f0c0026
 int id expanded_menu 0x7f0c0039
-int id fragment1 0x7f0c0051
 int id gridList 0x7f0c0056
 int id home 0x7f0c0005
 int id homeAsUp 0x7f0c000e
@@ -517,6 +517,7 @@ int id line1 0x7f0c005c
 int id line3 0x7f0c0060
 int id listMode 0x7f0c000a
 int id list_item 0x7f0c0029
+int id mainActivityID 0x7f0c0051
 int id media_actions 0x7f0c005a
 int id menu_settings 0x7f0c0067
 int id middle 0x7f0c001c
@@ -525,7 +526,6 @@ int id never 0x7f0c0020
 int id none 0x7f0c000f
 int id normal 0x7f0c000b
 int id parentPanel 0x7f0c002e
-int id print 0x7f0c0052
 int id progress_circular 0x7f0c0006
 int id progress_horizontal 0x7f0c0007
 int id radio 0x7f0c003c

@@ -1629,6 +1629,7 @@ containing a value of this type.
         public static final int tutorials=0x7f020052;
     }
     public static final class id {
+        public static final int ContainerActivityID=0x7f0c0052;
         public static final int Refresh=0x7f0c0066;
         public static final int ViewMyDataBase=0x7f0c0068;
         public static final int action0=0x7f0c0057;
@@ -1667,7 +1668,6 @@ containing a value of this type.
         public static final int end_padder=0x7f0c0063;
         public static final int expand_activities_button=0x7f0c0026;
         public static final int expanded_menu=0x7f0c0039;
-        public static final int fragment1=0x7f0c0051;
         public static final int gridList=0x7f0c0056;
         public static final int home=0x7f0c0005;
         public static final int homeAsUp=0x7f0c000e;
@@ -1682,6 +1682,7 @@ containing a value of this type.
         public static final int line3=0x7f0c0060;
         public static final int listMode=0x7f0c000a;
         public static final int list_item=0x7f0c0029;
+        public static final int mainActivityID=0x7f0c0051;
         public static final int media_actions=0x7f0c005a;
         public static final int menu_settings=0x7f0c0067;
         public static final int middle=0x7f0c001c;
@@ -1690,7 +1691,6 @@ containing a value of this type.
         public static final int none=0x7f0c000f;
         public static final int normal=0x7f0c000b;
         public static final int parentPanel=0x7f0c002e;
-        public static final int print=0x7f0c0052;
         public static final int progress_circular=0x7f0c0006;
         public static final int progress_horizontal=0x7f0c0007;
         public static final int radio=0x7f0c003c;

@@ -27,9 +27,9 @@ public void onCreate(Bundle savedInstanceState) {
     SerializeObject myIntent=(SerializeObject) intent.getExtras().getSerializable("singleMoview");
      listMapData=myIntent.getList();
 
-    String myImgPath = listMapData.get(myposition).get("poster_path");
-    String overview = listMapData.get(myposition).get("overview");
-    String original_title = listMapData.get(myposition).get("original_title");
+    String myImgPath = listMapData.get(myposition).get("Movie_Img");
+    String overview = listMapData.get(myposition).get("Movie_Overview");
+    String original_title = listMapData.get(myposition).get("Movie_Name");
 
 //    textView4
     ImageView mImage=(ImageView)this.findViewById(R.id.imageView1);
