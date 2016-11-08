@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.app.Activity;
 import android.widget.Toast;;
@@ -20,7 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 	private static final int RESULT_SETTINGS = 1;
+	/////
 
+
+	/////
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
 ///// Adding fragment dynamiccly thats Really helped for Controlling fragment
 		FragmentTransaction ft = getFragmentManager().beginTransaction();
-//		Fragment_main fg = new Fragment_main();
 		Fragment_main fg = getFrgInstance();
 		ft.add(R.id.ContainerActivityID, fg);
 		ft.commit();
 /////
+
 
 
 	}
@@ -69,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 			case R.id.ViewMyDataBase:////calling ViewMyDataBase
 				Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
 				startActivity(dbmanager);
-				;
+
 				break;
 
 

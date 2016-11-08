@@ -13,9 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
@@ -41,7 +46,9 @@ public class Fragment_main extends Fragment {
         movieGridView = (GridView) fragmentView.findViewById(R.id.gridList);
         movieListView = (ListView) fragmentView.findViewById(R.id.movieList);
 
-        AsyncTaskResponseFetcher myTask = new AsyncTaskResponseFetcher();
+
+        ///
+        AsyncTaskResponseFetcher myTask = new AsyncTaskResponseFetcher(myUrl,getActivity());
         myTask.delegate = new AsyncTaskResponse() {
             @Override
             public void processFinish(String output) {
@@ -51,6 +58,7 @@ public class Fragment_main extends Fragment {
                     jasonApiItems = jasonApi.myJSONParser(output);
                     MyDataBaseContract db=new MyDataBaseContract(getActivity());
                     db.addMovie(jasonApiItems);
+
                 } catch (Exception e) {
                     Log.e("Trace_2---->", "Error_adapter fetching JASON error !!!!(*_-_*)!!!!! ", e);
                     Log.e("Error_here---->", e.getMessage());
@@ -58,6 +66,11 @@ public class Fragment_main extends Fragment {
                     jasonApiItems= db.getAllMovies();
 
                 }
+                finally {
+                    ProgressBar    myProgressBar  = (ProgressBar)getActivity().findViewById(R.id.progressbar_Horizontal);
+                    myProgressBar.setVisibility(INVISIBLE);
+                }
+
 
 /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
                 adapter = new CustomViewAdapter(getActivity(),jasonApiItems); /// send to custom adapter to render view
@@ -75,7 +88,8 @@ public class Fragment_main extends Fragment {
 
             }
         };
-        myTask.execute(myUrl);
+
+        myTask.execute(myUrl,"100");
         return fragmentView;
 
     }
