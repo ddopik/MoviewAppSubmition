@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.app.Activity;
-import android.widget.Toast;;
+import android.widget.Toast;;import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		Realm.init(this);  // Initialize Realm. Should only be done once when the application starts.
 
 ///// Adding fragment dynamiccly thats Really helped for Controlling fragment
 		FragmentTransaction ft = getFragmentManager().beginTransaction();

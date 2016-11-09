@@ -19,6 +19,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.example.new_one.Model.RealmContract;
+
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
@@ -46,7 +48,9 @@ public class Fragment_main extends Fragment {
         movieGridView = (GridView) fragmentView.findViewById(R.id.gridList);
         movieListView = (ListView) fragmentView.findViewById(R.id.movieList);
 
-
+        ////////
+        //***here get and set argument of my url
+        //////
         ///
         AsyncTaskResponseFetcher myTask = new AsyncTaskResponseFetcher(myUrl,getActivity());
         myTask.delegate = new AsyncTaskResponse() {
@@ -54,10 +58,14 @@ public class Fragment_main extends Fragment {
             public void processFinish(String output) {
                 try {
                     Log.e("--JASON Result is----->", output);
+                    /////using sqlite
                     JasonParser jasonApi = new JasonParser();
                     jasonApiItems = jasonApi.myJSONParser(output);
                     MyDataBaseContract db=new MyDataBaseContract(getActivity());
                     db.addMovie(jasonApiItems);
+                    ///////using Realm DB
+                    RealmContract newDb=new RealmContract(output);
+                    ///////
 
                 } catch (Exception e) {
                     Log.e("Trace_2---->", "Error_adapter fetching JASON error !!!!(*_-_*)!!!!! ", e);
@@ -88,6 +96,7 @@ public class Fragment_main extends Fragment {
 
             }
         };
+
 
         myTask.execute(myUrl,"100");
         return fragmentView;
