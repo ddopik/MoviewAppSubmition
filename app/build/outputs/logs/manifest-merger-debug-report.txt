@@ -23,6 +23,8 @@ MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\ddopik\Desktop\St
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\AndroidManifest.xml:7:5-43
+MERGED from [com.facebook.stetho:stetho:1.4.1] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.facebook.stetho\stetho\1.4.1\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -39,6 +41,8 @@ MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\ddopik\Desktop\St
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.stetho:stetho:1.4.1] C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.facebook.stetho\stetho\1.4.1\AndroidManifest.xml:11:5-20
 	android:label
 		ADDED from C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\src\main\AndroidManifest.xml:14:9-41
 	android:allowBackup

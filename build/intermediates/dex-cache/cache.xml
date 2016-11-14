@@ -3,15 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_138f99a5b03398ca44675da4560eaa790085ee42\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -34,8 +25,80 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="30b94b60ec4ff69648bc5a6be193e4f6c22d846b">
+        sha1="34535802137f48a018afb4f60a4cf10798ee57d5">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_45224b958a50155d3c7ef982deaea943b63f53d4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_424fc3cc5c561adb36f64b0ac9498eed183af992\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.getkeepsafe.relinker\relinker\1.2.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.getkeepsafe.relinker-relinker-1.2.2_a1a8b678681893f904a300fdaee2d49e4d8e59f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\io.realm\realm-android-library\2.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a8b6e31343b6de9a37f6d81d7fdda29b3b4a90de">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.realm-realm-android-library-2.1.1_fe38e5899439193fbbcbf90e2354f8c40758396a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\hamcrest-core-1.3_ca0f12a3c9427cffa8811123f41d80927e7d4eb8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_138f99a5b03398ca44675da4560eaa790085ee42\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_ff252a0ebffd61543e9ce31284d8e433704d4014\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsr305-2.0.1_a22b4b3f6353f72061fea687c431e7739f92f03a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\commons-cli\commons-cli\1.2\2bf96b7aa8b611c177d329452af1dc933e14501c\commons-cli-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-cli-1.2_6557dd6d7268dbabb6d9767b8cb9b469ad969108\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,12 +111,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\io.realm\realm-annotations\2.1.1\d5a450f6ad58f779e924381744ecff0ef7e8d453\realm-annotations-2.1.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_424fc3cc5c561adb36f64b0ac9498eed183af992\classes.dex" />
+        sha1="d5a450f6ad58f779e924381744ecff0ef7e8d453">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\realm-annotations-2.1.1_7a5e721ba3a7e623e4b392150d1c501d1daa2a8d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.facebook.stetho\stetho\1.4.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="26b6f0185cbba8917ba9d9d0bd170f95311622ab">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.stetho-stetho-1.4.1_87f1318abdfe34ade3cced9f0ec2971efa4f5d1b\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -70,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="555b533865d9b81807f196382e489fc4e8d239df">
+        sha1="5914cf78945bc1e8690ba9bdd075482650fe7d3c">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_85c90c684d542a413145e72ac9ec7d71323f5703\classes.dex" />
     </item>
     <item
@@ -90,15 +162,6 @@
         revision="24.0.2"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_46ad3c155919e8cffb0d1eb196e1a955b9374605\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\hamcrest-core-1.3_ca0f12a3c9427cffa8811123f41d80927e7d4eb8\classes.dex" />
     </item>
 
 </items>

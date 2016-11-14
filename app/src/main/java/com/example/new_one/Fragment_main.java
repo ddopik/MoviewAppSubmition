@@ -20,6 +20,10 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.example.new_one.Model.RealmContract;
+import com.example.new_one.VollyParser.VollyJasonParser;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -36,6 +40,7 @@ public class Fragment_main extends Fragment {
     GridView movieGridView;
     ListView movieListView;
     View movieView;
+    Realm realm;
 
 
     @Override
@@ -47,6 +52,14 @@ public class Fragment_main extends Fragment {
 
         movieGridView = (GridView) fragmentView.findViewById(R.id.gridList);
         movieListView = (ListView) fragmentView.findViewById(R.id.movieList);
+
+
+
+        /////////////////AsynckTask using Volly
+        VollyJasonParser vollyParser=new VollyJasonParser(getActivity(),myUrl);
+
+        //////////////
+
 
         ////////
         //***here get and set argument of my url
@@ -61,10 +74,18 @@ public class Fragment_main extends Fragment {
                     /////using sqlite
                     JasonParser jasonApi = new JasonParser();
                     jasonApiItems = jasonApi.myJSONParser(output);
-                    MyDataBaseContract db=new MyDataBaseContract(getActivity());
-                    db.addMovie(jasonApiItems);
+
+                    //offline Sqlite DataBase
+//                    MyDataBaseContract db=new MyDataBaseContract(getActivity());
+//                    db.addMovie(jasonApiItems);
+                    ////
+
                     ///////using Realm DB
-                    RealmContract newDb=new RealmContract(output);
+//                    realm = Realm.getDefaultInstance();
+//                    RealmContract myRealm=new RealmContract(output);
+//                    myRealm.setQuery();
+//                    myRealm.getQuery(getActivity());
+
                     ///////
 
                 } catch (Exception e) {
@@ -98,7 +119,7 @@ public class Fragment_main extends Fragment {
         };
 
 
-        myTask.execute(myUrl,"100");
+        myTask.execute(myUrl,"3");
         return fragmentView;
 
     }

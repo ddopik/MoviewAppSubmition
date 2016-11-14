@@ -1,14 +1,20 @@
 package com.example.new_one.Model;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.example.new_one.MainActivity;
 
 import java.io.InputStream;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmObject;
+import io.realm.RealmResults;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
+import io.realm.internal.Context;
 import io.realm.internal.IOException;
 
 /**
@@ -29,35 +35,38 @@ public RealmContract(String myJasonStrin) {
 
 
 
-//    private void loadJsonFromStream() throws IOException {
-//        // Use streams if you are worried about the size of the JSON whether it was persisted on disk
-//        // or received from the network.
-//        InputStream stream = getAssets().open("cities.json");
-//
-//        // Open a transaction to store items into the realm
-//        realm.beginTransaction();
-//        try {
-//            realm.createAllFromJson(City.class, stream);
-//            realm.commitTransaction();
-//        } catch (IOException e) {
-//            // Remember to cancel the transaction if anything goes wrong.
-//            realm.cancelTransaction();
-//        } finally {
-//            if (stream != null) {
-//                stream.close();
-//            }
-//        }
-//    }
 
     public void setQuery()
     {
+
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
 
-                realm.createAllFromJson(Movies.class, jasonString);
+                realm.createObjectFromJson(Movies.class,jasonString);
+//                realm.createAllFromJson(Movies.class,jasonString);
+//                realm.createOrUpdateObjectFromJson(Movies.class, jasonString);
+
             }
         });
+    }
+
+
+    public void getQuery(Activity ac)
+    {
+        Log.e("Get Realm query --->","Start");
+        RealmResults<Movies> movies;
+
+        int  i=0;
+                RealmResults<Movies>  mv = realm.where(Movies.class).findAll();
+                for (Movies movie : mv) {
+                    Toast.makeText(ac,"here-->"+i,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(ac,+i+"--"+"values-->"+movie.getPoster_path(),Toast.LENGTH_LONG).show();
+                    Log.e("Real VAlue --->",movie.getPoster_path());
+                    i++;
+                }
+
+
     }
 
 }
