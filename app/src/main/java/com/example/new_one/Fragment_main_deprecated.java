@@ -30,7 +30,7 @@ import static android.view.View.VISIBLE;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
-public class Fragment_main extends Fragment {
+public class Fragment_main_deprecated extends Fragment {
 
 
     private List<Map<String, String>> jasonApiItems;
@@ -71,7 +71,7 @@ public class Fragment_main extends Fragment {
             public void processFinish(String output) {
                 try {
                     Log.e("--JASON Result is----->", output);
-                    /////using sqlite
+
                     JasonParser jasonApi = new JasonParser();
                     jasonApiItems = jasonApi.myJSONParser(output);
 
@@ -112,14 +112,11 @@ public class Fragment_main extends Fragment {
                 }
 
                 adapter.notifyDataSetChanged();
-
-                ///gv.setOnScrollListener(new SampleScrollListener(this)); what is this
-
             }
         };
 
 
-        myTask.execute(myUrl,"3");
+        myTask.execute(myUrl,"5");
         return fragmentView;
 
     }
@@ -137,7 +134,7 @@ public class Fragment_main extends Fragment {
 //                intentVar.setList(jasonApiItems);
 //
 //                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
-//                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main.this.jasonApiItems);
+//                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main_deprecated.this.jasonApiItems);
 //                myIntent.putExtra("singleMoview",intentVar);
 //                myIntent.putExtra("position",position);
 //                startActivity(myIntent);
@@ -153,7 +150,7 @@ public class Fragment_main extends Fragment {
                 intentVar.setList(jasonApiItems);
 
                 Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
-                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main.this.jasonApiItems);
+                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main_deprecated.this.jasonApiItems);
                 myIntent.putExtra("singleMoview",intentVar);
                 myIntent.putExtra("position",position);
                 startActivity(myIntent);
@@ -162,6 +159,7 @@ public class Fragment_main extends Fragment {
 
             }
         });
+
            movieGridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,int position, long id) {
 
@@ -169,7 +167,7 @@ public class Fragment_main extends Fragment {
                 intentVar.setList(jasonApiItems);
 
                 Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
-                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main.this.jasonApiItems);
+                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main_deprecated.this.jasonApiItems);
                 myIntent.putExtra("singleMoview",intentVar);
                 myIntent.putExtra("position",position);
                 startActivity(myIntent);
