@@ -9,70 +9,70 @@ import io.realm.annotations.Required;
 public class Movies  extends RealmObject  {
 
 
-//  @PrimaryKey
-//    public int id;
+  @PrimaryKey
+  private int id;
     @Required
-    public String original_title;
+    private String Movie_Name;
     @Required
-    public String overview;
+    private String Movie_Overview;
     @Required
-    public String poster_path;
+    private String Movie_Img;
     @Ignore
-    public String release_date;
+    private String Moview_Year;
     @Ignore
-    public float popularity;
+    private float Moview_Rating;
     @Ignore
-    public float vote_average;
+    private float vote_average;
     @Ignore
-    public int vote_count;
+    private int vote_count;
 
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-    public String getOriginal_title() {
-        return original_title;
+    public int getId() {
+        return id;
     }
 
-    public void setOriginal_title(String original_title) {
-        this.original_title = original_title;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getOverview() {
-        return overview;
+    public String getMovie_Name() {
+        return Movie_Name;
     }
 
-    public void setOverview(String overview) {
-        this.overview = overview;
+    public void setMovie_Name(String movie_Name) {
+        Movie_Name = movie_Name;
     }
 
-    public String getPoster_path() {
-        return poster_path;
+    public String getMovie_Overview() {
+        return Movie_Overview;
     }
 
-    public void setPoster_path(String poster_path) {
-        this.poster_path = poster_path;
+    public void setMovie_Overview(String movie_Overview) {
+        Movie_Overview = movie_Overview;
     }
 
-    public String getRelease_date() {
-        return release_date;
+    public String getMovie_Img() {
+        return Movie_Img;
     }
 
-    public void setRelease_date(String release_date) {
-        this.release_date = release_date;
+    public void setMovie_Img(String movie_Img) {
+        Movie_Img = movie_Img;
     }
 
-    public float getPopularity() {
-        return popularity;
+    public String getMoview_Year() {
+        return Moview_Year;
     }
 
-    public void setPopularity(float popularity) {
-        this.popularity = popularity;
+    public void setMoview_Year(String moview_Year) {
+        Moview_Year = moview_Year;
+    }
+
+    public float getMoview_Rating() {
+        return Moview_Rating;
+    }
+
+    public void setMoview_Rating(float moview_Rating) {
+        Moview_Rating = moview_Rating;
     }
 
     public float getVote_average() {

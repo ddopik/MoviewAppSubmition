@@ -1,7 +1,11 @@
 package com.example.new_one.VollyParser;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -11,6 +15,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.new_one.CustomViewAdapter;
+import com.example.new_one.Model.RealmContract;
+import com.example.new_one.R;
 
 
 import org.json.JSONArray;
@@ -22,11 +29,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.realm.Realm;
+
 import static com.android.volley.VolleyLog.TAG;
 
 
 public class VollyJasonParser {
 
+    GridView movieGridView;
+    ListView movieListView;
+    Bundle viewType;
     RequestQueue requestQueue;
     String JsonObjURL;
     Activity myActivity;
@@ -38,16 +50,19 @@ public class VollyJasonParser {
     int voteAverage;
     List<Map<String,String>> listMapData=new ArrayList<Map<String,String>>();
 
-    public VollyJasonParser(Activity act,String url) {
+    public VollyJasonParser(Activity act,View fragmentView, Bundle SharedPrefViewType, String url) {
 
         requestQueue = Volley.newRequestQueue(act);
         JsonObjURL=url;
         myActivity=act;
+        viewType=SharedPrefViewType;
+        movieGridView = (GridView) fragmentView.findViewById(R.id.gridList);
+        movieListView = (ListView) fragmentView.findViewById(R.id.movieList);
     }
         /**
          * Method to make json object request where json response starts wtih {
          * */
-        private List makeJsonObjectRequest() {
+        public List makeJsonObjectRequest() {
 
 
             JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,JsonObjURL, null,
@@ -80,8 +95,30 @@ public class VollyJasonParser {
                             ///how you get data..
                             ///->listMapData.get(0).get("name");
                             /////////////
+
                         }
+
+
+                        ///////using Realm DB
+                    Realm  realm = Realm.getDefaultInstance();
+                    RealmContract myRealm=new RealmContract();
+                    myRealm.setQuery(listMapData);
+                    myRealm.getQuery();
+                        ///////
+
+                        /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
+                        CustomViewAdapter  adapter = new CustomViewAdapter(myActivity,listMapData); /// send to custom adapter to render view
+                        if(viewType.getString("viewBy").equals("Grid")) {
+                            movieGridView.setAdapter(adapter); //provide activity for Grid view
+                            //  movieView=movieGridView; //test
+                        }else{
+                            movieListView.setAdapter(adapter); //provide activity for list view
+                            //movieView=movieListView;//test
+                        }
+
+                        adapter.notifyDataSetChanged();
                     }
+
 
                     catch (JSONException e)
                     {

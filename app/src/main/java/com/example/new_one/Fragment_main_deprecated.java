@@ -36,7 +36,7 @@ public class Fragment_main_deprecated extends Fragment {
     private List<Map<String, String>> jasonApiItems;
     String myUrl = "https://api.themoviedb.org/3/movie/top_rated?api_key=61b43cea1b1dc0726b2c14fcce079ffe";
     View fragmentView;
-    CustomViewAdapter adapter;
+
     GridView movieGridView;
     ListView movieListView;
     View movieView;
@@ -56,7 +56,7 @@ public class Fragment_main_deprecated extends Fragment {
 
 
         /////////////////AsynckTask using Volly
-        VollyJasonParser vollyParser=new VollyJasonParser(getActivity(),myUrl);
+      //  VollyJasonParser vollyParser=new VollyJasonParser(getActivity(),myUrl);
 
         //////////////
 
@@ -102,7 +102,7 @@ public class Fragment_main_deprecated extends Fragment {
 
 
 /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
-                adapter = new CustomViewAdapter(getActivity(),jasonApiItems); /// send to custom adapter to render view
+                CustomViewAdapter  adapter = new CustomViewAdapter(getActivity(),jasonApiItems); /// send to custom adapter to render view
                 if(getArguments().getString("viewBy").equals("Grid")) {
                     movieGridView.setAdapter(adapter); //provide activity for Grid view
                   //  movieView=movieGridView; //test

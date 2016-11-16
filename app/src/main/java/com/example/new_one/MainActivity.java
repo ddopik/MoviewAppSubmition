@@ -1,8 +1,6 @@
 package com.example.new_one;
 
-import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,15 +10,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.app.Activity;
-import android.widget.Toast;;import com.facebook.stetho.Stetho;
+import android.widget.Toast;;import com.example.new_one.VollyParser.Fragment_main;
+import com.facebook.stetho.Stetho;
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.Realm;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,9 +34,15 @@ public class MainActivity extends AppCompatActivity {
         Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
         Realm.setDefaultConfiguration(realmConfig);
 
-        Stetho.initializeWithDefaults(this);
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                        .build());
+
 ///// Adding fragment dynamiccly thats Really helped for Controlling fragment
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+//        Fragment_main_deprecated fg = getFrgInstance();
         Fragment_main fg = getFrgInstance();
         ft.add(R.id.ContainerActivityID, fg);
         ft.commit();
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Refresh:
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                Fragment_main_deprecated fg = getFrgInstance();
                 Fragment_main fg = getFrgInstance();
                 ft.replace(R.id.ContainerActivityID, fg);
                 ft.commit();
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+//        Fragment_main_deprecated fg = getFrgInstance();
         Fragment_main fg = getFrgInstance();
         ft.replace(R.id.ContainerActivityID, fg);
         ft.commit();
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //public Fragment_main_deprecated getFrgInstance() {   ///creating object of my Main Fragment
     public Fragment_main getFrgInstance() {   ///creating object of my Main Fragment
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -136,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
         String genere = sharedPrefs.getString("prefGenrePref", "NULL");
         String year = sharedPrefs.getString("prefSetYear", "NULL");
         String viewBy = sharedPrefs.getString("prefViewByFrequency", "NULL");
+//        Fragment_main_deprecated fg = new Fragment_main_deprecated();
         Fragment_main fg = new Fragment_main();
         Bundle arg = new Bundle();
 

@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="34535802137f48a018afb4f60a4cf10798ee57d5">
+        sha1="2efc27ac5dfeceae8eb609afa8523fd73a226d9b">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_45224b958a50155d3c7ef982deaea943b63f53d4\classes.dex" />
     </item>
     <item
@@ -45,6 +45,15 @@
         revision="24.0.2"
         sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.getkeepsafe.relinker-relinker-1.2.2_a1a8b678681893f904a300fdaee2d49e4d8e59f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.uphyca\stetho_realm\2.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4d668d438bf1a032b186b83151f4da16f32c498b">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.uphyca-stetho_realm-2.0.0_7de7f289c470cae3ea2c8dc6774573c4b39fe96d\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -111,6 +120,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.0_275c4eba6b1107c8ee458a2662679b85e0001364\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\ddopik\.gradle\caches\modules-2\files-2.1\io.realm\realm-annotations\2.1.1\d5a450f6ad58f779e924381744ecff0ef7e8d453\realm-annotations-2.1.1.jar"
         jumboMode="true"
         optimize="true"
@@ -142,7 +160,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="5914cf78945bc1e8690ba9bdd075482650fe7d3c">
+        sha1="67c94b3d5e0a69f78d65e5bd9959d79dec29faf1">
         <dex dex="C:\Users\ddopik\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_85c90c684d542a413145e72ac9ec7d71323f5703\classes.dex" />
     </item>
     <item
