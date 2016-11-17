@@ -20,6 +20,7 @@ import io.realm.RealmResults;
 import io.realm.Sort;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
+import io.realm.exceptions.RealmMigrationNeededException;
 import io.realm.internal.Context;
 import io.realm.internal.IOException;
 
@@ -46,6 +47,25 @@ public class RealmContract {
 // Obtain a Realm instance
 
          int movieId;
+
+
+        Realm realm = Realm.getDefaultInstance();
+
+
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                try {
+
+                    realm.delete(Movies.class);
+                    Log.e("Realm_State","Realm Movies Obj Deleted");
+                    //Realm file has been deleted.
+                } catch (Exception ex){
+                    Log.e("Realm_State","Realm Movies Obj Deleting crash or no exsiting obj",ex);
+                    //No Realm file to remove.
+                }
+            }
+        });
         Log.e("Realm --->", "Insert Realm object");
         try{
             movieId=getLastMovieId()+1;
@@ -53,8 +73,10 @@ public class RealmContract {
         catch(Exception e)
         {
             Log.e("Realm_State","No old Record found");
-             movieId=0;
+            movieId=0;
         }
+
+
         int i = 0;
         while (i < jasonItems.size()) {
             Map<String, String> single_row = jasonItems.get(i);
@@ -70,7 +92,10 @@ public class RealmContract {
             i++;
             movieId++;
 
-            Realm realm = Realm.getDefaultInstance();
+
+
+
+
             realm.beginTransaction();
             Movies RealmMv=realm.copyToRealm(mv);
             realm.commitTransaction();
@@ -114,7 +139,7 @@ public class RealmContract {
             mapData.put("Movie_Name",mv.get(i).getMovie_Name());
             mapData.put("Moview_Rating",mv.get(i).getMoview_Rating()+"");
             jasonApiItems.add(i,mapData);
-            Log.e("Real VAlue --->", mv.get(i).getMovie_Img());
+            //Log.e("Real VAlue --->", mv.get(i).getMovie_Img());
            // Toast.makeText(ac, +i + "--" + "values-->" + mv.get(i).getId(), Toast.LENGTH_SHORT).show();
 
         }

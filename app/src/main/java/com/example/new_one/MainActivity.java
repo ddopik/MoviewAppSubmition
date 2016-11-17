@@ -3,8 +3,10 @@ package com.example.new_one;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -16,6 +18,7 @@ import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.exceptions.RealmMigrationNeededException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         Realm.init(this); // Initialize Realm. Should only be done once when the application starts.
         RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
-        Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
+//        Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
         Realm.setDefaultConfiguration(realmConfig);
 
         Stetho.initialize(
@@ -41,12 +44,18 @@ public class MainActivity extends AppCompatActivity {
                         .build());
 
 ///// Adding fragment dynamiccly thats Really helped for Controlling fragment
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-//        Fragment_main_deprecated fg = getFrgInstance();
-        Fragment_main fg = getFrgInstance();
-        ft.add(R.id.ContainerActivityID, fg);
-        ft.commit();
+        ////getSupportFragmentManager() vs getFragmentManager() ??????######
+
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment_main fg = getFrgInstance();
+            ft.replace(R.id.ContainerActivityID,fg,"fragment_activity");
+            ft.commit();
+
 /////
+
+
+
+
     }
 
 
@@ -150,6 +159,30 @@ public class MainActivity extends AppCompatActivity {
         arg.putString("viewBy", viewBy);
         fg.setArguments(arg);
         return fg;
+    }
+
+    public Realm buildDatabase(){
+
+
+//        Realm.init(this); // Initialize Realm. Should only be done once when the application starts.
+//        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
+////        Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
+//        Realm.setDefaultConfiguration(realmConfig);
+
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
+
+        try {
+            return Realm.getInstance(realmConfiguration);
+        } catch (RealmMigrationNeededException e){
+            try {
+                Realm.deleteRealm(realmConfiguration);
+                //Realm file has been deleted.
+                return Realm.getInstance(realmConfiguration);
+            } catch (Exception ex){
+                throw ex;
+                //No Realm file to remove.
+            }
+        }
     }
 }
 

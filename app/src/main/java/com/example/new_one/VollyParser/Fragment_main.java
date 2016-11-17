@@ -52,6 +52,9 @@ public class Fragment_main extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // retain this fragment
+        setRetainInstance(true);
         setHasOptionsMenu(true);
         Log.e("FragmentMenu--->", "onCreateView_FragmentMenu called");
         fragmentView = inflater.inflate(R.layout.fragment_activity, container, false);
