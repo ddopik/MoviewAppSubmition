@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.new_one.View.ViewHolder_ListItem;
 import com.squareup.picasso.Picasso;
 
 ///Create a Custom adapter which extends ""'BaseAdapter""" , 
@@ -56,11 +57,25 @@ public class CustomViewAdapter extends BaseAdapter  {
 	    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	    public View getView(int position, View convertView, ViewGroup parent) {
 
+			ViewHolder_ListItem listViewHolder;
+
 	        if (convertView == null) {
 	            LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 	            convertView = mInflater.inflate(R.layout.custom_grid_item, null);
 
+				listViewHolder=new ViewHolder_ListItem();
+				listViewHolder.gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
+				listViewHolder.movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
+                             // store the holder with the view.
+				convertView.setTag(listViewHolder);
 	        }
+			else
+			{
+				// we've just avoided calling findViewById() on resource everytime
+				// just use the viewHolder
+
+				listViewHolder=(ViewHolder_ListItem) convertView.getTag();
+			}
 
 			ImageView gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
 			TextView movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
@@ -73,11 +88,13 @@ public class CustomViewAdapter extends BaseAdapter  {
 	        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			Map<String, String> single_row = rowItem.get(position);/// select object number n from the object_array
 
-//			gridImg=//gridImg.setText(single_row.get("minTemp")); ///Sets the string value of the TextView---->
-			movTitle.setText(single_row.get("Movie_Name")); ///Sets the string value of the TextView---->
-			Picasso.with(context).load(single_row.get("Movie_Img")).into(gridImg);
-			Log.e("---intialize value_1",single_row.get("Movie_Name"));
-			Log.e("---intialize value_2",single_row.get("Movie_Img"));
+
+			listViewHolder.movTitle.setText(single_row.get("Movie_Name"));
+			Picasso.with(context).load(single_row.get("Movie_Img")).into(listViewHolder.gridImg);
+			//movTitle.setText(single_row.get("Movie_Name")); ///Sets the string value of the TextView---->
+			//Picasso.with(context).load(single_row.get("Movie_Img")).into(gridImg);
+//			Log.e("---intialize value_1",single_row.get("Movie_Name"));
+//			Log.e("---intialize value_2",single_row.get("Movie_Img"));
 			Log.e("Number_Of_Items--->","---"+getCount()+"");
 
 

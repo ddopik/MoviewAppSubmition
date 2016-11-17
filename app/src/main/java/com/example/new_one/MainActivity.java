@@ -161,29 +161,7 @@ public class MainActivity extends AppCompatActivity {
         return fg;
     }
 
-    public Realm buildDatabase(){
 
-
-//        Realm.init(this); // Initialize Realm. Should only be done once when the application starts.
-//        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
-////        Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
-//        Realm.setDefaultConfiguration(realmConfig);
-
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
-
-        try {
-            return Realm.getInstance(realmConfiguration);
-        } catch (RealmMigrationNeededException e){
-            try {
-                Realm.deleteRealm(realmConfiguration);
-                //Realm file has been deleted.
-                return Realm.getInstance(realmConfiguration);
-            } catch (Exception ex){
-                throw ex;
-                //No Realm file to remove.
-            }
-        }
-    }
 }
 
 

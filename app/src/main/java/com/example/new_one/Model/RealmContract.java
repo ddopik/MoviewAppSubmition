@@ -58,7 +58,7 @@ public class RealmContract {
                 try {
 
                     realm.delete(Movies.class);
-                    Log.e("Realm_State","Realm Movies Obj Deleted");
+                    Log.e("Realm_State","Realm Movies Obj's Deleted");
                     //Realm file has been deleted.
                 } catch (Exception ex){
                     Log.e("Realm_State","Realm Movies Obj Deleting crash or no exsiting obj",ex);
@@ -99,7 +99,7 @@ public class RealmContract {
             realm.beginTransaction();
             Movies RealmMv=realm.copyToRealm(mv);
             realm.commitTransaction();
-
+            Log.e("Realm --->", "Insert Realm object");
 
         }
 

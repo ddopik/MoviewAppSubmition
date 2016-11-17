@@ -99,8 +99,6 @@ public ReaquestApi(String url)
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-//        TextView textView = (TextView) findViewById(R.id.print);
-//        textView.setText(xs);
 
     }
 
