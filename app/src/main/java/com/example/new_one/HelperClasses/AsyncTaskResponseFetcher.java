@@ -1,13 +1,13 @@
-package com.example.new_one;
+package com.example.new_one.HelperClasses;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.ProgressBar;
+
+import com.example.new_one.Controller_interfacer.AsyncTaskResponse;
+import com.example.new_one.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;

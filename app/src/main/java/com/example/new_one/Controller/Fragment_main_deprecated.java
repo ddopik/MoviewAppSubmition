@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.Controller;
 
 import java.util.List;
 import java.util.Map;
@@ -13,20 +13,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.example.new_one.Model.RealmContract;
-import com.example.new_one.VollyParser.VollyJasonParser;
+import com.example.new_one.Controller_interfacer.AsyncTaskResponse;
+import com.example.new_one.HelperClasses.AsyncTaskResponseFetcher;
+import com.example.new_one.HelperClasses.CustomViewAdapter;
+import com.example.new_one.HelperClasses.SerializeObject;
+import com.example.new_one.HelperClasses.JasonParser;
+import com.example.new_one.Model.MyDataBaseContract;
+import com.example.new_one.R;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 import static android.view.View.INVISIBLE;
-import static android.view.View.VISIBLE;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
@@ -102,7 +104,7 @@ public class Fragment_main_deprecated extends Fragment {
 
 
 /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
-                CustomViewAdapter  adapter = new CustomViewAdapter(getActivity(),jasonApiItems); /// send to custom adapter to render view
+                CustomViewAdapter adapter = new CustomViewAdapter(getActivity(),jasonApiItems); /// send to custom adapter to render view
                 if(getArguments().getString("viewBy").equals("Grid")) {
                     movieGridView.setAdapter(adapter); //provide activity for Grid view
                   //  movieView=movieGridView; //test
@@ -133,7 +135,7 @@ public class Fragment_main_deprecated extends Fragment {
 //                SerializeObject intentVar=new SerializeObject();
 //                intentVar.setList(jasonApiItems);
 //
-//                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
+//                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewFragment.class);
 //                //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main_deprecated.this.jasonApiItems);
 //                myIntent.putExtra("singleMoview",intentVar);
 //                myIntent.putExtra("position",position);
@@ -149,7 +151,7 @@ public class Fragment_main_deprecated extends Fragment {
                 SerializeObject intentVar=new SerializeObject();
                 intentVar.setList(jasonApiItems);
 
-                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
+                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewFragment.class);
                 //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main_deprecated.this.jasonApiItems);
                 myIntent.putExtra("singleMoview",intentVar);
                 myIntent.putExtra("position",position);
@@ -166,7 +168,7 @@ public class Fragment_main_deprecated extends Fragment {
                 SerializeObject intentVar=new SerializeObject();
                 intentVar.setList(jasonApiItems);
 
-                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewActivity.class);
+                Intent myIntent = new Intent(getActivity().getApplicationContext(),SingleMoviewFragment.class);
                 //myIntent.putParcelableArrayListExtra("singleMoview",(ArrayList<? extends Parcelable>) Fragment_main_deprecated.this.jasonApiItems);
                 myIntent.putExtra("singleMoview",intentVar);
                 myIntent.putExtra("position",position);

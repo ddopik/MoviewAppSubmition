@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.Model;
 
 /**
  * Created by ddopik on 27/10/2016.
@@ -11,6 +11,8 @@ package com.example.new_one;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
         import android.util.Log;
+
+        import com.example.new_one.TestClasses.MyShow;
 
         import java.util.ArrayList;
         import java.util.HashMap;

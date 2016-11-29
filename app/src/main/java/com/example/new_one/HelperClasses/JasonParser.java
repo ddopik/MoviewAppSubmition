@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.HelperClasses;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +48,8 @@ public class JasonParser {
 
             ////////////// if you wan't  to use map
             Map<String,String> mapData = new HashMap<String,String>();
-            mapData.put("id",i+" ");
+            String ii=Integer.toString(i);
+            mapData.put("id",ii+" ");
             mapData.put("Movie_Img",imgUrl);
             mapData.put("Movie_Overview",overview);
             mapData.put("Movie_Name",original_title);

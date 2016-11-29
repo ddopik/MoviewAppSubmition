@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.HelperClasses;
 
 //used for setting and getting row data of each items in listfragment    ( imageview and TextView ).
 public class RowItem {

@@ -16,8 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.new_one.MainActivity"
-            android:configChanges="keyboardHidden|orientation"
+            android:name="com.example.new_one.Controller.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,17 +30,33 @@
                 android:name="com.example.new_one.Fragment_main"
                 android:label="@string/app_name" >
             </activity>
+            <activity
+                android:name="com.example.new_one.Controller.SingleMoviewFragment"
+                android:label="@string/app_name" >
+            </activity>
         </activity>
         <activity
-            android:name="com.example.new_one.SingleMoviewActivity"
+            android:name="com.example.new_one.Controller.SingleMoviewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.example.new_one.UserSettingActivity"
-            android:label="@string/app_name" >
+            android:name="com.example.new_one.Controller.UserSettingActivity"
+            android:label="@string/app_settinge" >
         </activity>
         <activity
-            android:name="com.example.new_one.AndroidDatabaseManager"
+            android:name="com.example.new_one.Controller.ReviewsActivity"
+            android:label="@string/reviewsDialogName"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.new_one.Controller.TrailerActivity"
+            android:label="@string/trailerDialogName"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.new_one.HelperClasses.AndroidDatabaseManager"
             android:theme="@style/Theme.AppCompat.Light" />
     </application>
 

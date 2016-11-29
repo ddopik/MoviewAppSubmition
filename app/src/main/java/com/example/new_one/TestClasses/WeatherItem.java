@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.TestClasses;
 
 /**
  * Created by ddopik on 10/19/2016.

@@ -8,38 +8,17 @@
     android:orientation="horizontal" >
 
 
-        <!--<ProgressBar-->
-            <!--android:id="@+id/progress_bar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
-            <!--android:visibility="invisible"-->
-            <!--android:indeterminate="true"-->
-            <!--android:layout_gravity="center" />-->
-    <ProgressBar
-        android:id="@+id/progressbar_Horizontal"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:max="100"
-        android:layout_gravity="center"
-        />
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/ContainerActivityID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal" >
-    <!--<fragment-->
-      <!--android:id="@+id/fragment1"-->
-      <!--android:name="com.example.new_one.Fragment_main_deprecated_deprecated"-->
-      <!--android:layout_width="match_parent"-->
-      <!--android:layout_height="match_parent"-->
-      <!--tools:layout="@layout/activity_main" />-->
+        android:orientation="horizontal"
+        android:background="#555aaa">
 
 
+</LinearLayout >
 
-</RelativeLayout>
+
 </LinearLayout>

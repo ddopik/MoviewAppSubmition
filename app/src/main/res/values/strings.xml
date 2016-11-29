@@ -29,7 +29,9 @@
 
 <!--///-->
 
-
+	<string name="app_settinge">App setting</string>
+	<string name="reviewsDialogName">Trailers</string>
+	<string name="trailerDialogName">Reviews</string>
 	<string name="menu_settings">Settings</string>
 	<string name="title_activity_main">MainActivity</string>
 

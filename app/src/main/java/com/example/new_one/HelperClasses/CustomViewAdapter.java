@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.HelperClasses;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.new_one.R;
 import com.example.new_one.View.ViewHolder_ListItem;
 import com.squareup.picasso.Picasso;
 
@@ -58,27 +59,23 @@ public class CustomViewAdapter extends BaseAdapter  {
 	    public View getView(int position, View convertView, ViewGroup parent) {
 
 			ViewHolder_ListItem listViewHolder;
-
 	        if (convertView == null) {
 	            LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-	            convertView = mInflater.inflate(R.layout.custom_grid_item, null);
-
+	            convertView = mInflater.inflate(R.layout.custom_single_item, null);
 				listViewHolder=new ViewHolder_ListItem();
-				listViewHolder.gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
+				listViewHolder.movImg=(ImageView) convertView.findViewById(R.id.mv_img_id);
 				listViewHolder.movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
-                             // store the holder with the view.
-				convertView.setTag(listViewHolder);
+				                                     //// store the holder with the view.
+				convertView.setTag(listViewHolder);////used to mark a view in its hierarchy and does not have to be unique within the hierarchy.
+				                                  //// Tags can also be used to store data within a view without resorting to another data structure.
 	        }
 			else
 			{
-				// we've just avoided calling findViewById() on resource everytime
-				// just use the viewHolder
-
 				listViewHolder=(ViewHolder_ListItem) convertView.getTag();
 			}
 
-			ImageView gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
-			TextView movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
+//			ImageView gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
+//			TextView movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
 
 	    /////////////////////Stage_2///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -87,15 +84,13 @@ public class CustomViewAdapter extends BaseAdapter  {
 			 /////Final Stage
 	        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			Map<String, String> single_row = rowItem.get(position);/// select object number n from the object_array
-
-
-			listViewHolder.movTitle.setText(single_row.get("Movie_Name"));
-			Picasso.with(context).load(single_row.get("Movie_Img")).into(listViewHolder.gridImg);
+			//listViewHolder.movTitle.setText(single_row.get("Movie_Name"));
+			Picasso.with(context).load(single_row.get("Movie_Img")).into(listViewHolder.movImg);
 			//movTitle.setText(single_row.get("Movie_Name")); ///Sets the string value of the TextView---->
 			//Picasso.with(context).load(single_row.get("Movie_Img")).into(gridImg);
 //			Log.e("---intialize value_1",single_row.get("Movie_Name"));
 //			Log.e("---intialize value_2",single_row.get("Movie_Img"));
-			Log.e("Number_Of_Items--->","---"+getCount()+"");
+			Log.e("Number_Of_Adapter_Items--->","---"+getCount()+"");
 
 
 

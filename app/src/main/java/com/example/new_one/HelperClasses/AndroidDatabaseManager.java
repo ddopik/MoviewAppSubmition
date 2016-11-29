@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.HelperClasses;
 
 //all required import files
 import java.util.ArrayList;
@@ -29,6 +29,8 @@ import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.new_one.Model.MyDataBaseContract;
 
 public class AndroidDatabaseManager extends Activity implements OnItemClickListener {
 

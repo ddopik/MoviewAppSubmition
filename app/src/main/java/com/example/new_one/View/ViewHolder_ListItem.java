@@ -10,6 +10,6 @@ import com.example.new_one.R;
  */
 
 public class ViewHolder_ListItem {
-    public ImageView gridImg;
+    public ImageView movImg;
     public  TextView movTitle;
 }

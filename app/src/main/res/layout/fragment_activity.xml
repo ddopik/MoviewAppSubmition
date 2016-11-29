@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/fragment1">
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pbFooterLoading"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible" />
     <GridView
-        android:numColumns="2"
-        android:gravity="center"
-        android:columnWidth="100dp"
-        android:stretchMode="columnWidth"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+
         android:id="@+id/gridList"
+        android:horizontalSpacing="0dp"
+        android:verticalSpacing="0dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:numColumns="2"
+        android:columnWidth="185dp"
+        android:gravity="clip_horizontal"
+        android:stretchMode="columnWidth"
+
+
         />
     <ListView
         android:id="@+id/movieList"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    </ListView>
-    <!--<TextView-->
-        <!--android:id="@android:id/empty"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" >-->
-    <!--</TextView>-->
+        android:horizontalSpacing="0dp"
+        android:verticalSpacing="0dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:numColumns="2"
+        android:columnWidth="185dp"
+        android:gravity="clip_horizontal"
+        android:stretchMode="columnWidth"
 
+        >
+    </ListView>
+    <!--android:visibility="gone"-->
 
 </LinearLayout>

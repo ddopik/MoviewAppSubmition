@@ -1,4 +1,4 @@
-package com.example.new_one;
+package com.example.new_one.HelperClasses;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,8 +9,6 @@ import java.net.URL;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class ReaquestApi extends AsyncTask<String, Integer, String> {
 

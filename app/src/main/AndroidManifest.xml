@@ -5,7 +5,7 @@
     android:versionName="1.0">
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="11"
         android:targetSdkVersion="23" />
 
     <application
@@ -14,9 +14,9 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Controller.MainActivity"
             android:label="@string/app_name"
-            android:configChanges="keyboardHidden|orientation"
+
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,15 +28,35 @@
         <activity android:name=".Fragment_main"
                  android:label="@string/app_name">
         </activity>
-        </activity>  <activity android:name=".SingleMoviewActivity"
-                 android:label="@string/app_name">
+            <activity android:name=".Controller.SingleMoviewFragment"
+                android:label="@string/app_name">
+
+            </activity>
+        </activity>
+
+        <activity android:name=".Controller.SingleMoviewActivity"
+            android:label="@string/app_name">
 
         </activity>
-        <activity android:name=".UserSettingActivity"
-                 android:label="@string/app_name">
+
+
+        <activity android:name=".Controller.UserSettingActivity"
+                 android:label="@string/app_settinge">
 
         </activity>
-        <activity android:name=".AndroidDatabaseManager"
+                <activity android:name=".Controller.ReviewsActivity"
+                    android:theme="@android:style/Theme.Holo.Light.Dialog"
+                    android:noHistory="true"
+                 android:label="@string/reviewsDialogName">
+
+        </activity>
+                <activity android:name=".Controller.TrailerActivity"
+                    android:theme="@android:style/Theme.Holo.Light.Dialog"
+                    android:noHistory="true"
+                 android:label="@string/trailerDialogName">
+
+        </activity>
+        <activity android:name=".HelperClasses.AndroidDatabaseManager"
             android:theme="@style/Theme.AppCompat.Light"/>
 
     </application>
