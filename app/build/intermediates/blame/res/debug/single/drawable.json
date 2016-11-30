@@ -92,12 +92,12 @@
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\src\\main\\res\\drawable\\tutorials.png"
     },
     {
-        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\os.png",
-        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\src\\main\\res\\drawable\\os.png"
-    },
-    {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\os.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\src\\main\\res\\drawable\\os.png"
     },
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",

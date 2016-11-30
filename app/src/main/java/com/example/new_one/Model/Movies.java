@@ -33,6 +33,7 @@ public class Movies extends RealmObject {
     private float vote_average;
     @Ignore
     private int vote_count;
+
     private RealmList<MoviesTrailer> moviesTrailer;
     private RealmList<MoviesReviews> moviesReviews;
 
@@ -67,25 +68,41 @@ public class Movies extends RealmObject {
     }
 
 
-    public RealmList<MoviesReviews> getMoviesReviews() {
-        return moviesReviews;
-    }
-
-    public void setMoviesTrailer(MoviesTrailer obj) {
 
 
-        List<MoviesTrailer> myLocalList = getMoviesTrailer();
-        for (int i = 0; i < myLocalList.size(); i++) {
-            if (!myLocalList.get(i).getTrailID().equals(obj.getTrailID())) {
-                getMoviesTrailer().add(obj);
+
+    public void setMoviesTrailer(List<MoviesTrailer> obj) {
+        if (moviesTrailer.size() == 0) {
+            Log.e("Movies_obj-->setMoviesTrailers", "Update  TrailersList current =" + moviesTrailer.size());
+            for (int i = 0; i < obj.size(); i++)
+                moviesTrailer.add(obj.get(i));
+            Log.e("Movies_obj-->setMoviesTrailers", "Insert TrailerObj for firstTime Now size =" + this.moviesTrailer.size());
+
+        }
+        boolean setFlag=false;
+        for (int i = 0; i < obj.size(); i++) {
+
+            for (int y = 0; y < moviesTrailer.size(); y++) {
+                if (moviesTrailer.get(y).getTrailID().equals(obj.get(i).getTrailID())) {
+                    Log.e("Movies_obj-->setMoviesReviews", "RevAlreadyExsist num=" + moviesTrailer.size());
+                    setFlag=false;
+                    break;
+                }
+                if (setFlag==true) {
+                    moviesTrailer.add(obj.get(i));
+                    setFlag=false;
+                    Log.e("Movies_obj-->setMoviesTrailers", "Insert TrailerObj Now size =" + this.moviesTrailer.size());
+                }
             }
-
         }
 
     }
 
+    public RealmList<MoviesReviews> getMoviesReviews() {
+        return moviesReviews;
+    }
 
-    public List getMoviesTrailer() {
+    public RealmList<MoviesTrailer>  getMoviesTrailer() {
         return moviesTrailer;
     }
 

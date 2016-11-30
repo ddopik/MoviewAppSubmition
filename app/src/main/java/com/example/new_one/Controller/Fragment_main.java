@@ -120,7 +120,7 @@ public class Fragment_main extends Fragment {
 
         }
 
-        //  setMainAdapter(getActivity(), getJasonApiItems());
+
 
 
     }

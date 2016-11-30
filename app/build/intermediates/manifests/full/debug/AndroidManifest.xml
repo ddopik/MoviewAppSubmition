@@ -32,28 +32,26 @@
             </activity>
             <activity
                 android:name="com.example.new_one.Controller.SingleMoviewFragment"
-                android:label="@string/app_name" >
+                android:label="@string/singleMovieActivityFg" >
+                <activity
+                    android:name="com.example.new_one.Controller.ReviewsActivity"
+                    android:label="@string/reviewsDialogName"
+                    android:noHistory="true" >
+                </activity>
+                <activity
+                    android:name="com.example.new_one.Controller.TrailerActivity"
+                    android:label="@string/trailerDialogName"
+                    android:noHistory="true" >
+                </activity>
             </activity>
         </activity>
         <activity
             android:name="com.example.new_one.Controller.SingleMoviewActivity"
-            android:label="@string/app_name" >
+            android:label="@string/singleMovieActivity" >
         </activity>
         <activity
             android:name="com.example.new_one.Controller.UserSettingActivity"
             android:label="@string/app_settinge" >
-        </activity>
-        <activity
-            android:name="com.example.new_one.Controller.ReviewsActivity"
-            android:label="@string/reviewsDialogName"
-            android:noHistory="true"
-            android:theme="@android:style/Theme.Holo.Light.Dialog" >
-        </activity>
-        <activity
-            android:name="com.example.new_one.Controller.TrailerActivity"
-            android:label="@string/trailerDialogName"
-            android:noHistory="true"
-            android:theme="@android:style/Theme.Holo.Light.Dialog" >
         </activity>
         <activity
             android:name="com.example.new_one.HelperClasses.AndroidDatabaseManager"

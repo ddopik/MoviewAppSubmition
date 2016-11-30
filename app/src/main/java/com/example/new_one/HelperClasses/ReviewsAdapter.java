@@ -12,30 +12,30 @@ import com.example.new_one.Model.MoviesReviews;
 import com.example.new_one.R;
 import com.example.new_one.View.ViewHolder_ReviewsDialog;
 
-import java.util.List;
-import java.util.Map;
-
 import io.realm.RealmList;
 
 /**
  * Created by ddopik_pc on 28/11/2016.
  */
 
-public class ReviewsAdapter extends BaseAdapter{
+public class ReviewsAdapter extends BaseAdapter {
 
     Context context;
     RealmList<MoviesReviews> reviewsList ;
 
     public ReviewsAdapter(Context context,RealmList<MoviesReviews> RevList)
+
     {
         this.context=context;
         this.reviewsList=RevList;
+
+
     }
 
 
     @Override
     public int getCount() {
-        return 0;
+        return reviewsList.size();
     }
 
     @Override

@@ -6,6 +6,9 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +17,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.new_one.Controller_interfacer.SingleMoviewDialogtListner;
+import com.example.new_one.Controller_interfacer.SingleMoviewReviewsDialogtListner;
 import com.example.new_one.Controller_interfacer.SingleMoviewTrailerDialogListner;
 import com.example.new_one.HelperClasses.VollyJasonParser;
 import com.example.new_one.Model.MoviesReviews;
+import com.example.new_one.Model.MoviesTrailer;
 import com.example.new_one.R;
 import com.example.new_one.HelperClasses.SerializeObject;
 import com.squareup.picasso.Picasso;
@@ -32,7 +36,7 @@ public class SingleMoviewFragment extends Fragment {
 
     List<Map<String, String>> listMapData;
     RealmList<MoviesReviews> RealmRevList;
-    List<Map<String, String>> listTrailData;
+    RealmList<MoviesTrailer> listTrailData;
     int myPosition;
     int movieID;
 
@@ -55,14 +59,11 @@ public class SingleMoviewFragment extends Fragment {
         startMoviewFragment();
 
         VollyJasonParser reviewVolly=new VollyJasonParser(getActivity());
-        reviewVolly.setDialogtListner(new SingleMoviewDialogtListner(){
+        reviewVolly.setReviewsDialogtListner(new SingleMoviewReviewsDialogtListner(){
             @Override
             public void startReviewDialogFragment(Activity mainActivity,RealmList<MoviesReviews> RealmRevList)
             {
-
-
                 setListRevData(RealmRevList);
-
             }
         });
         reviewVolly.makeJsonObjectReviewRequest(getMoviewId(),"reviews");
@@ -70,14 +71,15 @@ public class SingleMoviewFragment extends Fragment {
 
 
         VollyJasonParser TrailerVolly=new VollyJasonParser(getActivity());
-        TrailerVolly.setDialogtTrailersListner(new SingleMoviewTrailerDialogListner(){
+        TrailerVolly.setTrailerDialogtListner(new SingleMoviewTrailerDialogListner(){
             @Override
-            public void startTrailersDialogFragment(Activity mainActivity, List<Map<String, String>> jasonApiTrailerItems)
+            public void startTrailersDialogFragment(Activity mainActivity, RealmList<MoviesTrailer> RealTrailList)
             {
-              //  startTrailerFragment(mainActivity,jasonApiTrailerItems);
-                setListTrailData(jasonApiTrailerItems);
-
+                        setListTrailData(RealTrailList);
             }
+
+
+
         });
         TrailerVolly.makeJsonObjectReviewRequest(getMoviewId(),"videos");
 
@@ -147,24 +149,32 @@ public class SingleMoviewFragment extends Fragment {
     View.OnClickListener startReviewFragment =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            SerializeObject intentVar=new SerializeObject();
-            intentVar.setRealmList(getListRevData());
-            Intent intent=new Intent(getActivity(),ReviewsActivity .class);
-            intent.putExtra("ReviewsList",intentVar);
-            startActivity(intent);
+
+            Bundle arg=new Bundle();
+            arg.putInt("MovieId",getMoviewId());
+
+            FragmentActivity activity = (FragmentActivity)(getActivity());
+            FragmentManager fm = activity.getSupportFragmentManager();
+            ReviewsFragment rf=new ReviewsFragment();
+            rf.setArguments(arg);
+            rf.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialog);
+            rf.show(fm,"ReviewFragment");
+
         }
     };
 
     View.OnClickListener startTrailerFragment =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            SerializeObject intentVar=new SerializeObject();
-            List m=getListTrailData();
-            intentVar.setList(getListTrailData());
+            Bundle arg=new Bundle();
+            arg.putInt("MovieId",getMoviewId());
 
-            Intent intent=new Intent(getActivity(),TrailerActivity .class);
-            intent.putExtra("TrailersList",intentVar);
-            startActivity(intent);
+            FragmentActivity activity = (FragmentActivity)(getActivity());
+            FragmentManager fm = activity.getSupportFragmentManager();
+            TrailerFragment  tf=new TrailerFragment();
+            tf.setArguments(arg);
+            tf.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialog);
+            tf.show(fm,"TrailerFragment");
         }
     };
 
@@ -189,11 +199,11 @@ public class SingleMoviewFragment extends Fragment {
 
 
 
-    public List<Map<String, String>> getListTrailData() {
+    public RealmList<MoviesTrailer> getListTrailData() {
         return listTrailData;
     }
 
-    public void setListTrailData(List<Map<String, String>> listTrailData) {
+    public void setListTrailData(RealmList<MoviesTrailer> listTrailData) {
         this.listTrailData = listTrailData;
     }
 

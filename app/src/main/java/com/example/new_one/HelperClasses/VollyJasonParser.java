@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,7 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.new_one.Controller_interfacer.SingleMoviewDialogtListner;
+import com.example.new_one.Controller_interfacer.SingleMoviewReviewsDialogtListner;
 import com.example.new_one.Controller_interfacer.SingleMoviewTrailerDialogListner;
 import com.example.new_one.Controller_interfacer.VollyAdapter;
 import com.example.new_one.Model.RealmContract;
@@ -46,8 +45,8 @@ public class VollyJasonParser {
     List<Map<String, String>> listDialogData = new ArrayList<Map<String, String>>();
     List<Map<String, String>> listTrailData = new ArrayList<Map<String, String>>();
     private VollyAdapter vollyAdapter;
-    private SingleMoviewDialogtListner dialogtListner;
-    private SingleMoviewTrailerDialogListner dialogtTrailersListner;
+    private SingleMoviewReviewsDialogtListner reviewsDialogtListner;
+    private SingleMoviewTrailerDialogListner trailerDialogtListner;
 
     public VollyJasonParser(Activity act) {
         requestQueue = Volley.newRequestQueue(act);
@@ -76,7 +75,6 @@ public class VollyJasonParser {
                     @Override
                     public void onResponse(JSONObject JSONObjectResponse) {
                         Log.e("Movielist_Request_srart", JSONObjectResponse.toString());
-                        //List<Map<String,String>> listMapDatal=new ArrayList<Map<String,String>>();
                         try {
                             JSONArray jasonListArray = JSONObjectResponse.optJSONArray("results");
                             for (int i = 0; i < jasonListArray.length(); i++) {
@@ -164,8 +162,8 @@ public class VollyJasonParser {
                                 myRealm.setMoviewReviewsQuery(getListDialogData(), mvID);///sets Reviws According to it's moview ###2
                                 ///////
 
-                                dialogtListner.startReviewDialogFragment(myActivity, myRealm.getRevQuery(mvID));////ViewController ##3
-                         ///       List d4=debug; where compiler can pass here
+                                reviewsDialogtListner.startReviewDialogFragment(myActivity, myRealm.getRevQuery(mvID));////ViewController ##3
+
                             }
                             else if(mySegment.equals("videos"))
                             {
@@ -173,9 +171,12 @@ public class VollyJasonParser {
                                 jasonTrailerToList(JSONObjectResponse.optJSONArray("results")); ///Set's Your Fetcher ###1
                                 ///////
                                 RealmContract myRealm = new RealmContract();
-                              //  myRealm.setMoviewTrailerQuery(getListDialogData(),mvID);///sets Reviws According to it's moview ###2
+
+                                myRealm.setMoviewTrailerQuery(getListDialogData(), mvID);///sets Reviws According to it's moview ###2
                                 ///////
-                              //  dialogtTrailersListner.startTrailersDialogFragment(myActivity, myRealm.getTrailerQuery(mvID));////ViewController ##3
+
+                                trailerDialogtListner.startTrailersDialogFragment(myActivity, myRealm.getTrailQuery(mvID));////ViewController ##3--->
+
                             }
                         }
 
@@ -252,23 +253,19 @@ public class VollyJasonParser {
         }
     }
 
-    public VollyAdapter getVollyAdapter() {
-        return vollyAdapter;
-    }
+
 
     public void setVollyAdapter(VollyAdapter vollyAdapter) {
         this.vollyAdapter = vollyAdapter;
     }
 
-    public void setDialogtListner(SingleMoviewDialogtListner dialogtListner) {
-        this.dialogtListner = dialogtListner;
-    } public void setDialogtTrailersListner(SingleMoviewTrailerDialogListner dialogTrailerListner) {
-        this.dialogtTrailersListner = dialogTrailerListner;
+    public void setReviewsDialogtListner(SingleMoviewReviewsDialogtListner reviewsDialogtListner) {
+        this.reviewsDialogtListner = reviewsDialogtListner;
+    } public void setTrailerDialogtListner(SingleMoviewTrailerDialogListner dialogTrailerListner) {
+        this.trailerDialogtListner = dialogTrailerListner;
     }
 
-    public void setListDialogData(List<Map<String, String>> listDialogData) {
-        this.listDialogData = listDialogData;
-    }
+
     public List<Map<String, String>> getListDialogData() {
         return listDialogData;
     }

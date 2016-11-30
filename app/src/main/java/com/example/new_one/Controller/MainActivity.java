@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
     private void showUserSettings() {  ///Call back fncttion called after shared preferance Updated
 
 
-        //SharedPreferences sharedPrefs = context.getSharedPreferences("setting",context.MODE_PRIVATE);
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         StringBuilder builder = new StringBuilder();
@@ -182,8 +181,6 @@ public class MainActivity extends AppCompatActivity {
                 {
                     SingleMoviewFragment fgs = SingleMoviewFragment.newInstance(intentVar, position);
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                    SingleMoviewFragment fgs=new SingleMoviewFragment ();
-//                    SingleMoviewFragment fgs =SingleMoviewFragment.newInstance(intentVar, position);
                     // ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
                     ft.replace(R.id.SingleMoviewFragment2,fgs); ///we are Not Deleting the container we are Deleting it's content
                     ft.commit();

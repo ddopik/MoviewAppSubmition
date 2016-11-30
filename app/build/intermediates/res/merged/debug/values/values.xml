@@ -306,12 +306,14 @@
     <string name="pref_sync_frequency_summary">Set the sync frequency</string>
     <string name="pref_update_setting">Update Settings</string>
     <string name="pref_user_profile">User Profile</string>
-    <string name="reviewsDialogName">Trailers</string>
+    <string name="reviewsDialogName">Reviews</string>
     <string name="setYearPref">Set Year</string>
     <string name="setYearPref_summary">Set your movies year</string>
+    <string name="singleMovieActivity">Movie Details</string>
+    <string name="singleMovieActivityFg">Movie details</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="trailerDialogName">Reviews</string>
+    <string name="trailerDialogName">Trailers</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -1280,6 +1282,9 @@
         <item name="android:background">?attr/controlBackground</item>
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
+    </style>
+    <style name="CustomDialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">false</item>
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
