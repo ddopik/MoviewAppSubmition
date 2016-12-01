@@ -16,5 +16,5 @@ import io.realm.RealmResults;
 
 public interface VollyAdapter {
 
-    public  void setMainAdapter(Activity mainActivity,RealmList<Movies> jasonApiItems);
+    public  void setMainAdapter(Activity mainActivity,RealmResults<Movies> jasonApiItems);
 }

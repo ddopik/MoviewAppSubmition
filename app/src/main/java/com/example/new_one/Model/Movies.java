@@ -27,7 +27,7 @@ public class Movies extends RealmObject {
     private String Movie_Img;
 
     private String Moview_Year;
-    @Ignore
+
     private boolean Favorate_Movie;
     @Required
     private String Movie_Type;

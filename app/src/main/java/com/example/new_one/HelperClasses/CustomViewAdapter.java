@@ -33,9 +33,9 @@ import io.realm.RealmResults;
 public class CustomViewAdapter extends BaseAdapter  {
 	
 	    Context context;
-	    RealmList<Movies>  rowItem;
+	RealmResults<Movies>  rowItem;
 
-	    public CustomViewAdapter(Context context,RealmList<Movies> rowItem) {
+	    public CustomViewAdapter(Context context,RealmResults<Movies> rowItem) {
 	        this.context = context;
 	        this.rowItem = rowItem;
 

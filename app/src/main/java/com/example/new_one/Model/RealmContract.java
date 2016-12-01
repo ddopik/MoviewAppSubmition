@@ -43,15 +43,15 @@ public class RealmContract {
 
     public String setMoviewToFav(int movieID) {
 
-        MoviesFavourates movFav = realm.where(MoviesFavourates.class).equalTo("Movie_ID", movieID).findFirst();
-        if (!movFav.getFavourates_Movies()) {
+        Movies movFav = realm.where(Movies.class).equalTo("id", movieID).findFirst();
+        if (!movFav.isFavorate_Movie()) {
             realm.beginTransaction();
-            movFav.setFavourates_Movies(true);
+            movFav.setFavorate_Movie(true);
             realm.commitTransaction();
             return "Added to favorites";///Moview became in fav
         } else {
             realm.beginTransaction();
-            movFav.setFavourates_Movies(false);
+            movFav.setFavorate_Movie(false);
             realm.commitTransaction();
             return "Removed from favorites"; ///Moview removed from fav
         }
@@ -84,20 +84,9 @@ public class RealmContract {
             realm.commitTransaction();
 
 
-            try {
-                MoviesFavourates movFav = new MoviesFavourates();
-                    movFav.setMovie_ID(mv.getId());
-                    movFav.setMovie(mv);
-                    realm.copyToRealm(movFav);
 
-            } catch(Exception e) {
-                Log.e("Realm --->", "this Movie Might be Exsists",e);
-            }
-
-            Log.e("Realm --->", "Insert Realm object");
 
         }
-
     }
 
     public int getMovieInfoQuery(int mvID) {
@@ -106,33 +95,19 @@ public class RealmContract {
     }
 
 
-    public RealmList<Movies> getQuery(String ListType) {
+    public RealmResults<Movies> getQuery(String ListType) {
         Log.e("Realm --->", "Get Realm query Start");
         List<Map<String, String>> jasonApiItems = new ArrayList<Map<String, String>>();
+        RealmResults<Movies> mv;
+
         if (ListType.equals("Fav")) {
-              RealmResults<MoviesFavourates> favList = realm.where(MoviesFavourates.class).equalTo("Movie_ID", true).findAll();/////error
-              RealmList<Movies> mvList2=new RealmList<Movies>();
-
-            for(MoviesFavourates favMov:favList)
-            {
-                mvList2.add(favMov.getMovie().get(0));
-            }
-            return  mvList2;
+            mv = realm.where(Movies.class).equalTo("Favorate_Movie",true).findAll();
         }
-        else
-        {
-            RealmResults<Movies>mvRealmList = realm.where(Movies.class).equalTo("Movie_Type", ListType).findAll();
-            RealmList<Movies> mvList=new RealmList<Movies>();
-            for(Movies mv:mvRealmList)
-            {
-                mvList.add(mv);
-            }
-            return mvList;
+         else {
+            mv = realm.where(Movies.class).equalTo("Movie_Type",ListType).findAll();
         }
 
-
-
-
+        return mv;
 
     }
 

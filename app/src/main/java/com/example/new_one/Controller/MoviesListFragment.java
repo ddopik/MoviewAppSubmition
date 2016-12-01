@@ -43,7 +43,7 @@ import static android.view.View.INVISIBLE;
 public class MoviesListFragment extends Fragment {
 
 
-    private RealmList<Movies> jasonApiItems;
+    private RealmResults<Movies> jasonApiItems;
     public SingleMoviewFragmentListner frgListner;
     String myUrl ;
     String flagUrl;
@@ -113,7 +113,7 @@ public class MoviesListFragment extends Fragment {
             VollyJasonParser vollyParser = new VollyJasonParser(getActivity(), fragmentView, getArguments(), getMyUrl(),getFlagUrl());
             vollyParser.setVollyAdapter(new VollyAdapter() {
                 @Override
-                public void setMainAdapter(Activity mainActivity, RealmList<Movies> jasonApiItems) {
+                public void setMainAdapter(Activity mainActivity, RealmResults<Movies> jasonApiItems) {
 
                     setJasonApiItems(jasonApiItems);
                     setMainAdapter2( mainActivity, jasonApiItems);
@@ -137,7 +137,7 @@ public class MoviesListFragment extends Fragment {
 
             myProgressBar = (ProgressBar) fragmentView.findViewById(R.id.pbFooterLoading);
             myProgressBar.setVisibility(View.GONE);
-            RealmList<Movies> offlineData= moviesList.getQuery(getFlagUrl());
+            RealmResults<Movies> offlineData= moviesList.getQuery(getFlagUrl());
             setMainAdapter2( mainActivity,offlineData);
             setJasonApiItems(offlineData);
         }
@@ -157,7 +157,7 @@ public class MoviesListFragment extends Fragment {
     }
 
 ////Adapter for Activity Main
-    public void setMainAdapter2(Activity mainActivity, RealmList<Movies> jasonApiItems) {
+    public void setMainAdapter2(Activity mainActivity, RealmResults<Movies> jasonApiItems) {
         /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
         adapter = new CustomViewAdapter(mainActivity, jasonApiItems); /// send to custom adapter to render view
         if (getArguments().getString("viewBy").equals("Grid")) {
@@ -212,10 +212,10 @@ public class MoviesListFragment extends Fragment {
     public void setFrgListner(SingleMoviewFragmentListner frgListner) {  ///Setter for Main Thread UI
         this.frgListner = frgListner;
     }
-    public RealmList<Movies> getJasonApiItems() {
+    public RealmResults<Movies> getJasonApiItems() {
         return jasonApiItems;
     }
-    public void setJasonApiItems(RealmList<Movies> realmResult)
+    public void setJasonApiItems(RealmResults<Movies> realmResult)
     {
         this.jasonApiItems=realmResult;
     }
