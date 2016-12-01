@@ -75,6 +75,15 @@ public class RealmContract {
             String ratting = single_row.get("Moview_Rating");
             float rattingNumber = (float) Float.parseFloat(ratting);
             mv.setMoview_Rating(rattingNumber);
+            try {
+                Movies mvOld=realm.where(Movies.class).equalTo("id",mdbId).findFirst();
+                mv.setFavorate_Movie(mvOld.isFavorate_Movie());
+            }
+            catch(Exception e)
+            {
+                Log.e("RealmContract--->SetQuery","Movies have't yet Added");
+            }
+
 
 
             i++;

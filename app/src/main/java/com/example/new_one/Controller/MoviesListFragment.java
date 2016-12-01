@@ -45,7 +45,7 @@ public class MoviesListFragment extends Fragment {
 
     private RealmResults<Movies> jasonApiItems;
     public SingleMoviewFragmentListner frgListner;
-    String myUrl ;
+    String myUrl;
     String flagUrl;
     View fragmentView;
     GridView movieGridView;
@@ -77,52 +77,48 @@ public class MoviesListFragment extends Fragment {
     }
 
 
-
-
     public void fragmentStart() {
         /////////////////AsynckTask using Volly
 
         try {
-            if(getArguments().getString("orderBy").equals("top_rated"))
-            {setMyUrl("top_rated");
+            if (getArguments().getString("orderBy").equals("top_rated")) {
+                Log.e("MoviesListFragment", "top_rated Fragment Start");
+                setMyUrl("top_rated");
                 setFlagUrl("Tr");
 
-            }
-            else if(getArguments().getString("orderBy").equals("popular"))
-            {setMyUrl("popular");
-            setFlagUrl("P");
-            }
-
-            else if(getArguments().getString("orderBy").equals("Upcoming"))
-            {setMyUrl("upcoming");
+            } else if (getArguments().getString("orderBy").equals("popular")) {
+                Log.e("MoviesListFragment", "popular Fragment Start");
+                setMyUrl("popular");
+                setFlagUrl("P");
+            } else if (getArguments().getString("orderBy").equals("Upcoming")) {
+                Log.e("MoviesListFragment", "Upcoming Fragment Start");
+                setMyUrl("upcoming");
                 setFlagUrl("Tp");
-            }
-            else if(getArguments().getString("orderBy").equals("Favourates"))
-            {
+            } else if (getArguments().getString("orderBy").equals("Favourates")) {
+                Log.e("MoviesListFragment", "Favourates Fragment Start");
                 setMyUrl("Favourates");
                 setFlagUrl("Fav");
-            }
-            else
-            {
+            } else {
+                Log.e("MoviesListFragment", "top_rated Fragment Start");
                 setMyUrl("top_rated");
                 setFlagUrl("Tr");
             }
             ((MainActivity) getActivity()).setActionBarTitle(getArguments().getString("orderBy"));
 
 
-            VollyJasonParser vollyParser = new VollyJasonParser(getActivity(), fragmentView, getArguments(), getMyUrl(),getFlagUrl());
+            VollyJasonParser vollyParser = new VollyJasonParser(getActivity(), fragmentView, getArguments(), getMyUrl(), getFlagUrl());
             vollyParser.setVollyAdapter(new VollyAdapter() {
                 @Override
                 public void setMainAdapter(Activity mainActivity, RealmResults<Movies> jasonApiItems) {
 
                     setJasonApiItems(jasonApiItems);
-                    setMainAdapter2( mainActivity, jasonApiItems);
-                    adapter.notifyDataSetChanged();
+                    setMainAdapter2(mainActivity, jasonApiItems);
+
                     myProgressBar = (ProgressBar) fragmentView.findViewById(R.id.pbFooterLoading);
                     myProgressBar.setVisibility(View.GONE);
                 }
             });
-             vollyParser.makeJsonObjectRequest();
+            vollyParser.makeJsonObjectRequest();
 
 
             Log.e("Fragment JASON State --->", "JASON Resived");
@@ -137,8 +133,8 @@ public class MoviesListFragment extends Fragment {
 
             myProgressBar = (ProgressBar) fragmentView.findViewById(R.id.pbFooterLoading);
             myProgressBar.setVisibility(View.GONE);
-            RealmResults<Movies> offlineData= moviesList.getQuery(getFlagUrl());
-            setMainAdapter2( mainActivity,offlineData);
+            RealmResults<Movies> offlineData = moviesList.getQuery(getFlagUrl());
+            setMainAdapter2(mainActivity, offlineData);
             setJasonApiItems(offlineData);
         }
         ///////
@@ -152,29 +148,26 @@ public class MoviesListFragment extends Fragment {
         }
 
 
-
-
     }
 
-////Adapter for Activity Main
+    ////Adapter for Activity Main
     public void setMainAdapter2(Activity mainActivity, RealmResults<Movies> jasonApiItems) {
         /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
         adapter = new CustomViewAdapter(mainActivity, jasonApiItems); /// send to custom adapter to render view
         if (getArguments().getString("viewBy").equals("Grid")) {
 
-               movieGridView.setAdapter(adapter); //provide activity for Grid view
+            movieGridView.setAdapter(adapter); //provide activity for Grid view
+            adapter.notifyDataSetChanged();
 
 //               movieView=movieGridView; //test
         } else {
 
             movieListView.setAdapter(adapter); //provide activity for list view
-
+            adapter.notifyDataSetChanged();
         }
 
 
     }
-
-
 
 
     ///user selecting A single movie
@@ -186,11 +179,11 @@ public class MoviesListFragment extends Fragment {
         movieListView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                View parent_1=parent;
-                View secoundPArent=v; //selectedItem
+                View parent_1 = parent;
+                View secoundPArent = v; //selectedItem
                 RelativeLayout mySingleItem = (RelativeLayout) v;
-                TextView myTextView=(TextView) mySingleItem.findViewById(R.id.mainMovieId);
-                int  movieID =Integer.parseInt(myTextView.getText().toString());
+                TextView myTextView = (TextView) mySingleItem.findViewById(R.id.mainMovieId);
+                int movieID = Integer.parseInt(myTextView.getText().toString());
                 frgListner.createFrgListner(movieID);///after MainActivity intialize the frgListner we call it here
 
             }
@@ -201,8 +194,8 @@ public class MoviesListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 RelativeLayout mySingleItem = (RelativeLayout) v;
-                TextView myTextView=(TextView) mySingleItem.findViewById(R.id.mainMovieId);
-                int  movieID =Integer.parseInt(myTextView.getText().toString());
+                TextView myTextView = (TextView) mySingleItem.findViewById(R.id.mainMovieId);
+                int movieID = Integer.parseInt(myTextView.getText().toString());
                 frgListner.createFrgListner(movieID);///after MainActivity intialize the frgListner we call it here
             }
         });
@@ -212,12 +205,13 @@ public class MoviesListFragment extends Fragment {
     public void setFrgListner(SingleMoviewFragmentListner frgListner) {  ///Setter for Main Thread UI
         this.frgListner = frgListner;
     }
+
     public RealmResults<Movies> getJasonApiItems() {
         return jasonApiItems;
     }
-    public void setJasonApiItems(RealmResults<Movies> realmResult)
-    {
-        this.jasonApiItems=realmResult;
+
+    public void setJasonApiItems(RealmResults<Movies> realmResult) {
+        this.jasonApiItems = realmResult;
     }
 
     public String getMyUrl() {
@@ -227,6 +221,7 @@ public class MoviesListFragment extends Fragment {
     public void setMyUrl(String myUrl) {
         this.myUrl = myUrl;
     }
+
     public String getFlagUrl() {
         return flagUrl;
     }

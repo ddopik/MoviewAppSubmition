@@ -31,7 +31,7 @@
         android:id="@+id/star_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        app:liked="false"
         app:anim_scale_factor="2"/>
     <!--<com.like.LikeButton-->
         <!--app:icon_type="star"-->

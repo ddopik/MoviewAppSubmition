@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             MoviesListFragment fg = getFrgInstance();
-           //// ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
             ft.replace(R.id.ContainerActivityID,fg,"fragment_activity"); ///we are Not Deleting the container we are Deleting it's content
+//            ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
             ft.commit();
 
 
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 MoviesListFragment fg = getFrgInstance();
-                //// ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
                 ft.replace(R.id.ContainerActivityID,fg,"fragment_activity"); ///we are Not Deleting the container we are Deleting it's content
+                ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
                 ft.commit();
                 break;
 
@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         MoviesListFragment fg = getFrgInstance();
         ft.replace(R.id.ContainerActivityID, fg);
+        ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
         ft.commit();
         Toast.makeText(this, builder.toString(), Toast.LENGTH_LONG).show();
 
@@ -143,8 +144,8 @@ public class MainActivity extends AppCompatActivity {
     public MoviesListFragment getFrgInstance() {   ///creating object of my Main Fragment Required for SaredPreferance
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String orderBy = sharedPrefs.getString("prefOrderbyPref", "NULL");
-        String viewBy = sharedPrefs.getString("prefViewByFrequency", "NULL");
+        String orderBy = sharedPrefs.getString("prefOrderbyPref", "Top Rated");
+        String viewBy = sharedPrefs.getString("prefViewByFrequency", "List");
 
 
         MoviesListFragment fg = new MoviesListFragment();

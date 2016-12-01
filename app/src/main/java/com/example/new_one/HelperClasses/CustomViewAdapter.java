@@ -94,13 +94,19 @@ public class CustomViewAdapter extends BaseAdapter  {
 			 /////Final Stage
 	        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			Movies single_row = rowItem.get(position);/// select object number n from the object_array
+			Boolean t=single_row.isFavorate_Movie();
 			int ids=single_row.getId();
 			String mvID=Integer.toString(ids);
 			Picasso.with(context).load(single_row.getMovie_Img()).into(listViewHolder.movImg);
 			listViewHolder.movID.setText(mvID);
+
 			if(single_row.isFavorate_Movie())
 			{
 				listViewHolder.favBtn.setLiked(true);
+			}
+			else
+			{
+				listViewHolder.favBtn.setLiked(false);
 			}
 			listViewHolder.favBtn.setOnClickListener(favListner);
 			Log.e("Number_Of_Adapter_Items--->","---"+getCount()+"");
@@ -125,10 +131,12 @@ public class CustomViewAdapter extends BaseAdapter  {
 			if (state.equals("Added to favorites"))
 			{
 				likeButton.setLiked(true);
+				 notifyDataSetChanged();
 			}
 			else
 			{
 				likeButton.setLiked(false);
+				notifyDataSetChanged();
 			}
 
 			Toast.makeText(context,state,Toast.LENGTH_SHORT).show();
