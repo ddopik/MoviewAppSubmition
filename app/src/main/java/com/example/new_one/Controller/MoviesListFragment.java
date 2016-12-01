@@ -18,36 +18,35 @@ import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.new_one.Controller_interfacer.SingleMoviewFragmentListner;
 import com.example.new_one.Controller_interfacer.VollyAdapter;
 import com.example.new_one.HelperClasses.CustomViewAdapter;
+import com.example.new_one.Model.Movies;
 import com.example.new_one.Model.RealmContract;
 import com.example.new_one.R;
 import com.example.new_one.HelperClasses.SerializeObject;
 import com.example.new_one.HelperClasses.VollyJasonParser;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 import static android.view.View.INVISIBLE;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
-public class Fragment_main extends Fragment {
+public class MoviesListFragment extends Fragment {
 
 
-    public List<Map<String, String>> jasonApiItems;
+    private RealmResults<Movies> jasonApiItems;
     public SingleMoviewFragmentListner frgListner;
-    String myUrl = "https://api.themoviedb.org/3/movie/top_rated?api_key=61b43cea1b1dc0726b2c14fcce079ffe";
-
+    String myUrl ;
     View fragmentView;
     GridView movieGridView;
     ListView movieListView;
-    private int ItemAdapterPosition;
-    View movieView;
-    Realm realm;
     Activity mainActivity;
     CustomViewAdapter adapter;
     ProgressBar myProgressBar;
@@ -80,15 +79,15 @@ public class Fragment_main extends Fragment {
         /////////////////AsynckTask using Volly
 
         try {
-            VollyJasonParser vollyParser = new VollyJasonParser(getActivity(), fragmentView, getArguments(), myUrl);
+            setMyUrl("top_rated");
+            VollyJasonParser vollyParser = new VollyJasonParser(getActivity(), fragmentView, getArguments(), getMyUrl());
             vollyParser.setVollyAdapter(new VollyAdapter() {
                 @Override
-                public void setMainAdapter(Activity mainActivity, List<Map<String, String>> jasonApiItems) {
+                public void setMainAdapter(Activity mainActivity, RealmResults<Movies> jasonApiItems) {
 
+                    setJasonApiItems(jasonApiItems);
                     setMainAdapter2( mainActivity, jasonApiItems);
                     adapter.notifyDataSetChanged();
-                    setJasonApiItems(jasonApiItems);
-
                     myProgressBar = (ProgressBar) fragmentView.findViewById(R.id.pbFooterLoading);
                     myProgressBar.setVisibility(View.GONE);
                 }
@@ -103,13 +102,14 @@ public class Fragment_main extends Fragment {
             Log.e("Trace_1---->", "Volly Calling Error ---> ", e);
             Log.e("Trace_2---->", "Error_adapter fetching JASON error !!!!(*_-_*)!!!!! ");
             Log.e("Trace_3---->", "Starting App in Offline Mode");
-            RealmContract realmObj = new RealmContract();
-            this.jasonApiItems = realmObj.getQuery(); ///Recives Offline Realm List
+            RealmContract moviesList = new RealmContract();
+
 
             myProgressBar = (ProgressBar) fragmentView.findViewById(R.id.pbFooterLoading);
             myProgressBar.setVisibility(View.GONE);
-            setMainAdapter2( mainActivity, jasonApiItems);
-
+              RealmResults<Movies> offlineData= moviesList.getQuery();
+            setMainAdapter2( mainActivity,offlineData);
+            setJasonApiItems(offlineData);
         }
         ///////
         /////Notice that we have included data base opertation inside Volly class)
@@ -126,7 +126,7 @@ public class Fragment_main extends Fragment {
     }
 
 ////Adapter for Activity Main
-    public void setMainAdapter2(Activity mainActivity, List<Map<String, String>> jasonApiItems) {
+    public void setMainAdapter2(Activity mainActivity, RealmResults<Movies> jasonApiItems) {
         /////// what if want to contain (movieGridView and movieListView ) in Single variable ?????
         adapter = new CustomViewAdapter(mainActivity, jasonApiItems); /// send to custom adapter to render view
         if (getArguments().getString("viewBy").equals("Grid")) {
@@ -154,7 +154,12 @@ public class Fragment_main extends Fragment {
         ////Listner for List view
         movieListView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                frgListner.createFrgListner(getJasonApiItems(), position);///after MainActivity intialize the frgListner we call it here
+
+                ListView myAdapterView = (ListView) parent;
+                TextView myTextView=(TextView) myAdapterView.getChildAt(position).findViewById(R.id.mainMovieId);
+                int  movieID =Integer.parseInt(myTextView.getText().toString());
+                frgListner.createFrgListner(movieID);///after MainActivity intialize the frgListner we call it here
+
             }
 
         });
@@ -162,7 +167,10 @@ public class Fragment_main extends Fragment {
         movieGridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                frgListner.createFrgListner(getJasonApiItems(), position);///after MainActivity intialize the frgListner we call it here
+                ListView myAdapterView = (ListView) parent;
+                TextView myTextView=(TextView) myAdapterView.getChildAt(position).findViewById(R.id.mainMovieId);
+                int  movieID =Integer.parseInt(myTextView.getText().toString());
+                frgListner.createFrgListner(movieID);///after MainActivity intialize the frgListner we call it here
             }
         });
 
@@ -171,12 +179,20 @@ public class Fragment_main extends Fragment {
     public void setFrgListner(SingleMoviewFragmentListner frgListner) {  ///Setter for Main Thread UI
         this.frgListner = frgListner;
     }
-    public List<Map<String, String>> getJasonApiItems() {
+    public RealmResults<Movies> getJasonApiItems() {
         return jasonApiItems;
     }
-    public void setJasonApiItems(List<Map<String, String>> JasonApiItems)
+    public void setJasonApiItems(RealmResults<Movies> realmResult)
     {
-        this.jasonApiItems=JasonApiItems;
+        this.jasonApiItems=realmResult;
+    }
+
+    public String getMyUrl() {
+        return myUrl;
+    }
+
+    public void setMyUrl(String myUrl) {
+        this.myUrl = myUrl;
     }
 
 }
