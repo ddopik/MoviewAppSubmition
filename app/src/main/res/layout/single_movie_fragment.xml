@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/singleMovieFragmentFrame">
 
 
     <ImageView
@@ -27,17 +29,28 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
 
-    <Button
-        android:text="Mark as favorates"
+    <!--<Button-->
+        <!--android:text="@string/favBtn"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@+id/mv_img_id"-->
+        <!--android:layout_toRightOf="@+id/mv_img_id"-->
+        <!--android:layout_toEndOf="@+id/mv_img_id"-->
+        <!--android:layout_marginLeft="65dp"-->
+        <!--android:layout_marginStart="65dp"-->
+        <!--android:layout_marginBottom="35dp"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:id="@+id/FavBtnId" />-->
+
+    <com.like.LikeButton
+        app:icon_type="star"
+        app:icon_size="55dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/FavBtnId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/mv_img_id"
-        android:layout_toRightOf="@+id/mv_img_id"
-        android:layout_toEndOf="@+id/mv_img_id"
-        android:layout_marginLeft="65dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="35dp"
-        android:id="@+id/FavBtnId" />
+        app:anim_scale_factor="2"/>
+
 
     <TextView
         android:text="Rating"
@@ -60,7 +73,7 @@
         android:id="@+id/mv_duration_id" />
 
     <Button
-        android:text="Trailers"
+        android:text="@string/trailBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/FavBtnId"
@@ -68,10 +81,11 @@
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
         android:id="@+id/TrailBtnId"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true" />
 
     <Button
-        android:text="Reviews"
+        android:text="@string/revBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/RevBtnId"
@@ -79,6 +93,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="35dp"
         android:layout_marginStart="35dp"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true" />
 
     <TextView

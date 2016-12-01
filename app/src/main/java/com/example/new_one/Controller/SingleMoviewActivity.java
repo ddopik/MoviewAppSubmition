@@ -19,10 +19,9 @@ import com.example.new_one.HelperClasses.SerializeObject;
 import com.squareup.picasso.Picasso;
 
 public class SingleMoviewActivity extends AppCompatActivity {
-    View fragmentView;
+
     Intent intent;
-    List<Map<String, String>> listMapData;
-    int myPosition;
+    int myMovieID;
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
@@ -39,12 +38,14 @@ public class SingleMoviewActivity extends AppCompatActivity {
 
         Log.e("SingleMoview_Activity->", "startMoviewActivity called");
         intent = getIntent();
-        myPosition = intent.getExtras().getInt("position");
-        SerializeObject myIntent = (SerializeObject) intent.getExtras().getSerializable("singleMoview");
-        listMapData = myIntent.getList();
+        myMovieID= intent.getExtras().getInt("MovieID");
+
+        Bundle arg=new Bundle();
+        arg.putInt("myMovieID",myMovieID);
+        SingleMoviewFragment fgs = new SingleMoviewFragment();
+        fgs.setArguments(arg);
 
 
-        SingleMoviewFragment fgs = SingleMoviewFragment.newInstance(myIntent, myPosition);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.singleMovieContaiberActivity,fgs); ///we are Not Deleting the container we are Deleting it's content
         ft.commit();
@@ -54,34 +55,8 @@ public class SingleMoviewActivity extends AppCompatActivity {
     }
 
 
-    public List<Map<String, String>> getListMapData() {
-        return listMapData;
-    }
 
-    public void setListMapData(List<Map<String, String>> listMapData) {
-        this.listMapData = listMapData;
-    }
 
-//    public void startMoviewActivity() {  /////became Useless
-//
-//        intent = getIntent();
-//        myPosition = intent.getExtras().getInt("position");
-//        SerializeObject myIntent = (SerializeObject) intent.getExtras().getSerializable("singleMoview");
-//        listMapData = myIntent.getList();
-//
-//        String myImgPath = listMapData.get(myPosition).get("Movie_Img");
-//        String overview = listMapData.get(myPosition).get("Movie_Overview");
-//        String original_title = listMapData.get(myPosition).get("Movie_Name");
-//
-////    textView4
-//        ImageView mImage = (ImageView) findViewById(R.id.mv_img_id);
-//        TextView Mtitle = (TextView) findViewById(R.id.mv_title_id);
-//        TextView MoverView = (TextView) findViewById(R.id.textView4);
-//
-//        Mtitle.setText(original_title);
-//        MoverView.setText(overview);
-//        Picasso.with(this).load(myImgPath).into(mImage);
-//    }
 
 
 

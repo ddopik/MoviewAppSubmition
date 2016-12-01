@@ -9,12 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.new_one.Model.Movies;
+import com.example.new_one.Model.RealmContract;
 import com.example.new_one.R;
 import com.example.new_one.View.ViewHolder_ListItem;
+import com.like.LikeButton;
 import com.squareup.picasso.Picasso;
+
+import io.realm.RealmList;
+import io.realm.RealmResults;
 
 ///Create a Custom adapter which extends ""'BaseAdapter""" , 
 ///this is used for inflating each row items of the listfragment 
@@ -23,9 +33,9 @@ import com.squareup.picasso.Picasso;
 public class CustomViewAdapter extends BaseAdapter  {
 	
 	    Context context;
-	    List<Map<String,String>> rowItem;
+	    RealmList<Movies>  rowItem;
 
-	    public CustomViewAdapter(Context context,List<Map<String,String>> rowItem) {
+	    public CustomViewAdapter(Context context,RealmList<Movies> rowItem) {
 	        this.context = context;
 	        this.rowItem = rowItem;
 
@@ -64,7 +74,8 @@ public class CustomViewAdapter extends BaseAdapter  {
 	            convertView = mInflater.inflate(R.layout.custom_single_item, null);
 				listViewHolder=new ViewHolder_ListItem();
 				listViewHolder.movImg=(ImageView) convertView.findViewById(R.id.mv_img_id);
-				listViewHolder.movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
+				listViewHolder.movID=(TextView) convertView.findViewById(R.id.mainMovieId);
+				listViewHolder.favBtn=(LikeButton) convertView.findViewById(R.id.star_button);
 				                                     //// store the holder with the view.
 				convertView.setTag(listViewHolder);////used to mark a view in its hierarchy and does not have to be unique within the hierarchy.
 				                                  //// Tags can also be used to store data within a view without resorting to another data structure.
@@ -74,8 +85,7 @@ public class CustomViewAdapter extends BaseAdapter  {
 				listViewHolder=(ViewHolder_ListItem) convertView.getTag();
 			}
 
-//			ImageView gridImg=(ImageView) convertView.findViewById(R.id.imageView1);
-//			TextView movTitle=(TextView) convertView.findViewById(R.id.imageTitle);
+
 
 	    /////////////////////Stage_2///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -83,13 +93,16 @@ public class CustomViewAdapter extends BaseAdapter  {
 
 			 /////Final Stage
 	        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			Map<String, String> single_row = rowItem.get(position);/// select object number n from the object_array
-			//listViewHolder.movTitle.setText(single_row.get("Movie_Name"));
-			Picasso.with(context).load(single_row.get("Movie_Img")).into(listViewHolder.movImg);
-			//movTitle.setText(single_row.get("Movie_Name")); ///Sets the string value of the TextView---->
-			//Picasso.with(context).load(single_row.get("Movie_Img")).into(gridImg);
-//			Log.e("---intialize value_1",single_row.get("Movie_Name"));
-//			Log.e("---intialize value_2",single_row.get("Movie_Img"));
+			Movies single_row = rowItem.get(position);/// select object number n from the object_array
+			int ids=single_row.getId();
+			String mvID=Integer.toString(ids);
+			Picasso.with(context).load(single_row.getMovie_Img()).into(listViewHolder.movImg);
+			listViewHolder.movID.setText(mvID);
+			if(single_row.isFavorate_Movie())
+			{
+				listViewHolder.favBtn.setLiked(true);
+			}
+			listViewHolder.favBtn.setOnClickListener(favListner);
 			Log.e("Number_Of_Adapter_Items--->","---"+getCount()+"");
 
 
@@ -97,8 +110,31 @@ public class CustomViewAdapter extends BaseAdapter  {
 			// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	        return convertView;
 	    }
-	    
-	    
+
+
+	View.OnClickListener favListner=new View.OnClickListener(){
+		@Override
+		public void onClick(View v) {
+
+			RelativeLayout singleItem=(RelativeLayout) v.getParent();
+			LikeButton likeButton=(LikeButton) v.findViewById(R.id.star_button);
+			TextView mvIdView=(TextView) singleItem.findViewById(R.id.mainMovieId);
+			String SmvID=mvIdView.getText().toString();
+			RealmContract myRealm=new RealmContract();
+			String state=myRealm.setMoviewToFav(Integer.parseInt(SmvID));
+			if (state.equals("Added to favorites"))
+			{
+				likeButton.setLiked(true);
+			}
+			else
+			{
+				likeButton.setLiked(false);
+			}
+
+			Toast.makeText(context,state,Toast.LENGTH_SHORT).show();
+
+		}
+	};
 
 
 }

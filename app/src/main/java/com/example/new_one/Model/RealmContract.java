@@ -1,5 +1,8 @@
 package com.example.new_one.Model;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -8,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import io.realm.Realm;
+import io.realm.RealmCollection;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 import io.realm.Sort;
@@ -23,49 +27,121 @@ import static java.util.Collections.addAll;
 public class RealmContract {
 
     private Realm realm;
-    private String jasonString;
+
 
     public RealmContract() {
 
         realm = Realm.getDefaultInstance();
-
         Log.e("Realm --->", "RealmContract called");
 
     }
 
 
-    public void setQuery(List<Map<String, String>> jasonItems) {
+    public Movies getSingleMovie(int movieID) {
+        return realm.where(Movies.class).equalTo("id", movieID).findFirst();
+    }
+
+    public String setMoviewToFav(int movieID) {
+
+        MoviesFavourates movFav = realm.where(MoviesFavourates.class).equalTo("Movie_ID", movieID).findFirst();
+        if (!movFav.getFavourates_Movies()) {
+            realm.beginTransaction();
+            movFav.setFavourates_Movies(true);
+            realm.commitTransaction();
+            return "Added to favorites";///Moview became in fav
+        } else {
+            realm.beginTransaction();
+            movFav.setFavourates_Movies(false);
+            realm.commitTransaction();
+            return "Removed from favorites"; ///Moview removed from fav
+        }
+
+    }
+
+    public void setQuery(List<Map<String, String>> jasonItems, String listType) {
         Realm realm = Realm.getDefaultInstance();
         int i = 0;
         while (i < jasonItems.size()) {
             Map<String, String> single_row = jasonItems.get(i);
-            Movies mv=new Movies();
-            int mdbId=Integer.parseInt(single_row.get("id"));
+            Movies mv = new Movies();
+
+            int mdbId = Integer.parseInt(single_row.get("id"));
             mv.setId(mdbId);
             mv.setMovie_Name(single_row.get("Movie_Name"));
             mv.setMovie_Overview(single_row.get("Movie_Overview"));
             mv.setMovie_Img(single_row.get("Movie_Img"));
             mv.setMoview_Year(single_row.get("Moview_year"));
-            String ratting=single_row.get("Moview_Rating");
-            float rattingNumber=(float) Float.parseFloat(ratting);
+            mv.setMovie_Type(listType);
+            String ratting = single_row.get("Moview_Rating");
+            float rattingNumber = (float) Float.parseFloat(ratting);
             mv.setMoview_Rating(rattingNumber);
+
+
             i++;
 
             realm.beginTransaction();
-
-            Movies RealmMv=realm.copyToRealmOrUpdate(mv);
+            Movies RealmMv = realm.copyToRealmOrUpdate(mv);
             realm.commitTransaction();
+
+
+            try {
+                MoviesFavourates movFav = new MoviesFavourates();
+                    movFav.setMovie_ID(mv.getId());
+                    movFav.setMovie(mv);
+                    realm.copyToRealm(movFav);
+
+            } catch(Exception e) {
+                Log.e("Realm --->", "this Movie Might be Exsists",e);
+            }
+
             Log.e("Realm --->", "Insert Realm object");
 
         }
-    }
-    public void setMoviewReviewsQuery(List <Map<String,String>> revMovList,int movID)
-    {
 
-        List<MoviesReviews> realmRevObjcts;
+    }
+
+    public int getMovieInfoQuery(int mvID) {
+        Movies mv = realm.where(Movies.class).equalTo("id", mvID).findFirst();
+        return mv.getMovieDuration();
+    }
+
+
+    public RealmList<Movies> getQuery(String ListType) {
+        Log.e("Realm --->", "Get Realm query Start");
+        List<Map<String, String>> jasonApiItems = new ArrayList<Map<String, String>>();
+        if (ListType.equals("Fav")) {
+              RealmResults<MoviesFavourates> favList = realm.where(MoviesFavourates.class).equalTo("Movie_ID", true).findAll();/////error
+              RealmList<Movies> mvList2=new RealmList<Movies>();
+
+            for(MoviesFavourates favMov:favList)
+            {
+                mvList2.add(favMov.getMovie().get(0));
+            }
+            return  mvList2;
+        }
+        else
+        {
+            RealmResults<Movies>mvRealmList = realm.where(Movies.class).equalTo("Movie_Type", ListType).findAll();
+            RealmList<Movies> mvList=new RealmList<Movies>();
+            for(Movies mv:mvRealmList)
+            {
+                mvList.add(mv);
+            }
+            return mvList;
+        }
+
+
+
+
+
+    }
+
+    public void setMoviewReviewsQuery(List<Map<String, String>> revMovList, int movID) {
+
+
         try {
             int i = 0;
-            List<MoviesReviews> revCashList=new ArrayList<MoviesReviews>();
+            List<MoviesReviews> revCashList = new ArrayList<MoviesReviews>();
 
             while (i < revMovList.size()) {
                 Map<String, String> single_row = revMovList.get(i);
@@ -80,47 +156,42 @@ public class RealmContract {
                 revCashList.add(mvR);
             }
 
+            Movies mv = realm.where(Movies.class).equalTo("id", movID).findFirst();
             Realm realm = Realm.getDefaultInstance();
-                realm.beginTransaction();
-                Movies mv = realm.where(Movies.class).equalTo("id", movID).findFirst();
-                realmRevObjcts = realm.copyToRealmOrUpdate(revCashList);
-            //////
-                mv.setMoviesReviews(revCashList);
-                realm.commitTransaction();
+            realm.beginTransaction();
+            realm.copyToRealmOrUpdate(revCashList);
+            mv.setMoviesReviews(revCashList);
+            realm.commitTransaction();
             ///////
-        }
-        catch (RealmException e)
-        {
+        } catch (RealmException e) {
             e.getMessage();
-            Log.e("Error_RealmContract","--->setMoviewReviewsQuery",e);
+            Log.e("Error_RealmContract", "--->setMoviewReviewsQuery", e);
         }
     }
 
-    public RealmList<MoviesReviews> getRevQuery(int movId)
-    {
+    public RealmList<MoviesReviews> getRevQuery(int movId) {
 
-        Log.e("Realm_State","getting RevFor Movie");
-        Movies mv=realm.where(Movies.class).equalTo("id",movId).findFirst();
+        Log.e("Realm_State", "getting RevFor Movie");
+        Movies mv = realm.where(Movies.class).equalTo("id", movId).findFirst();
 
-        return  mv.getMoviesReviews();
-    }
-    public RealmList<MoviesTrailer> getTrailQuery(int movId)
-    {
-
-        Log.e("Realm_State","getting Trailers For Movie");
-        Movies mv=realm.where(Movies.class).equalTo("id",movId).findFirst();
-
-        return  mv.getMoviesTrailer();
+        return mv.getMoviesReviews();
     }
 
-    public void setMoviewTrailerQuery(List <Map<String,String>> trailMvList,int movID)
-    {
+    public RealmList<MoviesTrailer> getTrailQuery(int movId) {
+
+        Log.e("Realm_State", "getting Trailers For Movie");
+        Movies mv = realm.where(Movies.class).equalTo("id", movId).findFirst();
+
+        return mv.getMoviesTrailer();
+    }
+
+    public void setMoviewTrailerQuery(List<Map<String, String>> trailMvList, int movID) {
 
 
         List<MoviesTrailer> realmRevObjcts;
         try {
             int i = 0;
-            List<MoviesTrailer> trailCashList=new ArrayList<MoviesTrailer>();
+            List<MoviesTrailer> trailCashList = new ArrayList<MoviesTrailer>();
 
             while (i < trailMvList.size()) {
                 Map<String, String> single_row = trailMvList.get(i);
@@ -143,40 +214,28 @@ public class RealmContract {
             mv.setMoviesTrailer(trailCashList);
             realm.commitTransaction();
             ///////
-        }
-        catch (RealmException e)
-        {
+        } catch (RealmException e) {
             e.getMessage();
-            Log.e("Error_RealmContract","--->setMoviewReviewsQuery",e);
+            Log.e("Error_RealmContract", "--->setMoviewReviewsQuery", e);
         }
 
 
     }
 
-    public List getQuery() {
-        Log.e("Realm --->", "Get Realm query Start");
-        List<Map<String,String>> jasonApiItems=new ArrayList<Map<String,String>>();
-        int i = 0;
-        RealmResults<Movies> mv = realm.where(Movies.class).findAll();
-        for (i = 0; i < mv.size(); i++) {
 
-            ////////////// if you wan't  to use map
-            Map<String,String> mapData = new HashMap<String,String>();
-            mapData.put("id",Integer.toString(mv.get(i).getId()));
-            mapData.put("Movie_Img",mv.get(i).getMovie_Img());
-            mapData.put("Movie_Overview",mv.get(i).getMovie_Overview());
-            mapData.put("Movie_Name",mv.get(i).getMovie_Name());
-            mapData.put("Moview_Rating",Float.toString(mv.get(i).getMoview_Rating()));
-            mapData.put("Moview_year",mv.get(i).getMoview_Year());
-            jasonApiItems.add(i,mapData);
-            //Log.e("Real VAlue --->", mv.get(i).getMovie_Img());
-           // Toast.makeText(ac, +i + "--" + "values-->" + mv.get(i).getId(), Toast.LENGTH_SHORT).show();
-        }
+    public void setMoviewInfoQuery(List<Map<String, String>> getMovieInfoData, int mvID) {
 
-             return jasonApiItems;
+        Map<String, String> singleRow = getMovieInfoData.get(0);
+        final int runnTime = Integer.parseInt(singleRow.get("runtime"));
+        final Movies mv = realm.where(Movies.class).equalTo("id", mvID).findFirst();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                mv.setMovieDuration(runnTime);
+            }
+        });
 
     }
-
 
 
 }

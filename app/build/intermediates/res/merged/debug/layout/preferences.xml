@@ -3,20 +3,11 @@
     android:layout_height="200dp"
      android:layout_width="200dp">
 
-    <!--<PreferenceCategory android:title="@string/pref_user_profile" >-->
-        <!--<EditTextPreference-->
-            <!--android:title="@string/pref_user_name"-->
-            <!--android:summary="@string/pref_user_name_summary"-->
-            <!--android:key="prefUsername"/>-->
-    <!--</PreferenceCategory>-->
 
     <PreferenceCategory android:title="@string/pref_update_setting" >
 
 
-        <EditTextPreference
-        android:title="@string/setYearPref"
-        android:summary="@string/setYearPref_summary"
-        android:key="prefSetYear"/>
+
 
         <ListPreference
         android:key="prefOrderbyPref"
@@ -25,12 +16,7 @@
         android:entryValues="@array/OrderbyPrefValues"
         android:title="@string/prefOrderbyTitle" />
 
-        <ListPreference
-        android:key="prefGenrePref"
-        android:entries="@array/genreEntries"
-        android:summary="@string/pref_GenreSummary"
-        android:entryValues="@array/genrePrefValues"
-        android:title="@string/prefGenrebyTitle" />
+
 
         <ListPreference
             android:key="prefViewByFrequency"
@@ -40,12 +26,7 @@
             android:title="@string/prefViewByTitle" />
 
 
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="prefSendReport"
-            android:summary="@string/pref_send_report_summary"
-            android:title="@string/pref_send_report" >
-        </CheckBoxPreference>
+
 
 
     </PreferenceCategory>

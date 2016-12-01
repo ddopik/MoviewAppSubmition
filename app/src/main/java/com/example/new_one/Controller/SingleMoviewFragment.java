@@ -1,4 +1,5 @@
 package com.example.new_one.Controller;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,25 +17,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.new_one.Controller_interfacer.SingleMovieInfoListner;
 import com.example.new_one.Controller_interfacer.SingleMoviewReviewsDialogtListner;
 import com.example.new_one.Controller_interfacer.SingleMoviewTrailerDialogListner;
 import com.example.new_one.HelperClasses.VollyJasonParser;
+import com.example.new_one.Model.Movies;
 import com.example.new_one.Model.MoviesReviews;
 import com.example.new_one.Model.MoviesTrailer;
+import com.example.new_one.Model.RealmContract;
 import com.example.new_one.R;
 import com.example.new_one.HelperClasses.SerializeObject;
+import com.like.LikeButton;
 import com.squareup.picasso.Picasso;
 
+import io.realm.Realm;
 import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class SingleMoviewFragment extends Fragment {
     View fragmentView;
-    Intent intent;
+    TextView movieDurationView;
 
 
-
-    List<Map<String, String>> listMapData;
+    RealmResults<Movies> MoviewListData;
+    Movies mv;
     RealmList<MoviesReviews> RealmRevList;
     RealmList<MoviesTrailer> listTrailData;
     int myPosition;
@@ -43,6 +51,7 @@ public class SingleMoviewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -54,11 +63,12 @@ public class SingleMoviewFragment extends Fragment {
         setHasOptionsMenu(true);
         Log.e("FragmentMenu--->", "onCreateView_SingleMoview called");
          fragmentView = inflater.inflate(R.layout.single_movie_fragment, container, false);
+         movieDurationView=(TextView) fragmentView.findViewById(R.id.mv_duration_id);
 
         readBundle(getArguments());
         startMoviewFragment();
 
-        VollyJasonParser reviewVolly=new VollyJasonParser(getActivity());
+        VollyJasonParser reviewVolly=new VollyJasonParser(getMoviewId(),getActivity(),"reviews");
         reviewVolly.setReviewsDialogtListner(new SingleMoviewReviewsDialogtListner(){
             @Override
             public void startReviewDialogFragment(Activity mainActivity,RealmList<MoviesReviews> RealmRevList)
@@ -66,30 +76,31 @@ public class SingleMoviewFragment extends Fragment {
                 setListRevData(RealmRevList);
             }
         });
-        reviewVolly.makeJsonObjectReviewRequest(getMoviewId(),"reviews");
+        reviewVolly.makeJsonObjectReviewRequest("reviews");
 
-
-
-        VollyJasonParser TrailerVolly=new VollyJasonParser(getActivity());
+        VollyJasonParser TrailerVolly=new VollyJasonParser(getMoviewId(),getActivity(),"videos");
         TrailerVolly.setTrailerDialogtListner(new SingleMoviewTrailerDialogListner(){
             @Override
             public void startTrailersDialogFragment(Activity mainActivity, RealmList<MoviesTrailer> RealTrailList)
             {
                         setListTrailData(RealTrailList);
             }
-
-
-
         });
-        TrailerVolly.makeJsonObjectReviewRequest(getMoviewId(),"videos");
+        TrailerVolly.makeJsonObjectReviewRequest("videos");
 
 
-        Button RevBtn=(Button) fragmentView.findViewById(R.id.RevBtnId);
-        Button TrailBtn=(Button) fragmentView.findViewById(R.id.TrailBtnId);
+        VollyJasonParser movieInfoVolly=new VollyJasonParser(getMoviewId(),getActivity(),"");
+        movieInfoVolly.setSingleMovieInfoListner(new SingleMovieInfoListner(){
+            @Override
+            public void startMovieInfo(Activity mainActivity,int movieDuration)
+            {
+                setMovieDurationView(movieDuration);
+            }
+        });
+        movieInfoVolly.makeJsonObjectReviewRequest("MovieInfo");///MovieInfo
 
 
-        RevBtn.setOnClickListener(startReviewFragment);
-        TrailBtn.setOnClickListener(startTrailerFragment);
+
 
 
         return fragmentView;
@@ -106,26 +117,42 @@ public class SingleMoviewFragment extends Fragment {
         fragment.setArguments(args);
 
         return fragment;
-    }
+    } /////i case TapletOnly USe Must be deleted
 
     private void readBundle(Bundle bundle) {
+
+
         if (bundle != null) {
-            SerializeObject myIntent =(SerializeObject) bundle.getSerializable("singleMoview");
-            setListMapData(myIntent.getList());
-            myPosition = bundle.getInt("position");
+            setMovieID( bundle.getInt("myMovieID"));
+        }
+        else
+        {
+            Log.e("SingleMoveFragment___","fragment_Must_Be_In_Error--->No Movie_ID assigned");
         }
     }
 
     public void startMoviewFragment()
         {
 
-            String id = getListMapData().get(myPosition).get("id");
-            setMovieID(Integer.parseInt(id));
-            String myImgPath = getListMapData().get(myPosition).get("Movie_Img");
-            String overview = getListMapData().get(myPosition).get("Movie_Overview");
-            String original_title = getListMapData().get(myPosition).get("Movie_Name");
-            String mvRating = getListMapData().get(myPosition).get("Moview_Rating");
-            String year = getListMapData().get(myPosition).get("Moview_year");
+            Button RevBtn=(Button) fragmentView.findViewById(R.id.RevBtnId);
+            Button TrailBtn=(Button) fragmentView.findViewById(R.id.TrailBtnId);
+            LikeButton FavBtn=(LikeButton) fragmentView.findViewById(R.id.FavBtnId);
+
+
+            RevBtn.setOnClickListener(startReviewFragment);
+            TrailBtn.setOnClickListener(startTrailerFragment);
+            FavBtn.setOnClickListener(startFavAction);
+
+
+            mv=getSingleMovie(getMoviewId());
+            int id = mv.getId();
+            setMovieID(id);
+            String myImgPath =mv.getMovie_Img();
+            String overview =mv.getMovie_Overview();
+            String original_title = mv.getMovie_Name();
+            Float mvRating = mv.getMoview_Rating();
+            String year = mv.getMoview_Year();
+            int duration=mv.getMovieDuration();
 
 
             ImageView mImage=(ImageView)fragmentView.findViewById(R.id.mv_img_id);
@@ -140,10 +167,25 @@ public class SingleMoviewFragment extends Fragment {
             RatingView.setText(mvRating+"/10");
             yearView.setText(year);
             Picasso.with(getActivity()).load(myImgPath).into(mImage);
+            if(duration>0)
+            {
+//                DurationView.setText(duration);
+                setMovieDurationView(duration);
+            }
+
+            if(mv.isFavorate_Movie())
+            {
+                FavBtn.setLiked(true);
+            }
+
+
         }
 
 
-
+public void setMovieDurationView(int movieDuration)
+{
+    this.movieDurationView.setText(movieDuration+" Min");
+}
 
 
     View.OnClickListener startReviewFragment =new View.OnClickListener() {
@@ -178,15 +220,24 @@ public class SingleMoviewFragment extends Fragment {
         }
     };
 
+    View.OnClickListener startFavAction=new View.OnClickListener(){
+        @Override
+        public void onClick(View v)
+        {
+            RealmContract myRealm=new RealmContract();
+            String state=myRealm.setMoviewToFav(getMoviewId());
+            Toast.makeText(getActivity(),state,Toast.LENGTH_SHORT).show();
+        }
+    };
 
 
-    public List<Map<String, String>> getListMapData() {
-        return listMapData;
+
+    public Movies getSingleMovie(int movieID)
+    {
+        RealmContract myRealm=new RealmContract();
+        return  myRealm.getSingleMovie(movieID);
     }
 
-    public void setListMapData(List<Map<String, String>> listMapData) {
-        this.listMapData = listMapData;
-    }
 
 
     public RealmList<MoviesReviews> getListRevData() {
@@ -209,7 +260,10 @@ public class SingleMoviewFragment extends Fragment {
 
 
 
+    public void  setFrgListner()
+    {
 
+    }
     public void setMovieID(int id)
     {
         this.movieID=id;

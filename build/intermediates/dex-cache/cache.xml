@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="7d7087873a3f63304c32104fbe82c9068dd95e8b">
+        sha1="2976515ee0c74256c57b7c8a235d43f4d53b3bad">
         <dex dex="C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_101f81f77652f5ed80c168312b8c95f54189cfa4\classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="87b038880296908f5352009e6a9664aee338ffaa">
+        sha1="841b21428a1b2fe1e4833947a53656933b2cb07e">
         <dex dex="C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_af7d3699f0622e6a571e24be29697dbd23d4d437\classes.dex" />
     </item>
     <item
@@ -153,6 +153,15 @@
         revision="24.0.2"
         sha1="4d668d438bf1a032b186b83151f4da16f32c498b">
         <dex dex="C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.uphyca-stetho_realm-2.0.0_7819d6fd6f8f587bcd6c0f2521e60214e96dfa09\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.github.jd-alexander\LikeButton\0.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="042cf6b3b9ef0ea3baacd9b27e4901680769cbc8">
+        <dex dex="C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.jd-alexander-LikeButton-0.2.0_97685693758912c7a0cb72cb937fe6dc9744c003\classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -8,23 +8,7 @@
     <string name="imgdesc">imgdesc</string>
 
 
-    <string-array name="titles">
-        <item>Home</item>
-        <item>Tutorials</item>
-        <item>My Apps</item>
-        <item>OS Versions</item>
-        <item>Tools</item>
-        <item>About Us</item>
-    </string-array>
 
-    <array name="icons">
-        <item>@drawable/home</item>
-        <item>@drawable/tutorials</item>
-        <item>@drawable/app</item>
-        <item>@drawable/os</item>
-        <item>@drawable/tool</item>
-        <item>@drawable/about</item>
-    </array>
 
 
 <!--///-->
@@ -36,6 +20,11 @@
 	<string name="trailerDialogName">Trailers</string>
 	<string name="menu_settings">Settings</string>
 	<string name="title_activity_main">MainActivity</string>
+
+
+	<string name="favBtn">Add to Favorates</string>
+	<string name="revBtn">Reviews</string>
+	<string name="trailBtn">Trailers</string>
 
 
 
@@ -54,26 +43,16 @@
 
 
 	<string-array name="OrderbyEntries">
-		<item name="latest">Latest</item>
-		<item name="oldest">Oldest</item>
-		<item name="seeds">Seeds</item>
-		<item name="peers">Peers</item>
-		<item name="year">Year</item>
-		<item name="rating">Rating</item>
-		<item name="likes">Likes</item>
-		<item name="alphabetical">Alphabetical</item>
-		<item name="downloads">Downloads</item>
+		<item name="latest">Top Rated</item>
+		<item name="oldest">Popular</item>
+		<item name="seeds">upcoming</item>
+		<item name="peers">Favourates</item>
 	</string-array>
 	<string-array name="OrderbyPrefValues">
-		<item name="latest">Latest</item>
-		<item name="oldest">Oldest</item>
-		<item name="seeds">Seeds</item>
-		<item name="peers">Peers</item>
-		<item name="year">Year</item>
-		<item name="rating">Rating</item>
-		<item name="likes">Likes</item>
-		<item name="alphabetical">Alphabetical</item>
-		<item name="downloads">Downloads</item>
+		<item name="latest">top_rated</item>
+		<item name="oldest">popular</item>
+		<item name="seeds">Upcoming</item>
+		<item name="peers">Favourates</item>
 	</string-array>
 	<string name="pref_OrderbySummary">Order by</string>
 	<string name="prefOrderbyTitle">Order Movies by</string>
@@ -81,44 +60,8 @@
 
 
 
-	<string-array name="genreEntries">
-		<item name="all">All</item>
-		<item name="action">Action</item>
-		<item name="adventure">Adventure</item>
-		<item name="animation">Animation</item>
-		<item name="biography">Biography</item>
-		<item name="comedy">Comedy</item>
-		<item name="crime">Crime</item>
-		<item name="documentary">Documentary</item>
-		<item name="drama">Drama</item>
-		<item name="family">Family</item>
-		<item name="fantasy">Fantasy</item>
-		<item name="film-noir">Film-Noir</item>
-		<item name="game-show">Game-Show</item>
-	</string-array>
-	<string-array name="genrePrefValues">
-		<item name="all">All</item>
-		<item name="action">Action</item>
-		<item name="adventure">Adventure</item>
-		<item name="animation">Animation</item>
-		<item name="biography">Biography</item>
-		<item name="comedy">Comedy</item>
-		<item name="crime">Crime</item>
-		<item name="documentary">Documentary</item>
-		<item name="drama">Drama</item>
-		<item name="family">Family</item>
-		<item name="fantasy">Fantasy</item>
-		<item name="film-noir">Film-Noir</item>
-		<item name="game-show">Game-Show</item>
-	</string-array>
 	<string name="pref_GenreSummary">Select Genre</string>
 	<string name="prefGenrebyTitle">Select Genre</string>
-
-
-
-
-
-
 	<string name="pref_send_report">Send crash reports</string>
 	<string name="pref_send_report_summary">Helps to fix bugs</string>
 	<string name="pref_sync_frequency">Sync frequency</string>

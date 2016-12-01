@@ -16,6 +16,10 @@
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\thumb_on.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.github.jd-alexander\\LikeButton\\0.2.0\\res\\drawable\\thumb_on.png"
+    },
+    {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
@@ -26,6 +30,10 @@
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tool.png",
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\src\\main\\res\\drawable\\tool.png"
+    },
+    {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\star_on.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.github.jd-alexander\\LikeButton\\0.2.0\\res\\drawable\\star_on.png"
     },
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
@@ -48,8 +56,16 @@
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\heart_on.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.github.jd-alexander\\LikeButton\\0.2.0\\res\\drawable\\heart_on.png"
+    },
+    {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\thumb_off.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.github.jd-alexander\\LikeButton\\0.2.0\\res\\drawable\\thumb_off.png"
     },
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home.png",
@@ -66,6 +82,10 @@
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\star_off.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.github.jd-alexander\\LikeButton\\0.2.0\\res\\drawable\\star_off.png"
     },
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
@@ -114,6 +134,10 @@
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\heart_off.png",
+        "source": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\exploded-aar\\com.github.jd-alexander\\LikeButton\\0.2.0\\res\\drawable\\heart_off.png"
     },
     {
         "merged": "C:\\Users\\ddopik_pc\\Desktop\\StudioProjects\\project_sample\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",

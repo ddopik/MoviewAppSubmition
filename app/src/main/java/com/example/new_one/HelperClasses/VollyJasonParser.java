@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.new_one.Controller_interfacer.SingleMovieInfoListner;
 import com.example.new_one.Controller_interfacer.SingleMoviewReviewsDialogtListner;
 import com.example.new_one.Controller_interfacer.SingleMoviewTrailerDialogListner;
 import com.example.new_one.Controller_interfacer.VollyAdapter;
@@ -37,25 +38,35 @@ public class VollyJasonParser {
     Bundle viewType;
     RequestQueue requestQueue;
     String JsonObjURL;
+    String listType;
+    private int SingleMoveID;
+    private String singleMovieObjUrl;
     Activity myActivity;
-    String imgUrl;
+
 
 
     List<Map<String, String>> listMapData = new ArrayList<Map<String, String>>();
     List<Map<String, String>> listDialogData = new ArrayList<Map<String, String>>();
     List<Map<String, String>> listTrailData = new ArrayList<Map<String, String>>();
+    List<Map<String, String>> MovieInfoData = new ArrayList<Map<String, String>>();
     private VollyAdapter vollyAdapter;
     private SingleMoviewReviewsDialogtListner reviewsDialogtListner;
     private SingleMoviewTrailerDialogListner trailerDialogtListner;
+    private SingleMovieInfoListner singleMovieInfoListner;
 
-    public VollyJasonParser(Activity act) {
+
+    public VollyJasonParser(int singleMovieID,Activity act,String segment) {
         requestQueue = Volley.newRequestQueue(act);
+        setSingleMoveID(singleMovieID);
+        setSingleMovieObjUrl(singleMovieID,segment);
+
     }///constructor for ReviewList/TrailerRequest
 
-    public VollyJasonParser(Activity act, View fragmentView, Bundle SharedPrefViewType, String url) {
+    public VollyJasonParser(Activity act, View fragmentView, Bundle SharedPrefViewType, String url,String listType) {
 
         requestQueue = Volley.newRequestQueue(act);
-        JsonObjURL = url;
+        setJsonObjURL(url);
+        setListType(listType);
         myActivity = act;
         viewType = SharedPrefViewType;
         movieGridView = (GridView) fragmentView.findViewById(R.id.gridList);
@@ -69,7 +80,7 @@ public class VollyJasonParser {
     public List makeJsonObjectRequest() {
 
 
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, JsonObjURL, null,
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, getJsonObjURL(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -106,11 +117,11 @@ public class VollyJasonParser {
                             ///////using Realm DB
                             //Realm  realm = Realm.getDefaultInstance();
                             RealmContract myRealm = new RealmContract();
-                            myRealm.setQuery(listMapData);
-//                    myRealm.getQuery();
+                            myRealm.setQuery(listMapData,getListType());
+
                             ///////
 
-                            vollyAdapter.setMainAdapter(myActivity, myRealm.getQuery());
+                            vollyAdapter.setMainAdapter(myActivity, myRealm.getQuery(getListType()));
 
                         } catch (JSONException e) {
 //                        e.printStackTrace();
@@ -127,6 +138,9 @@ public class VollyJasonParser {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Volly Exception", "Error: " + error.getMessage());
+                        Log.e("get List Offline", "------->OfflineMode: ");
+                        RealmContract myRealm = new RealmContract();
+                        vollyAdapter.setMainAdapter(myActivity, myRealm.getQuery(getListType()));
                         //     Toast.makeText(myActivity, "NetWork Error Starting OffLine Mode ", Toast.LENGTH_LONG).show();
 
                     }
@@ -140,13 +154,12 @@ public class VollyJasonParser {
     }
 
     //////////////////////////////////////////////////////////
-    public List makeJsonObjectReviewRequest(int movieID, String segment) {
-        final int mvID = movieID;
+    public List makeJsonObjectReviewRequest(String segment) {
         final String mySegment=segment;
-        String reviewUrl = "http://api.themoviedb.org/3/movie/" + movieID + "/" + segment + "?api_key=61b43cea1b1dc0726b2c14fcce079ffe ";
+        //String reviewUrl = "http://api.themoviedb.org/3/movie" + movieID + "/" + segment + "?api_key=61b43cea1b1dc0726b2c14fcce079ffe ";
 
         //List<Map<String, String>> listDialogData = new ArrayList<Map<String, String>>(); ??? shy should i declared this value as Aclass Variable
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, reviewUrl, null,
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, getSingleMovieObjUrl(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -159,10 +172,10 @@ public class VollyJasonParser {
                                 jasonReviewToList(JSONObjectResponse.optJSONArray("results")); ///Set's Your Fetcher ###1
                                 ///////
                                 RealmContract myRealm = new RealmContract();
-                                myRealm.setMoviewReviewsQuery(getListDialogData(), mvID);///sets Reviws According to it's moview ###2
+                                myRealm.setMoviewReviewsQuery(getListDialogData(), getSingleMoveID());///sets Reviws According to it's moview ###2
                                 ///////
 
-                                reviewsDialogtListner.startReviewDialogFragment(myActivity, myRealm.getRevQuery(mvID));////ViewController ##3
+                                reviewsDialogtListner.startReviewDialogFragment(myActivity, myRealm.getRevQuery(getSingleMoveID()));////ViewController ##3
 
                             }
                             else if(mySegment.equals("videos"))
@@ -172,10 +185,23 @@ public class VollyJasonParser {
                                 ///////
                                 RealmContract myRealm = new RealmContract();
 
-                                myRealm.setMoviewTrailerQuery(getListDialogData(), mvID);///sets Reviws According to it's moview ###2
+                                myRealm.setMoviewTrailerQuery(getListDialogData(), getSingleMoveID());///sets Reviws According to it's moview ###2
                                 ///////
 
-                                trailerDialogtListner.startTrailersDialogFragment(myActivity, myRealm.getTrailQuery(mvID));////ViewController ##3--->
+                                trailerDialogtListner.startTrailersDialogFragment(myActivity, myRealm.getTrailQuery(getSingleMoveID()));////ViewController ##3--->
+
+                            }
+                            else if(mySegment.equals("MovieInfo"))
+                            {
+                                Log.e("--->State_Requsting_Movie_Info", JSONObjectResponse.toString());
+                                jasonMovieInfoToList(JSONObjectResponse); ///Set's Your Fetcher ###1
+                                ///////
+                                RealmContract myRealm = new RealmContract();
+                                myRealm.setMoviewInfoQuery(getMovieInfoData(), getSingleMoveID());///sets Reviws According to it's moview ###2
+                                ///////
+                                int x=myRealm.getMovieInfoQuery(getSingleMoveID());
+
+                                singleMovieInfoListner.startMovieInfo(myActivity, myRealm.getMovieInfoQuery(getSingleMoveID()));////ViewController ##3--->
 
                             }
                         }
@@ -253,6 +279,29 @@ public class VollyJasonParser {
         }
     }
 
+    public void jasonMovieInfoToList(JSONObject jasonListObj)
+    {
+        for (int i = 0; i < jasonListObj.length(); i++) {
+            try {
+                String id = jasonListObj.getString("id");
+                String runtime = jasonListObj.getString("runtime");
+                String homepage = jasonListObj.getString("homepage");
+
+
+                ////////////// if you wan't  to use map
+                Map<String, String> mapData = new HashMap<String, String>();
+                mapData.put("id", id);
+                mapData.put("runtime", runtime);
+                mapData.put("homepage", homepage);
+                getMovieInfoData().add(i, mapData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.e("VollyJasonParser","--->jasonTrailerToList_function",e);
+            }
+
+        }
+
+    }
 
 
     public void setVollyAdapter(VollyAdapter vollyAdapter) {
@@ -269,7 +318,58 @@ public class VollyJasonParser {
     public List<Map<String, String>> getListDialogData() {
         return listDialogData;
     }
+    public SingleMovieInfoListner getSingleMovieInfoListner() {
+        return singleMovieInfoListner;
+    }
 
+    public List<Map<String,String>> getMovieInfoData()
+    {
+        return this.MovieInfoData;
+    }
+    public void setSingleMovieInfoListner(SingleMovieInfoListner singleMovieInfoListner) {
+        this.singleMovieInfoListner = singleMovieInfoListner;
+    }
+
+
+    public String getJsonObjURL() {
+        return JsonObjURL;
+    }
+
+    public void setJsonObjURL(String jsonMainListObjURL) {
+        JsonObjURL = "https://api.themoviedb.org/3/movie/"+jsonMainListObjURL+"?api_key=61b43cea1b1dc0726b2c14fcce079ffe";
+    }
+
+    public String getSingleMovieObjUrl() {
+        return singleMovieObjUrl;
+    }
+
+    public void setSingleMovieObjUrl(int movieID, String jasonObjUrl2) {
+        if(!jasonObjUrl2.isEmpty())
+        {
+            this.singleMovieObjUrl = "http://api.themoviedb.org/3/movie/"+movieID+"/"+jasonObjUrl2+"?api_key=61b43cea1b1dc0726b2c14fcce079ffe";
+        }
+        else
+        {
+            this.singleMovieObjUrl = "http://api.themoviedb.org/3/movie/"+movieID+"?api_key=61b43cea1b1dc0726b2c14fcce079ffe";
+        }
+
+    }
+
+
+    public int getSingleMoveID() {
+        return SingleMoveID;
+    }
+
+    public void setSingleMoveID(int singleMoveID) {
+        SingleMoveID = singleMoveID;
+    }
+    public String getListType() {
+        return listType;
+    }
+
+    public void setListType(String listType) {
+        this.listType = listType;
+    }
 
 
 }

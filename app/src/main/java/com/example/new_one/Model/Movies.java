@@ -27,8 +27,12 @@ public class Movies extends RealmObject {
     private String Movie_Img;
 
     private String Moview_Year;
-
+    @Ignore
+    private boolean Favorate_Movie;
+    @Required
+    private String Movie_Type;
     private float Moview_Rating;
+    private int MovieDuration;
     @Ignore
     private float vote_average;
     @Ignore
@@ -98,6 +102,14 @@ public class Movies extends RealmObject {
 
     }
 
+    public String getMovie_Type() {
+        return Movie_Type;
+    }
+
+    public void setMovie_Type(String movie_Type) {
+        Movie_Type = movie_Type;
+    }
+
     public RealmList<MoviesReviews> getMoviesReviews() {
         return moviesReviews;
     }
@@ -155,6 +167,21 @@ public class Movies extends RealmObject {
         Moview_Rating = moview_Rating;
     }
 
+    public int getMovieDuration() {
+        return MovieDuration;
+    }
+
+    public void setMovieDuration(int movieDuration) {
+        MovieDuration = movieDuration;
+    }
+
+    public boolean isFavorate_Movie() {
+        return Favorate_Movie;
+    }
+    public void setFavorate_Movie(boolean favorate_Movie) {
+        Favorate_Movie = favorate_Movie;
+    }
+
     public float getVote_average() {
         return vote_average;
     }
@@ -175,22 +202,3 @@ public class Movies extends RealmObject {
 }
 
 
-//        List<MoviesReviews> myLocalList = getMoviesReviews();
-//        Log.e("Movies_Realm_numebOfLocalReviewsBefore --->", Integer.toString(getMoviesReviews().size()));
-//        if (myLocalList.size() == 0) {
-//            getMoviesReviews().add(obj);
-//            Log.e("Realm_state@2--->", "Insert Realm Revobject");
-//        } else {
-//
-//            for (int i = 0; i < myLocalList.size(); i++) {
-//                Log.e("Realm --->", "OldReviewsFound-->ReviewLoopStart");
-//                if (!myLocalList.get(i).getRevId().equals(obj.getRevId())) {
-//                    getMoviesReviews().add(obj);
-//                    Log.e("(if)Realm --->", "Insert Realm Revobject");
-//                } else {
-//                    Log.e("Movies_Realm_ReviewObj --->", "AlreadyExsists");
-//                }
-//
-//                Log.e("Movies_Realm_numebof ReviewsAfter  --->", Integer.toString(getMoviesReviews().size()));
-//            }
-//        }

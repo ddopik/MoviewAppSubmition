@@ -10,25 +10,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.example.new_one.Controller_interfacer.SingleMoviewFragmentListner;
 import com.example.new_one.HelperClasses.AndroidDatabaseManager;
-import com.example.new_one.HelperClasses.SerializeObject;
 import com.example.new_one.R;
 import com.facebook.stetho.Stetho;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
-import java.util.List;
-import java.util.Map;
-
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-
-import static android.view.View.INVISIBLE;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            Fragment_main fg = getFrgInstance();
+            MoviesListFragment fg = getFrgInstance();
            //// ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
             ft.replace(R.id.ContainerActivityID,fg,"fragment_activity"); ///we are Not Deleting the container we are Deleting it's content
             ft.commit();
@@ -90,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment_main fg = getFrgInstance();
+                MoviesListFragment fg = getFrgInstance();
                 //// ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
                 ft.replace(R.id.ContainerActivityID,fg,"fragment_activity"); ///we are Not Deleting the container we are Deleting it's content
                 ft.commit();
@@ -100,11 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, UserSettingActivity.class);
                 startActivityForResult(i, RESULT_SETTINGS);
                 break;
-            case R.id.ViewMyDataBase:////calling ViewMyDataBase
-                Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
-                startActivity(dbmanager);
-
-                break;
+//            case R.id.ViewMyDataBase:////calling ViewMyDataBase
+//                Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
+//                startActivity(dbmanager);
+//                break;
 
 
             default:
@@ -137,14 +126,12 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder builder = new StringBuilder();
 
         builder.append("\n prefOrderbyPref: " + sharedPrefs.getString("prefOrderbyPref", "NULL"));
-        builder.append("\n prefGenrePref: " + sharedPrefs.getString("prefGenrePref", "NULL"));
-        builder.append("\n prefSetYear: " + sharedPrefs.getString("prefSetYear", "NULL"));
-        builder.append("\n prefViewByFrequency: " + sharedPrefs.getString("prefViewByFrequency", "NULL"));
+
+
 
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-//        Fragment_main_deprecated fg = getFrgInstance();
-        Fragment_main fg = getFrgInstance();
+        MoviesListFragment fg = getFrgInstance();
         ft.replace(R.id.ContainerActivityID, fg);
         ft.commit();
         Toast.makeText(this, builder.toString(), Toast.LENGTH_LONG).show();
@@ -153,51 +140,49 @@ public class MainActivity extends AppCompatActivity {
 
 
                                                ///this Fragment created for Mobile View
-    public Fragment_main getFrgInstance() {   ///creating object of my Main Fragment Required for SaredPreferance
+    public MoviesListFragment getFrgInstance() {   ///creating object of my Main Fragment Required for SaredPreferance
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String orderBy = sharedPrefs.getString("prefOrderbyPref", "NULL");
-        String genere = sharedPrefs.getString("prefGenrePref", "NULL");
-        String year = sharedPrefs.getString("prefSetYear", "NULL");
         String viewBy = sharedPrefs.getString("prefViewByFrequency", "NULL");
 
-        Fragment_main fg = new Fragment_main();
+
+        MoviesListFragment fg = new MoviesListFragment();
+
+        Bundle arg = new Bundle();
+        arg.putString("orderBy", orderBy);
+        arg.putString("viewBy", viewBy);
+        fg.setArguments(arg);
 
         fg.setFrgListner(new SingleMoviewFragmentListner(){
             @Override
-            public void createFrgListner(List<Map<String,String>> jasonItems,int position) {
+            public void createFrgListner(int movieID) {
 
-                SerializeObject intentVar=new SerializeObject();
-                intentVar.setList(jasonItems);
+
                 Intent myIntent = new Intent(MainActivity.this, SingleMoviewActivity.class);
-
-                myIntent.putExtra("singleMoview", intentVar);
-                myIntent.putExtra("position", position);
+                myIntent.putExtra("MovieID",movieID);
                 if(findViewById(R.id.SingleMoviewFragment2)==null) {
-
                     startActivity(myIntent);
                 }
                 else
                 {
-                    SingleMoviewFragment fgs = SingleMoviewFragment.newInstance(intentVar, position);
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    // ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
-                    ft.replace(R.id.SingleMoviewFragment2,fgs); ///we are Not Deleting the container we are Deleting it's content
-                    ft.commit();
+//                    SingleMoviewFragment fgs = SingleMoviewFragment.newInstance(intentVar, position);
+
+//                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                    // ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
+//                    ft.replace(R.id.SingleMoviewFragment2,fgs); ///we are Not Deleting the container we are Deleting it's content
+//                    ft.commit();
                 }
             }
         }); ///intializing Fragment Interface
 
 
-        Bundle arg = new Bundle();
-        arg.putString("orderBy", orderBy);
-        arg.putString("genere", genere);
-        arg.putString("year", year);
-        arg.putString("viewBy", viewBy);
-        fg.setArguments(arg);
+
         return fg;
     }
-
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
 
 
 }

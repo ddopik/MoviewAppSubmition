@@ -1,77 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="OrderbyEntries">
-		<item name="latest">Latest</item>
-		<item name="oldest">Oldest</item>
-		<item name="seeds">Seeds</item>
-		<item name="peers">Peers</item>
-		<item name="year">Year</item>
-		<item name="rating">Rating</item>
-		<item name="likes">Likes</item>
-		<item name="alphabetical">Alphabetical</item>
-		<item name="downloads">Downloads</item>
+		<item name="latest">Top Rated</item>
+		<item name="oldest">Popular</item>
+		<item name="seeds">upcoming</item>
+		<item name="peers">Favourates</item>
 	</string-array>
     <string-array name="OrderbyPrefValues">
-		<item name="latest">Latest</item>
-		<item name="oldest">Oldest</item>
-		<item name="seeds">Seeds</item>
-		<item name="peers">Peers</item>
-		<item name="year">Year</item>
-		<item name="rating">Rating</item>
-		<item name="likes">Likes</item>
-		<item name="alphabetical">Alphabetical</item>
-		<item name="downloads">Downloads</item>
+		<item name="latest">top_rated</item>
+		<item name="oldest">popular</item>
+		<item name="seeds">Upcoming</item>
+		<item name="peers">Favourates</item>
 	</string-array>
     <string-array name="ViewByEntries">
 		<item name="List">List</item>
 		<item name="Grid">Grid</item>
 	</string-array>
-    <string-array name="genreEntries">
-		<item name="all">All</item>
-		<item name="action">Action</item>
-		<item name="adventure">Adventure</item>
-		<item name="animation">Animation</item>
-		<item name="biography">Biography</item>
-		<item name="comedy">Comedy</item>
-		<item name="crime">Crime</item>
-		<item name="documentary">Documentary</item>
-		<item name="drama">Drama</item>
-		<item name="family">Family</item>
-		<item name="fantasy">Fantasy</item>
-		<item name="film-noir">Film-Noir</item>
-		<item name="game-show">Game-Show</item>
-	</string-array>
-    <string-array name="genrePrefValues">
-		<item name="all">All</item>
-		<item name="action">Action</item>
-		<item name="adventure">Adventure</item>
-		<item name="animation">Animation</item>
-		<item name="biography">Biography</item>
-		<item name="comedy">Comedy</item>
-		<item name="crime">Crime</item>
-		<item name="documentary">Documentary</item>
-		<item name="drama">Drama</item>
-		<item name="family">Family</item>
-		<item name="fantasy">Fantasy</item>
-		<item name="film-noir">Film-Noir</item>
-		<item name="game-show">Game-Show</item>
-	</string-array>
-    <array name="icons">
-        <item>@drawable/home</item>
-        <item>@drawable/tutorials</item>
-        <item>@drawable/app</item>
-        <item>@drawable/os</item>
-        <item>@drawable/tool</item>
-        <item>@drawable/about</item>
-    </array>
-    <string-array name="titles">
-        <item>Home</item>
-        <item>Tutorials</item>
-        <item>My Apps</item>
-        <item>OS Versions</item>
-        <item>Tools</item>
-        <item>About Us</item>
-    </string-array>
     <string-array name="viewByPrefValues">
 		<item name="List">List</item>
 		<item name="Grid">Grid</item>
@@ -159,6 +103,7 @@
     <declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable>
     <declare-styleable name="CompoundButton"><attr name="android:button"/><attr format="color" name="buttonTint"/><attr name="buttonTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
+    <declare-styleable name="LikeButton"><attr format="string" name="icon_type"/><attr format="dimension|reference" name="icon_size"/><attr format="reference" name="like_drawable"/><attr format="reference" name="unlike_drawable"/><attr format="color|reference" name="dots_primary_color"/><attr format="color|reference" name="dots_secondary_color"/><attr format="color|reference" name="circle_start_color"/><attr format="color|reference" name="circle_end_color"/><attr format="boolean" name="liked"/><attr format="boolean" name="is_enabled"/><attr format="float" name="anim_scale_factor"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
@@ -291,6 +236,7 @@
     <string name="app_name">new_one</string>
     <string name="app_settinge">App setting</string>
     <string name="btn_value">my buttom</string>
+    <string name="favBtn">Add to Favorates</string>
     <string name="hello_world">Hello world!</string>
     <string name="imgdesc">imgdesc</string>
     <string name="menu_settings">Settings</string>
@@ -306,6 +252,7 @@
     <string name="pref_sync_frequency_summary">Set the sync frequency</string>
     <string name="pref_update_setting">Update Settings</string>
     <string name="pref_user_profile">User Profile</string>
+    <string name="revBtn">Reviews</string>
     <string name="reviewsDialogName">Reviews</string>
     <string name="setYearPref">Set Year</string>
     <string name="setYearPref_summary">Set your movies year</string>
@@ -313,6 +260,7 @@
     <string name="singleMovieActivityFg">Movie details</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="trailBtn">Trailers</string>
     <string name="trailerDialogName">Trailers</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

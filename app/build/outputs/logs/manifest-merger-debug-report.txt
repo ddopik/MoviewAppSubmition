@@ -19,6 +19,7 @@ uses-sdk
 ADDED from C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\src\main\AndroidManifest.xml:7:5-9:41
 MERGED from [io.realm:realm-android-library:2.1.1] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\io.realm\realm-android-library\2.1.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.getkeepsafe.relinker:relinker:1.2.2] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.getkeepsafe.relinker\relinker\1.2.2\AndroidManifest.xml:7:5-43
+MERGED from [com.github.jd-alexander:LikeButton:0.2.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.github.jd-alexander\LikeButton\0.2.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
@@ -38,6 +39,7 @@ MERGED from [com.uphyca:stetho_realm:2.0.0] C:\Users\ddopik_pc\Desktop\StudioPro
 		INJECTED from C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\src\main\AndroidManifest.xml
 application
 ADDED from C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\src\main\AndroidManifest.xml:11:5-64:19
+MERGED from [com.github.jd-alexander:LikeButton:0.2.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.github.jd-alexander\LikeButton\0.2.0\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
@@ -46,6 +48,8 @@ MERGED from [com.android.volley:volley:1.0.0] C:\Users\ddopik_pc\Desktop\StudioP
 MERGED from [com.facebook.stetho:stetho:1.4.1] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.facebook.stetho\stetho\1.4.1\AndroidManifest.xml:11:5-20
 	android:label
 		ADDED from C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\src\main\AndroidManifest.xml:14:9-41
+	android:supportsRtl
+		ADDED from [com.github.jd-alexander:LikeButton:0.2.0] C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\build\intermediates\exploded-aar\com.github.jd-alexander\LikeButton\0.2.0\AndroidManifest.xml:14:9-35
 	android:allowBackup
 		ADDED from C:\Users\ddopik_pc\Desktop\StudioProjects\project_sample\app\src\main\AndroidManifest.xml:12:9-35
 	android:icon

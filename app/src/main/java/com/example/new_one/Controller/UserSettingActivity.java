@@ -22,25 +22,6 @@ public class UserSettingActivity extends PreferenceActivity {
      super.onCreate(savedInstanceState);
      addPreferencesFromResource(R.layout.preferences);
 
-
-//     Context context = getBaseContext();
-//     SharedPreferences prefs = context.getSharedPreferences("setting",context.MODE_PRIVATE);
-//     SharedPreferences.OnSharedPreferenceChangeListener spChanged = new
-//             SharedPreferences.OnSharedPreferenceChangeListener() {
-//                 @Override
-  //               public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,String key) {
-//                     if (key.equals("prefViewByFrequency")) {
-//                         Context context = getBaseContext();
-//                         SharedPreferences prefs = context.getSharedPreferences("setting",context.MODE_PRIVATE);
-//                         SharedPreferences.Editor editor = prefs.edit();
-//                         editor.putString("viewByValue", "value");
-//                         editor.commit();
-//                     }
-               //  }
-             //};
-//     prefs.registerOnSharedPreferenceChangeListener(spChanged);
-
-
  }
 
 
