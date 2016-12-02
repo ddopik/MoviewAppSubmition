@@ -44,10 +44,10 @@ public class AsyncTaskResponseFetcher extends AsyncTask<String,Integer, String> 
 ////<ProgressBar Operations>
     protected void onPreExecute()
     {
-        myProgressBar  = (ProgressBar)parentActivity.findViewById(R.id.progressbar_Horizontal);
-        myProgressBar.setVisibility(VISIBLE);
-        myProgressBar.setProgress(0);
-        myProgressCount = 0;
+//        myProgressBar  = (ProgressBar)parentActivity.findViewById(R.id.progressbar_Horizontal);
+//        myProgressBar.setVisibility(VISIBLE);
+//        myProgressBar.setProgress(0);
+//        myProgressCount = 0;
         Log.e("ProgressBarOberation", "--->ProgressStarted");
     }
 

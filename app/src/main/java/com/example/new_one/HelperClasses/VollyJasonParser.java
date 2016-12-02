@@ -116,7 +116,7 @@ public class VollyJasonParser {
 
                             ///////using Realm DB
                             //Realm  realm = Realm.getDefaultInstance();
-                            RealmContract myRealm = new RealmContract();
+                            RealmContract myRealm = new RealmContract(myActivity);
                             myRealm.setQuery(listMapData,getListType());
 
                             ///////
@@ -139,7 +139,7 @@ public class VollyJasonParser {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Volly Exception", "Error: " + error.getMessage());
                         Log.e("get List Offline", "------->OfflineMode: ");
-                        RealmContract myRealm = new RealmContract();
+                        RealmContract myRealm = new RealmContract(myActivity);
                         vollyAdapter.setMainAdapter(myActivity, myRealm.getQuery(getListType()));
                         //     Toast.makeText(myActivity, "NetWork Error Starting OffLine Mode ", Toast.LENGTH_LONG).show();
 
@@ -171,7 +171,7 @@ public class VollyJasonParser {
                                 Log.e("--->State_Requsting_Movie_Reviews", JSONObjectResponse.toString());
                                 jasonReviewToList(JSONObjectResponse.optJSONArray("results")); ///Set's Your Fetcher ###1
                                 ///////
-                                RealmContract myRealm = new RealmContract();
+                                RealmContract myRealm = new RealmContract(myActivity);
                                 myRealm.setMoviewReviewsQuery(getListDialogData(), getSingleMoveID());///sets Reviws According to it's moview ###2
                                 ///////
 
@@ -183,7 +183,7 @@ public class VollyJasonParser {
                                 Log.e("--->State_Requsting_Movie_Trailers", JSONObjectResponse.toString());
                                 jasonTrailerToList(JSONObjectResponse.optJSONArray("results")); ///Set's Your Fetcher ###1
                                 ///////
-                                RealmContract myRealm = new RealmContract();
+                                RealmContract myRealm = new RealmContract(myActivity);
 
                                 myRealm.setMoviewTrailerQuery(getListDialogData(), getSingleMoveID());///sets Reviws According to it's moview ###2
                                 ///////
@@ -196,7 +196,7 @@ public class VollyJasonParser {
                                 Log.e("--->State_Requsting_Movie_Info", JSONObjectResponse.toString());
                                 jasonMovieInfoToList(JSONObjectResponse); ///Set's Your Fetcher ###1
                                 ///////
-                                RealmContract myRealm = new RealmContract();
+                                RealmContract myRealm = new RealmContract(myActivity);
                                 myRealm.setMoviewInfoQuery(getMovieInfoData(), getSingleMoveID());///sets Reviws According to it's moview ###2
                                 ///////
                                 int x=myRealm.getMovieInfoQuery(getSingleMoveID());

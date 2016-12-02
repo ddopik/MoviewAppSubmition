@@ -12,6 +12,7 @@ import java.util.Map;
 
 import io.realm.Realm;
 import io.realm.RealmCollection;
+import io.realm.RealmConfiguration;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 import io.realm.Sort;
@@ -28,8 +29,13 @@ public class RealmContract {
 
     private Realm realm;
 
+static {
 
-    public RealmContract() {
+}
+    public RealmContract(Context context) {
+        Realm.init(context);
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
+        Realm.setDefaultConfiguration(realmConfig);
 
         realm = Realm.getDefaultInstance();
         Log.e("Realm --->", "RealmContract called");
@@ -117,6 +123,18 @@ public class RealmContract {
         }
 
         return mv;
+
+    }
+    public int getDefaultMovie(String listType)
+    {
+        if(listType.equals("Favourates"))
+        {
+            Movies mv=realm.where(Movies.class).equalTo("Favorate_Movie",true).findFirst();
+            return mv.getId();
+        }else {
+            Movies mv = realm.where(Movies.class).equalTo("Movie_Type", listType).findFirst();
+            return mv.getId();
+        }
 
     }
 

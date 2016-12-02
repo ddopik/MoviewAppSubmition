@@ -46,7 +46,7 @@ public class ReviewsFragment extends DialogFragment {
 
 
         setMovieId(getArguments().getInt("MovieId"));
-        RealmContract myRealm = new RealmContract();
+        RealmContract myRealm = new RealmContract(getActivity());
         setListRevData(myRealm.getRevQuery(getMovieId()));
 
         ReviewsAdapter revAdapter=new ReviewsAdapter(getActivity(),getListRevData());

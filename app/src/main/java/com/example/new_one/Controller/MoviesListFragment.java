@@ -128,7 +128,7 @@ public class MoviesListFragment extends Fragment {
             Log.e("MovieListFragment---->", "Volly Calling NetWork Error ---> ", e);
             Log.e("MovieListFragment---->", "Error_adapter fetching JASON error !!!!(*_-_*)!!!!! ");
             Log.e("MovieListFragment---->", "Starting App in Offline Mode");
-            RealmContract moviesList = new RealmContract();
+            RealmContract moviesList = new RealmContract(getActivity());
 
 
             myProgressBar = (ProgressBar) fragmentView.findViewById(R.id.pbFooterLoading);

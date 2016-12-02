@@ -126,7 +126,7 @@ public class CustomViewAdapter extends BaseAdapter  {
 			LikeButton likeButton=(LikeButton) v.findViewById(R.id.star_button);
 			TextView mvIdView=(TextView) singleItem.findViewById(R.id.mainMovieId);
 			String SmvID=mvIdView.getText().toString();
-			RealmContract myRealm=new RealmContract();
+			RealmContract myRealm=new RealmContract(context);
 			String state=myRealm.setMoviewToFav(Integer.parseInt(SmvID));
 			if (state.equals("Added to favorites"))
 			{

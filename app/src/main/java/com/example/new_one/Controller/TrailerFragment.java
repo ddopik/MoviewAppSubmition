@@ -50,7 +50,7 @@ public class TrailerFragment extends DialogFragment {
 
 
         setMovieId(getArguments().getInt("MovieId"));
-        RealmContract myRealm = new RealmContract();
+        RealmContract myRealm = new RealmContract(getActivity());
         setListTrailData(myRealm.getTrailQuery(getMovieId()));
         RealmList<MoviesTrailer>  l=this.listTrailData;
         TrailerAdapter trailAdapter=new TrailerAdapter(getActivity(),getListTrailersData());

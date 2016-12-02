@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Realm.init(this); // Initialize Realm. Should only be done once when the application starts.
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
-        Realm.setDefaultConfiguration(realmConfig);
+//        Realm.init(this); // Initialize Realm. Should only be done once when the application starts.
+//        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
+//        Realm.setDefaultConfiguration(realmConfig);
 
         Stetho.initialize(
                 Stetho.newInitializerBuilder(this)
@@ -167,12 +167,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-//                    SingleMoviewFragment fgs = SingleMoviewFragment.newInstance(intentVar, position);
 
-//                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                    // ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
-//                    ft.replace(R.id.SingleMoviewFragment2,fgs); ///we are Not Deleting the container we are Deleting it's content
-//                    ft.commit();
+                    SingleMoviewFragment fgs =new SingleMoviewFragment();
+                    Bundle arg=new Bundle();
+                    arg.putInt("myMovieID",movieID);
+                    fgs.setArguments(arg);
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    // ft.addToBackStack(null);///This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.
+                    ft.replace(R.id.SingleMoviewFragment2,fgs); ///we are Not Deleting the container we are Deleting it's content
+                    ft.commit();
                 }
             }
         }); ///intializing Fragment Interface
