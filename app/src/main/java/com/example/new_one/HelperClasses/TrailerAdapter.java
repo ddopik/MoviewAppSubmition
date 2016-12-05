@@ -12,6 +12,7 @@ import com.example.new_one.Model.MoviesReviews;
 import com.example.new_one.Model.MoviesTrailer;
 import com.example.new_one.R;
 import com.example.new_one.View.ViewHolder_ReviewsDialog;
+import com.example.new_one.View.ViewHolder_TrailDialog;
 
 import io.realm.RealmList;
 
@@ -54,21 +55,23 @@ public class TrailerAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         MoviesTrailer single_row = trailersList.get(position);/// select object number n from the object_array
-        ViewHolder_ReviewsDialog RevItemHolder;
+        ViewHolder_TrailDialog TrailItemHolder;
         if(convertView==null)
         {
             LayoutInflater mInflater=(LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView=mInflater.inflate(R.layout.single_item_trailers_activity_dialog,null);
-            RevItemHolder=new ViewHolder_ReviewsDialog();
-            RevItemHolder.RevContent=(TextView) convertView.findViewById(R.id.TrailContentID);
-            convertView.setTag(RevItemHolder);
+            TrailItemHolder=new ViewHolder_TrailDialog();
+            TrailItemHolder.trailContentLink=(TextView) convertView.findViewById(R.id.TrailContentLink);
+            TrailItemHolder.trailContentName=(TextView) convertView.findViewById(R.id.TrailContentName);
+            convertView.setTag(TrailItemHolder);
         }
         else
         {
-            RevItemHolder=(ViewHolder_ReviewsDialog) convertView.getTag();
+            TrailItemHolder=(ViewHolder_TrailDialog) convertView.getTag();
         }
 //        https://www.youtube.com/watch?v=jXi-ODqD4eQ
-        RevItemHolder.RevContent.setText("https://www.youtube.com/watch?v="+single_row.getTrailKey());
+        TrailItemHolder.trailContentLink.setText("https://www.youtube.com/watch?v="+single_row.getTrailKey());
+        TrailItemHolder.trailContentName.setText(single_row.getTrailName());
 
         return convertView;
     }

@@ -7,5 +7,26 @@ import android.widget.TextView;
  */
 
 public class ViewHolder_TrailDialog {
-    public TextView TrailContent;
+
+
+    public TextView trailContentLink;
+    public TextView trailContentName;
+
+
+    public TextView getTrailContentLink() {
+        return trailContentLink;
+    }
+
+    public void setTrailContentLink(TextView trailContentLink) {
+        this.trailContentLink = trailContentLink;
+    }
+
+    public TextView getTrailContentName() {
+        return trailContentName;
+    }
+
+    public void setTrailContentName(TextView trailContentName) {
+        this.trailContentName = trailContentName;
+    }
+
 }

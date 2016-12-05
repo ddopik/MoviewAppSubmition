@@ -8,7 +8,9 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -64,15 +66,15 @@ public class SingleMoviewFragment extends Fragment {
         setRetainInstance(true);// retain this fragment so fragment won't lost instaned data
         setHasOptionsMenu(true);
         Log.e("FragmentMenu--->", "onCreateView_SingleMoview called");
-//        fragmentView = inflater.inflate(R.layout.single_movie_fragment, container, false);
-//        movieDurationView = (TextView) fragmentView.findViewById(R.id.mv_duration_id);
+
 
 
         try {
-            readBundle(getData());
+            readBundle(getArguments());
             fragmentView = inflater.inflate(R.layout.single_movie_fragment, container, false);
             movieDurationView = (TextView) fragmentView.findViewById(R.id.mv_duration_id);
             startMoviewFragment();
+
         }
         catch(Exception e)
         {
@@ -116,37 +118,39 @@ public class SingleMoviewFragment extends Fragment {
 
         RealmContract myRealm=new RealmContract(getActivity());
 
-        if (bundle != null) {
+        if (bundle!=null) {
             setMovieID(bundle.getInt("myMovieID"));
-        } else if (getData().getString("orderBy") == "top_rated") {
-            int defaultListID=myRealm.getDefaultMovie("Tr");
-            setMovieID(defaultListID);
+        }
+        else if(bundle ==null) {
+            try {
 
-        } else if (getData().getString("orderBy") == "popular") {
-            int defaultListID=myRealm.getDefaultMovie("P");
-            setMovieID(defaultListID);
-        } else if (getData().getString("orderBy") == "Upcoming") {
-            int defaultListID=myRealm.getDefaultMovie("Tp");
-            setMovieID(defaultListID);
+                SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String orderBy = sharedPrefs.getString("prefOrderbyPref", "Top Rated");
 
-        } else if (getData().getString("orderBy") == "Favourates") {
-            int defaultListID=myRealm.getDefaultMovie("Favourates");
-            setMovieID(defaultListID);
 
-        } else {
+                if (orderBy.equals("Top Rated")) {
+                    int defaultListID = myRealm.getDefaultMovie("Tr");
+                    setMovieID(defaultListID);
+
+                } else if (orderBy.equals("popular")) {
+                    int defaultListID = myRealm.getDefaultMovie("P");
+                    setMovieID(defaultListID);
+                } else if (orderBy.equals("Upcoming")) {
+                    int defaultListID = myRealm.getDefaultMovie("Tp");
+                    setMovieID(defaultListID);
+
+                } else if (orderBy.equals("Favourates")) {
+                    int defaultListID = myRealm.getDefaultMovie("Favourates");
+                    setMovieID(defaultListID);
+
+                }
+            } catch (Exception e) {
+              Log.e("SingleMovieFragment","Get default ID failed",e);
+            }
+        }
+        else {
             Log.e("SingleMoveFragment___", "fragment_Must_Be_In_Error--->No Movie_ID assigned");
         }
-    }
-
-    private Bundle getData() {
-        Bundle b = getArguments();
-        if(b==null){
-            b = getActivity().getIntent().getExtras();
-        }
-        if(b == null){
-            b = new Bundle();
-        }
-        return b;
     }
 
     public void startMoviewFragment() {
@@ -185,7 +189,6 @@ public class SingleMoviewFragment extends Fragment {
         yearView.setText(year);
         Picasso.with(getActivity()).load(myImgPath).into(mImage);
         if (duration > 0) {
-//                DurationView.setText(duration);
             setMovieDurationView(duration);
         }
 
@@ -239,6 +242,8 @@ public class SingleMoviewFragment extends Fragment {
         public void onClick(View v) {
             RealmContract myRealm = new RealmContract(getActivity());
             String state = myRealm.setMoviewToFav(getMoviewId());
+            if(state.equals("Added to favorites")){((LikeButton)v).setLiked(true);}
+            else if(state.equals("Removed from favorites")){((LikeButton)v).setLiked(false);}
             Toast.makeText(getActivity(), state, Toast.LENGTH_SHORT).show();
         }
     };

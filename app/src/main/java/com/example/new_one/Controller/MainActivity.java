@@ -1,5 +1,6 @@
 package com.example.new_one.Controller;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.example.new_one.Controller_interfacer.SingleMoviewFragmentListner;
 import com.example.new_one.HelperClasses.AndroidDatabaseManager;
@@ -31,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-//        Realm.init(this); // Initialize Realm. Should only be done once when the application starts.
-//        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
-//        Realm.setDefaultConfiguration(realmConfig);
 
         Stetho.initialize(
                 Stetho.newInitializerBuilder(this)
@@ -167,6 +167,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    LinearLayout frgAutoView=(LinearLayout) findViewById(R.id.SingleMoviewFragment3);
+                    frgAutoView.setVisibility(View.GONE);
+                    LinearLayout frgSelectedView=(LinearLayout) findViewById(R.id.SingleMoviewFragment2);
+                    frgSelectedView.setVisibility(View.VISIBLE);
 
                     SingleMoviewFragment fgs =new SingleMoviewFragment();
                     Bundle arg=new Bundle();

@@ -27,30 +27,43 @@
     <!--android:orientation="horizontal"-->
     <!--/>-->
 
-    <fragment
-    android:id="@+id/SingleMoviewFragment2"
-    android:name="com.example.new_one.Controller.SingleMoviewFragment"
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:layout_weight="0.5"
-    android:background="#555aaa"
-    android:orientation="horizontal"/>
+    <!--<fragment-->
+    <!--android:id="@+id/SingleMoviewFragment2"-->
+    <!--android:name="com.example.new_one.Controller.SingleMoviewFragment"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="0.5"-->
+    <!--android:background="#555aaa"-->
+    <!--android:orientation="horizontal"/>-->
+    <LinearLayout
+        android:id="@+id/SingleMoviewFragment3"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="match_parent"
+        android:background="#555aaa"
+        android:orientation="horizontal"
+      >
+        <fragment
+            android:name="com.example.new_one.Controller.SingleMoviewFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-    <!--<LinearLayout-->
-    <!--android:id="@+id/SingleMoviewFragment3"-->
+    <LinearLayout
+    android:id="@+id/SingleMoviewFragment2"
+    android:layout_width="0dp"
+    android:layout_weight="0.5"
+    android:layout_height="match_parent"
+    android:background="#555aaa"
+    android:orientation="horizontal"
+        android:visibility="gone">
+
+</LinearLayout>
+    <!---Container Hold Single Movie Fragment-->
+</LinearLayout>
+
     <!--android:layout_width="0dp"-->
     <!--android:layout_weight="0.5"-->
     <!--android:layout_height="match_parent"-->
     <!--android:background="#555aaa"-->
-    <!--android:orientation="horizontal">-->
-    <!--<fragment-->
-        <!--android:id="@+id/SingleMoviewFragment2"-->
-        <!--android:name="com.example.new_one.Controller.SingleMoviewFragment"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="0.5"-->
-        <!--android:background="#555aaa"-->
-        <!--android:orientation="horizontal"/>-->
-<!--</LinearLayout>-->
-    <!---Container Hold Single Movie Fragment-->
-</LinearLayout>
+    <!--android:orientation="horizontal"-->

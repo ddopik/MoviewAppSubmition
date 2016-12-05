@@ -64,7 +64,7 @@ public class TrailerFragment extends DialogFragment {
                 AdapterView<?> parent2=parent;
                 //LinearLayout
                 ListView myListView = ((ListView) parent);
-                TextView myTextView=(TextView) myListView.getChildAt(position).findViewById(R.id.TrailContentID);
+                TextView myTextView=(TextView) myListView.getChildAt(position).findViewById(R.id.TrailContentLink);
                 String itemTexts =myTextView.getText().toString();
                 Toast.makeText(getActivity(),itemTexts,Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(itemTexts)));
@@ -79,17 +79,17 @@ public class TrailerFragment extends DialogFragment {
 
 
 
-    public View getViewByPosition(int pos, ListView listView) {
-        final int firstListItemPosition = listView.getFirstVisiblePosition();
-        final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
-
-        if (pos < firstListItemPosition || pos > lastListItemPosition ) {
-            return listView.getAdapter().getView(pos, null, listView);
-        } else {
-            final int childIndex = pos - firstListItemPosition;
-            return listView.getChildAt(childIndex);
-        }
-    }
+//    public View getViewByPosition(int pos, ListView listView) {
+//        final int firstListItemPosition = listView.getFirstVisiblePosition();
+//        final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
+//
+//        if (pos < firstListItemPosition || pos > lastListItemPosition ) {
+//            return listView.getAdapter().getView(pos, null, listView);
+//        } else {
+//            final int childIndex = pos - firstListItemPosition;
+//            return listView.getChildAt(childIndex);
+//        }
+//    }
 
 
 

@@ -127,6 +127,7 @@ static {
     }
     public int getDefaultMovie(String listType)
     {
+        Log.e("DefauleList Movie------>",listType);
         if(listType.equals("Favourates"))
         {
             Movies mv=realm.where(Movies.class).equalTo("Favorate_Movie",true).findFirst();
