@@ -1,0 +1,7 @@
+#Mon Dec 05 16:38:28 EET 2016
+base.0=C\:\\Users\\ddopik_pc\\Desktop\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_06c066450beb2ac3f478b406c56577e2e404526b
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\ddopik_pc\\Desktop\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ec0641525985c041b3fb4fcb8b0a12d05f93b81a\\classes.dex
+base.1=C\:\\Users\\ddopik_pc\\Desktop\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ec0641525985c041b3fb4fcb8b0a12d05f93b81a
+file.0=C\:\\Users\\ddopik_pc\\Desktop\\project_sample\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_06c066450beb2ac3f478b406c56577e2e404526b\\classes.dex

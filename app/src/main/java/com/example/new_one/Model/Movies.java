@@ -65,6 +65,7 @@ public class Movies extends RealmObject {
                     moviesReviews.add(obj.get(i));
                     setFlag=false;
                     Log.e("Movies_obj-->setMoviesReviews", "Insert ReviewObj Now size =" + this.moviesReviews.size());
+
                 }
             }
         }

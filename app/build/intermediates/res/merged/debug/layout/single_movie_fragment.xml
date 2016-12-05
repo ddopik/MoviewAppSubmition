@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/singleMovieFragmentFrame">
+
+
+    <ImageView
+        android:id="@+id/mv_img_id"
+        android:layout_width="100dp"
+        android:layout_height="300dp">
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DescriptionViewId"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/mv_img_id" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mv_title_id"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <!--<Button-->
+        <!--android:text="@string/favBtn"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@+id/mv_img_id"-->
+        <!--android:layout_toRightOf="@+id/mv_img_id"-->
+        <!--android:layout_toEndOf="@+id/mv_img_id"-->
+        <!--android:layout_marginLeft="65dp"-->
+        <!--android:layout_marginStart="65dp"-->
+        <!--android:layout_marginBottom="35dp"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:id="@+id/FavBtnId" />-->
+
+    <com.like.LikeButton
+        app:icon_type="star"
+        app:icon_size="55dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/FavBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:anim_scale_factor="2"/>
+
+
+    <TextView
+        android:text="Rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mv_year_id"
+        android:layout_alignLeft="@+id/mv_year_id"
+        android:layout_alignStart="@+id/mv_year_id"
+        android:layout_marginTop="37dp"
+        android:id="@+id/mv_rating_id" />
+
+    <TextView
+        android:text="Duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mv_year_id"
+        android:layout_alignRight="@+id/mv_rating_id"
+        android:layout_alignEnd="@+id/mv_rating_id"
+        android:layout_marginTop="13dp"
+        android:id="@+id/mv_duration_id" />
+
+    <Button
+        android:text="@string/trailBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/FavBtnId"
+        android:layout_alignEnd="@+id/FavBtnId"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/TrailBtnId"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:text="@string/revBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RevBtnId"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:text="Year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:id="@+id/mv_year_id"
+        android:layout_below="@+id/mv_title_id"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
